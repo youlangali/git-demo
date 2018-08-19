@@ -1,0 +1,21 @@
+git push出现问题时需要Git pull地址：
+
+https://www.cnblogs.com/zengweiB208/p/8911125.html
+
+
+乐老推荐的js视频地址：
+
+
+https://www.thinktxt.com/categories.html#JavaScript
+
+
+
+
+
+乐老师函数作用域的笔记：
+https://www.zybuluo.com/Lxyour/note/937286
+
+
+
+
+
