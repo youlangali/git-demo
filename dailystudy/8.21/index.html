@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 先看第一表达式转换成布尔值的结果，如果布尔值为真，那么他会看第二个表达式转换为布尔值的结果， -->
+    <!-- 如果只有两个表达式的话，就可以返回该表达式的值了 -->
+    <!-- 总结：从左至右看&&前后的表达式，遇到表达式的值装换为布尔值为真时，就看下一个表达式，直到遇到表达式转换为布尔值
+    为假时，打印该表达式的结果（注意：不是打印布尔值），或者直到最后一个表达式，打印最后表达式的结果。 找假就返回-->
+    
+    
+    <!-- ||运算符，碰到真就返回，&&运算符，碰到假就返回，！运算符，是讲表达式转换为布尔值取布尔值的反， -->
+    
+    <script>  
+    // var a = 2 && 3;
+    // console.log(a);
+
+
+
+// 当表达式为  0 、null 、NaN、“”  、undefined、false  值时转换为布尔值都是== false， 
+
+
+// if,else if 练习
+// var score = parseInt(window.prompt("分数"));
+//     if(score > 90 && score <= 100){
+//         document.write("案例爸爸")
+//     }else if(score > 80 && score <= 90){
+//         document.write("tencent")
+//     }
+
+//练习if的条件使用
+//  var count = 0;
+//  for(;count < 10;){
+//      console.log(count);
+//      count++;
+//  }
+for (var count = 0;count < 10;count++){
+    console.log(count);
+}
+//练习100以内同时被3和5整除的数
+//  练习1
+var i = 0;
+// for(;i < 100;i++){
+//     if(i % 3 == 0 && i % 5 == 0){
+//         document.write(i)
+//     }
+    
+// }
+//   练习2
+//   i % 7 == 0 是一个判断语句
+if(i % 7 == 0){
+    document.write("帅")
+}
+
+    </script>
+</body>
+</html>
