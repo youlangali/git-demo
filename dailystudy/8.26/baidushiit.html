@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    div.sanjiaoxing{
+        width:0px;
+        height: 0px;
+        border: 50px solid;
+        border-color:transparent transparent black transparent;
+    }
+    .father{
+        display: block;
+        /* height: 100px; */
+        border: 1px red solid;
+        text-align: center;
+    }
+    .father::before{
+        content: "";
+        display:inline-block;
+        height: 100%;
+        vertical-align: middle;
+        margin-right: -0.25em;
+    }
+    .son{
+        display: inline-block;
+        float: left;
+        vertical-align: middle;
+        width: 50%;
+    }
+    .clearfix{
+        clear: both;
+    }
+    
+    
+    </style>
+</head>
+<body>
+    <div class="sanjiaoxing">
+    </div>
+    <div class="father">
+        <div class="son">
+            什么什么什么
+        </div>
+        <div style="width: 100px;height: 100px;float: left;border: 1px red solid;">
+
+        </div>
+        <div class="clearfix"></div>
+    </div>
+</body>
+</html>
