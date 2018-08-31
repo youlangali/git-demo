@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+//问题：为啥执行后悔出现undefined
+// function test1(){
+//     return function test2(){
+//         alert(1)
+//     }
+//     var num = test2;
+// }
+
+//       1   写一个函数，功能是告知你所选定的小动物的叫声
+//     function animal(a){
+//         switch(a){
+//             case "bird":
+//             document.write("叽叽喳喳");
+//             break;
+//             case "pig":
+//             console.log("嘟嘟嘟");
+//             break;
+//             case "dog":
+//             console.log("汪汪汪");
+//             break;
+//         }
+//     }
+// //    document.write(animal("bird"));
+// animal("bird");
+
+
+
+
+
+
+//   2    写一个函数，实现加法计数器
+
+// function sum(a,b){
+//     var c = a + b;
+//     document.write(c)
+// };
+// sum(111,222);
+
+
+
+//    3  写一个函数，实现n的阶乘
+
+// function jieCheng(a){
+//     var i = 0;
+//         s = 1;
+        
+//     for(var i = 2;i <= a;i ++){
+//         s *= i;
+//     }
+//     document.write(s)
+// }
+// jieCheng(4)
+
+
+//    4   写一个函数，实现斐波那契数列
+
+
+function feiBo(n){
+    var c
+        a = 0,
+        b = 1;
+    for(var i = 0;i < n;i++){
+        c = a + b;
+        a = b;
+        b = c;
+        document.write(c + " ");
+    }
+    
+}
+feiBo(7);
+ </script>
+</body>
+</html>
