@@ -94,18 +94,19 @@
 
 //     }
 // shuZi();
-//     function zhongWen(target){
-//         switch(target){
-//             case "1" :
-//                 return "壹";
-//             case "2" :
-//                 return "贰";
-//             case "3" :
-//                 return "叁";
-//         }
-//     }
+    // function zhongWen(target){
+    //     switch(target){
+    //         case "1" :
+    //             return "壹";
+    //         case "2" :
+    //             return "贰";
+    //         case "3" :
+    //             return "叁";
+    //     }
+    // }
 
-//    递归函数
+//    递归函数 阶乘函数和斐波那契数列使用较频繁
+//注意两点：找规律，找出口，优点：代码少，缺点：速度慢
 
 
     // function jc(n){
@@ -117,6 +118,53 @@
   
 
   //要求输入一串低于10位的数字，输出这串数字的中文大写
+
+
+
+   function zhongWen(target){
+       switch(target){
+           case "0":
+                return "零";
+            case "1":
+                return "壹";
+            case "2":
+                return "贰";
+            case "3":
+                return "叁";
+            case "4":
+                return "肆";
+            case "5":
+                return "伍";
+            case "6":
+                return "陆";
+            case "7":
+                return "柒";
+            case "8":
+                return "捌";
+            case "9":
+                return "玖";
+       }
+   }
+   //   一位数字
+//    function shuZi(num){
+//     var n = "";
+//     n = zhongWen(num);
+//     document.write(n);
+// }
+// shuZi(8);
+
+
+    //  两位数字
+   function shuZi(num){
+    var n = "";
+    var num = num + "";
+    for(var i = 0;i < num.length;i++){
+        n += zhongWen(num[i])
+    }
+    document.write(n);
+    
+}
+shuZi(20);
 
  </script>
 </body>

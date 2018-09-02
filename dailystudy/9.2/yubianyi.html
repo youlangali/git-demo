@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+//   测试1
+
+        // function fn(a){
+        //     console.log(a);//function
+        //     var a = 123;
+        //     console.log(a);//123
+        //     function a (){
+
+        //     }
+        //     console.log(a);//123
+        //     var b = function (){}
+        //     console.log(b);//function
+        //     function d(){}
+        // }
+        // fn(1)
+        //预编译发生在执行的前一刻
+
+// 测试 2
+    // function test(a,b){
+    //     console.log(a);// 1
+    //     c = 0;
+    //     var c;
+    //     a = 3;
+    //     b = 2;
+    //     console.log(b); //2
+    //     function b(){}
+    //     function d(){}
+    //     console.log(b); //2
+        
+    // }
+    // test(1);
+
+ 
+//   测试3  go对象 和   Ao对象
+
+        //  var a = 123;
+        //  function a(){}
+        //  console.log(a)
+
+
+// 无论函数在哪里被执行，函数声明都会提升，
+// 测试 4
+// console.log(test);// function test
+// function test (test){
+//     console.log(test);//function test
+//     var test = 234;
+//     console.log(test);// 234
+//     function test(){}
+// }
+// test (1);
+// var test = 123;
+
+
+//测试  5  
+// 1、函数内权限大于函数外的权限，函数体内的变量先访问的是函数体内的值，
+// 没有再去函数外找
+// 2、可以访问Ao对象的也能访问GO对象，但是能访问go对象不一定能访问ao对象
+
+// global = 10;
+// function fn(){
+//     console.log(global);//undefined
+//     global = 200;
+//     console.log(global);//200
+//     var global = 300;
+// }
+// fn();
+// // var global;
+// console.log(global);
+
+
+// 测试    6
+
+// function test(){
+//     console.log(b);//undefined
+//     if(a){
+//         var b = 100;
+//     }
+//     console.log(b);//undefined
+//     c = 234 ;
+//     console.log(c);//234
+//     console.log(a);//undefined
+// }
+// var a;
+// test();
+//  a = 10;
+//  console.log(c);//234
+
+
+
+
+
+        //   1
+        //先预编译，再执行
+    //     function bar(){
+    //         return foo;
+    //         foo = 10;
+    //         function foo(){}
+    //         var foo = 11;
+    //     }
+    // console.log(bar());//function foo
+
+
+    //  2
+// console.log(bar());
+// function bar(){
+//     foo = 10;
+//     function foo(){};
+//     var foo = 11;
+//     return foo;//11
+// }
+
+//   测试   3
+    // a = 10;
+    // function demo(e){
+    //     function e(){}
+    //     arguments[0] = 2;//打印出实参的值，形参和实参想映射，相互跟着改变
+    //     document.write(e);//2
+    //     if(a){
+    //         var b = 123;
+    //         function c(){}
+    //     }
+    //     var c ;
+    //     a = 10;
+    //     var a
+    //     document.write(b);//undefined
+    //     f = 123;
+    //     document.write(c);//undefined
+    //     document.write(a);//10
+    // }
+    // var a;
+    // demo(1);
+    // document.write(a);//10
+    // document.write(f);//123
+
+
+//     自己解答疑惑
+
+// function test(){
+//     console.log(a);//20
+// }
+// var a = 20;
+// test();//这里才代表函数执行    //如果函数执行在全局变量之后，那么函数体内可以引用全局变量的值，
+        //如果函数执行在全局变量之前，那么函数体内不可以引用全局变量的值，
+        //函数的执行顺序是由上至下的
+
+
+//   测试   5   隐式类型转换
+
+    // var str = false + 1; //只要没有字符串，就是number类型转换
+    // document.write(str);//   1
+    // var demo = false == 1;//==是布尔类型转换，运算符大于赋值符，赋值从右往左赋值。
+    // document.write(demo);//  false
+    // if(typeof(a) && -true + (+undefined) +""){
+    //     document.write("基础扎实");//能打印
+    // }
+    // if(11 + "11" * 2 == 33){
+    //     document.write("基础扎实");//能打印
+    // }
+    // !!" " + !!"" - !!false || documnet.write("你是猪");//??为什么去掉一个！，会报错，
+
+//    测试  6
+
+(window.foo = "b" || (window.foo = "bar"));//先进行运算符||，看两边，再括号里的优先运算，
+console.log(window.foo);//   b
+
+
+
+
+// function bar(){
+//     var a = 1;
+// }
+// bar();
+// console.log(a);//访问的是全局对象中的属性值
+// var a = 2;
+    </script>
+</body>
+</html>
