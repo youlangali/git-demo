@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    // function a(){
+    //     function b(){
+    //         var bb = 234;
+    //         aa = 0;
+    //     }
+    //     var aa = 123;
+    //     b();
+    //     console.log(aa);
+    // }
+    // var glob = 100;
+    // a();
+
+//     function test(){
+    
+//     function add(){
+//         n++;
+//         console.log(n);//4400;test()执行时才产生add的定义，当时Ao中的n已经是4399；
+//     }
+//     var n=4399;
+//     add();
+//     return {n:n,add:add}  
+//     // 一个匿名变量
+ 
+// }
+// test();
+
+function a(){
+    var num = 100;
+    function b(){
+        num ++;
+        console.log(num);
+    }
+b()
+}
+
+a();
+
+
+
+    </script>
+
+</body>
+</html>
