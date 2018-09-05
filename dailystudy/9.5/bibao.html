@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    //函数a 执行，产生执行上下文，结果是返回b函数的声明，b函数被保存出来同时
+    //同时也保存了b函数的被定义时的上下文，所以即使a函数执行后删除
+    //执行上下文后，b函数依然能访问a的执行上下文
+
+    //注意：只有a执行时，b才开始被定义，当函数执行完后，会删除属于自己的
+    //最顶端的执行上下文，直到被重新执行，重新生成执行上下文
+
+      // a defined   --->>   a.[[scope]]  -->  0 : GO
+
+     //  a doing     -->   a.[[scope]]  -->   0 : aAO
+    //                                              1 : GO
+
+    //  b defined    -->   b.[[scope]]     -->       0 : aAO
+    //                                              1 : GO
+
+    //  b doing    -->   b.[[scope]]     -->        0 : bAO  
+    //                                              1 : aAO
+    //                                              2 : GO
+
+//      1
+
+    //     function a(){
+    //         function b(){
+    //             var bbb = 234;
+    //             console.log(aaa);//123;
+    //         }
+    //         var aaa = 123;
+    //         return b;//b函数被抛出到全局内，
+    //     }
+    // var glob = 100;
+    // var demo = a();
+    // demo();
+
+
+//          2
+
+// function test(){
+//     var num = 100;
+//     function a(){
+//         num ++;
+//         console.log(num);
+//     }
+//     function b(){
+//         num -- ;
+//         console.log(num);
+//     }
+//     return [a,b];//以数组形式同时抛出a,b函数
+// }
+//     var myArr = test();
+//     myArr[0]();//   101
+//     myArr[1]();//  100
+
+//        3
+
+// function eater (){
+//     var food = "";
+//     var obj = {
+//         eat :function (){
+//             console.log("i am eating " + food);
+//             food = "";
+//         },
+//         push : function (myFood){
+//                 food = myFood;
+//         }
+//     }
+//         return obj;
+
+// }
+//     var eater1 = eater();
+//     eater1.push("banner");
+//     eater1.eat();
+
+
+//    立即执行函数,执行一次就进行消除，
+//    针对初始化功能的函数
+//    标准形式
+
+// (function(){}());//w3c标准推荐
+// (function(){})();
+
+//  (
+//     function (){
+//         var a = 123;
+//         var b = 234;
+//         console.log(a + b);
+//     }()
+//    ) 
+
+   
+  // 只有表达式才能被执行符号执行，能被执行符号执行的表达式，函数名称被忽略
+  // 
+  
+
+  (function test(){//即使写了函数名称，依然无效
+      var a = 123;
+      console.log(a);
+  }()
+  )
+  
+
+
+
+    </script>
+</body>
+</html>
