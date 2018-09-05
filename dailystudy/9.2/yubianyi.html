@@ -168,12 +168,53 @@
     // }
     // !!" " + !!"" - !!false || documnet.write("你是猪");//??为什么去掉一个！，会报错，
 
-//    测试  6
+// //    测试  6
 
-(window.foo = "b" || (window.foo = "bar"));//先进行运算符||，看两边，再括号里的优先运算，
-console.log(window.foo);//   b
+// (window.foo = "b" || (window.foo = "bar"));//先进行运算符||，看两边，再括号里的优先运算，
+// console.log(window.foo);//   b
+
+//自己找的易错题
 
 
+
+//   1
+// var a = 10; 
+// function aaa(){ 
+//  alert(a);//20
+// };            
+// function bbb(){
+// aaa();
+// }
+// var a = 20;// bbb执行了，aaa才执行，var a = 20是在aaa执行之前就被生命赋值，
+// bbb();
+
+//   2
+
+
+// var a=10;
+// function aaa(){
+//   alert(a);//undefined 
+//   var a=20; 
+// }
+// aaa();//aaa函数内的AO对象有a属性，就只看自己AO对象中的，不看GO中的
+
+
+//    3
+
+//  var a=10;
+//     function aaa(a){ 
+//         alert(a);
+//         var a=20;//因为 a 是形参，优先级高于 var a; 所以 局部变量a的声明其实被忽略了。
+//     } 
+//     aaa(a); //结果为：10
+
+//    3(1)
+
+    function aaa(a){ 
+        alert(a);
+        var a=20;//因为 a 是形参，优先级高于 var a; 所以 局部变量a的声明其实被忽略了。
+    } 
+    aaa(a); //结果为：报错
 
 
 // function bar(){
