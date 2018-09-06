@@ -101,13 +101,49 @@
   // 
   
 
-  (function test(){//即使写了函数名称，依然无效
-      var a = 123;
-      console.log(a);
-  }()
-  )
+//   (function test(){//即使写了函数名称，依然无效
+//       var a = 123;
+//       console.log(a);
+//   }()
+//   )
   
+// function test(){
+//     var arr = [];
+//     for(var i = 0;i < 10; i ++){
+//         arr[i] = function (){
+//             console.log(i + "");  //函数被定义的时候不看看函数的内容，只有被执行的时候才看，
+//         };
+//     }
+//     return arr;
+// }
+// var myArr = test();
+// for(var j = 0; j < 10; j ++){
+//     myArr[i]();   //    10 个   10
+// }
 
+
+
+//       用闭包解决闭包问题
+
+
+
+function test(){
+    var arr = [];
+    for(var i = 0;i < 10; i ++){
+
+        (function(i){
+            arr[i] = function (){
+            console.log(i + ""); 
+        };
+    }(i))    //     每次执行一次，都会产生一个新的立即执行函数，里面包含单独的j ，所以当最后调用的时候，相应的arr[j]函数，会调用相应的   j数值
+        
+    }
+    return arr;
+}
+var myArr = test();
+for(var j = 0; j < 10; j ++){
+    myArr[j]();
+}
 
 
     </script>
