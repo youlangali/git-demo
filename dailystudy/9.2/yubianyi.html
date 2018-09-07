@@ -210,11 +210,68 @@
 
 //    3(1)
 
-    function aaa(a){ 
-        alert(a);
-        var a=20;//因为 a 是形参，优先级高于 var a; 所以 局部变量a的声明其实被忽略了。
-    } 
-    aaa(a); //结果为：报错
+    // function aaa(a){ 
+    //     alert(a);
+    //     var a=20;//因为 a 是形参，优先级高于 var a; 所以 局部变量a的声明其实被忽略了。
+    // } 
+    // aaa(a); //结果为：报错
+
+
+
+//    匿名函数：使用function关键字声明一个函数，但是未给函数命名，所以叫匿名函数，匿名函数属于函数表达式
+
+// fnName();
+// var fnName = function(){
+//   alert('Hello World');//报错，函数表达式是不会提升的，
+// }
+
+
+
+//  function idd(){
+//    add = function(){
+//         console.log(123);
+//     }
+// }
+// idd();
+// add();//全局变量，能够在函数外访问；
+
+
+// var a=10; 
+// function aaa(){ 
+//  alert(a);      //10
+// };            
+// function bbb(){
+// var a=20;
+// aaa();
+// }
+// bbb();
+
+
+
+// var a=[1,2,3];
+// var b=a;
+// a.push(4); 
+// alert(b)
+
+
+// ++a 和 a++的区别，++a是先将a + 1，在进行计算，++a 是 先运算再将 a + 1；
+// var a = 20;
+// //     var b = ++a - 1;
+//     console.log(a++);
+//     console.log(a++);
+//     // console.log(b);
+
+
+   var age = 20;
+   function person(age){
+       age = ++age;  //21
+       return age;
+       
+   }
+    person(age);//21
+    
+    console.log(age);//20
+
 
 
 // function bar(){
