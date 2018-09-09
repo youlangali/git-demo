@@ -1,0 +1,150 @@
+;<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Person.prototype   ----原型
+        // Person.prototype = {}     祖先
+        // Person.prototype.lastName = "deng";
+        // Person.prototype.mather = "putao";
+
+        
+
+    //     Person.prototype = {
+    //         lastName = "deng",
+    //         mather = "putao",
+    //     }
+    //     Person.prototype.say = function(){
+    //         console.log("hehhe")
+    //     }
+    // function Person (name,age,sex){
+    //     this.name = name;
+    //     this.age = age;
+    //     this.sex = sex;
+    // }
+    // var person = new Person("liming" , 45 ,"female");
+    // var person1 = new Person("xaodong",56 ,"male");
+
+
+
+
+        // constructor   属于prototype，继承给子代；可以修改
+        // Car.prototype = {
+        //     constructor : Person,
+        // }
+    //     function Person(){
+    //         this.lastName = "deng";
+    //     }
+    //     function Car(){
+    //         this.lastName = "li"
+    //     }
+    // var car = new Car();// 必须要new，才能有原型；car.constructor 是指car的构造函数
+
+
+
+
+  // __proto__
+  
+
+//         Person.prototype.name = "abc";
+//   function Person (){
+//   //  var this = {
+//     //   __proto__:Person.prototype,  //存放的是构造函数的原型
+//   //};
+//   }
+//   var person = new Person();
+
+
+
+
+
+//     //    __proto__进行更改，等于改变构造函数的原型
+
+//         Person.prototype.name = "sunny";
+//   function Person (){
+//   //  var this = {
+//     //   __proto__:Person.prototype,  //存放的是构造函数的原型
+//   //};
+
+//   }
+//   var obj = {
+//       name : "ali",
+//   }
+//   var person = new Person();
+//     person.__proto__ = obj;  //   改变构造函数想上寻找的原型的方向，所以现在person.name = ali
+
+
+//     后执行的会覆盖前一个
+
+
+    // Person.prototype.name = "ali";
+    //     function Person() {
+
+    //     }
+    //     var person = new Person();
+    //     console.log(person.name);  // ali
+    //     Person.prototype.name = "sunny";
+
+    //  //    person.name  =  "sunny"   //  因为这是最后一步执行的
+
+
+
+
+
+    // Person.prototype.name = "ali";
+    // function Person() {
+    //     // var this = {
+    //     //     __proto__ :Person.prototype   //  __proto__和Person.prototype指向的是同一个房间
+    //     // }
+    // }
+    // var person = new Person();
+
+
+    // // 给 prototype又创建的一个房间，到那时__proto__指向的还是原来的房间
+    // Person.prototype = {
+    //     name: "sunny",
+    // }
+
+    //  //    person.name  =  "sunny"
+
+//     原理是一样的
+
+    // var obj = {name:"a"};
+    // var obj1 = obj;
+    // obj = {name:"b"};
+    // console.log(obj1);
+
+
+    // Person.prototype = {name:"a};
+    // __proto__ = Person.prototype;
+    // Person.prototype = {name:"b"};
+
+
+
+//    放上面和放下面是不一样的
+
+//         Person.prototype.name = "ali";
+//     function Person() {
+//         // var this = {
+//         //     __proto__ :Person.prototype   
+//         // }
+//     }
+//     //  创建了一个新的Person.prototype,如果只是Person.prototype.name等，只是改变原有Perosn.prototype里的属性，并没有
+//     //  但还是原来的祖先原型
+//   Person.prototype = {
+//         name: "sunny",
+//     }
+
+//     var person = new Person();  //  在new构造函数之前，改变Perosn.prototype,就会按顺序执行，在之后改变，按顺序用就用不到新的，
+//                                 // 
+
+
+</script>
+
+</body>
+</html>

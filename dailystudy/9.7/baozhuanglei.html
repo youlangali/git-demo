@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        //原始值是不可能有属性和方法的
+        // 包装类
+    // var num = 4;
+    // num.len = 3;
+    // // new Number(4).len = 3;      delete
+    // //new Number(4).len
+    // console.log(num.len);
+    //
+
+
+
+        // var str = "abcd";
+        // str.length = 2;
+        // // new String("abcd").length = 2;  delete;
+
+        // // new String("abcd").length
+        // console.log(str.length)
+
+
+
+
+
+    // var str = "abc";
+    // str += 1;
+    // var test = typeof(str);//  test = "string"
+    // if(test.length == 6){
+    //     test.sign = "typeof的"
+    // }
+    // console.log(test.sign);//   undefined,因为test并没有sign属性，
+
+
+
+
+
+
+
+// //     1/ 运行test（）和new test（）的结果是什么
+
+// var  a = 5;
+// function test(){
+//     a = 0;
+//     alert(a);  // 0
+//     alert(this.a);//undefined
+//     var a ;
+//     alert(a); //
+// }
+
+
+
+
+//    闭包问题  //  对象问题
+
+
+    // function Person(name, age, sex) {
+    //     var a = 0;//保留在执行上下文中
+    //     this.name = name;
+    //     this.age = age;
+    //     this.sex = sex;
+    //     function sss() {
+    //         a++;
+    //         document.write(a);
+    //     }
+    //     this.say = sss;//将函数带到Person对象中去
+    // }
+
+    // var oPerson = new Person();
+    // oPerson.say();//1
+    // oPerson.say();//  2
+    // var oPerson1 = new Person();
+    // oPerson1.say();// 1
+
+
+
+
+
+
+//   下面这段js代码执行完毕后 x y z 的值分别是多少
+//   提升的后面的会覆盖前面的
+    // var x = 1, y = z = 0;
+    // function add(n){
+    //     return n = n + 1;
+    // };
+    // y = add(x);  // 穿进去的x 是数字
+    // console.log(x);
+    // console.log(y);
+    // console.log(z);
+    // function add(n){
+    //     return n = n + 3;
+    // }
+
+    // z = add(x);
+    // console.log(x);
+    // console.log(y);
+    // console.log(z);
+
+
+
+
+
+
+// 下面console.log（）能打印出12345的选项是
+
+//     1、
+// function foo(x){
+//     console.log(arguments);
+//     return x
+// }
+// foo (1,2,3,4,5)//   对
+
+// //    2、
+// function foo(x){
+//     console.log(arguments);
+//     return
+// }(1,2,3,4,5)//    不执行
+
+
+// //   3、
+// (
+//     function foo(x){
+//         console.log(arguments);
+//         return x;
+//     }
+// )(1,2,3,4,5)  // 对
+
+// //     4
+
+
+
+
+// var word = window.prompt("输入任意字符")
+// var double = 0,zijie;
+
+// for(var i = 0 ; i < word.length; i ++){
+//     zijie = word.charCodeAt(i);//第 i位的Unicode编码
+//     if(zijie <= 255){
+//         double += 1;
+//     }else{
+//         double += 2;
+//     }
+    
+// }
+// document.write(double)
+
+
+
+
+
+    // function byteLength(str) {
+    //     var count = str.length;
+    //     for (var i = 0; i < str.length; i++) {
+    //         if (str.charCodeAt(i) > 255) {
+    //             count++;
+    //         }
+    //     }
+
+    //     return count;
+    // }
+    // byteLength("ajwr  0utjwfo");
+
+
+
+
+
+    </script>
+</body>
+</html>

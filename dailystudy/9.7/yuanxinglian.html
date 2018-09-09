@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+//      注意：每次在控制台执行一次都会出现 undefined，是因为系统每次会将执行的末尾加 return ,
+//           如果没有人为的加 return xxx,系统就会 undefined，反之会打印 你return的xxx
+        //     原型链
+        // Father.prototype.name = "ali";  // Father.prototype.__proto__  -->Object.prototype
+        // function Father(){
+
+        // }
+        // var father = new Father();
+
+        // Son.prototype = father;
+        // function Son(){
+        //     this.height = 400;
+        //     this.day = {
+        //         sun : "brush",
+        //     }
+        // }
+        // var son = new Son();
+        
+        // Children.prototype = son;
+        // function Children(){
+        //     this.eat = function (){   //children.eat()函数中的this指向是，谁调用这个方法，this就指向谁
+        //         this.height ++;
+        //     }
+        // }
+    
+        // var children = new Children();
+    
+
+
+
+
+        // 原型链上的属性的增删改查
+    //    假设在控制台进行
+
+    //     改（1）  原始值是不可更改的   delete  （1）   增（2）
+            // children.height   // 400
+
+            // children.height = 500;//  在children对象中已经有height：500
+
+            // son.hieght //  400;   //  并没有改变父级的值
+
+
+    //    改（2） 、  delete（2） 增（2）
+    
+        // son.day //   {sun : "brush"}
+        
+        // children.day //   {sun : "brush"}
+
+        // children.day.mor = "eat" //
+    
+        // children.day  // {sun : "brush",mor = "eat"}
+        
+        // son.day //   {sun : "brush",mor = "eat"}
+        
+
+
+
+
+
+
+
+        //children.eat()函数中的this指向是，谁调用这个方法，this就指向谁
+
+
+    //     Person.prototype = {
+    //         name : "a",
+    //         sayname : function(){
+    //             console.log(this.name);
+    //         }
+    //     }
+
+    //     function Person(){
+    //         this.name = "b";
+    //     }
+    // var person = new Person();
+
+        //   person.name //  "b"
+        //  person.sayname()    //   b
+        // Person.prototype.sayname()    //  a
+
+
+
+
+         //  第一种方法其实也是 new Object();
+        var obj = {};   // --> new Object();
+       // var obj1 = new Object();
+        //   使用  obj.constructor检查
+      //   obj.__proto__        -->  Object.prototype,
+      // 系统的隐式的属性可以被我们显示的写出来调用更改，但是不能自己在函数中写一个__proto__等进行更改
+        //   __proto__更改的对象是我们要继承的对象，就像更改祖先对象
+        //  constructor 更改的是本身的构造器
+
+
+
+
+
+
+
+        //    Object.create(原型)
+
+            
+
+
+
+
+    </script>
+</body>
+</html>
