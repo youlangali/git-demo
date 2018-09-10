@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 </head>
+
 <body>
     <script>
     //函数a 执行，产生执行上下文，结果是返回b函数的声明，b函数被保存出来同时
@@ -96,17 +98,17 @@
 //     }()
 //    ) 
 
-   
+
   // 只有表达式才能被执行符号执行，能被执行符号执行的表达式，函数名称被忽略
   // 
-  
+
 
 //   (function test(){//即使写了函数名称，依然无效
 //       var a = 123;
 //       console.log(a);
 //   }()
 //   )
-  
+
 // function test(){
 //     var arr = [];
 //     for(var i = 0;i < 10; i ++){
@@ -127,25 +129,128 @@
 
 
 
-function test(){
-    var arr = [];
-    for(var i = 0;i < 10; i ++){
+// function test(){
+//     var arr = [];
+//     for(var i = 0;i < 10; i ++){
 
-        (function(i){
-            arr[i] = function (){
-            console.log(i + ""); 
-        };
-    }(i))    //     每次执行一次，都会产生一个新的立即执行函数，里面包含单独的j ，所以当最后调用的时候，相应的arr[j]函数，会调用相应的   j数值
-        
-    }
-    return arr;
-}
-var myArr = test();
-for(var j = 0; j < 10; j ++){
-    myArr[j]();
-}
+//         (function(i){
+//             arr[i] = function (){
+//             console.log(i + ""); 
+//         };
+//     }(i))    //     每次执行一次，都会产生一个新的立即执行函数，里面包含单独的j ，所以当最后调用的时候，相应的arr[j]函数，会调用相应的   j数值
+
+//     }
+//     return arr;
+// }
+// var myArr = test();
+// for(var j = 0; j < 10; j ++){
+//     myArr[j]();
+// }
+
+
+
+
+
+
+
+
+
+
+
 
 
     </script>
+
+    <!-- <div id="ttt">
+            <p >000000000000000000</p>
+                <br>
+            <p >111111111111111111</p>
+            <br>
+            <p >222222222222222222</p>
+        </div> -->
+
+    <script>
+        // var dom = [
+        //     { onclick : function(){    
+        //             console.log(i);//3
+        //         }
+        //     },
+        //     { onclick : function(){    
+        //             console.log(i);//3
+        //         }
+        //     },
+        //     { onclick : function(){    
+        //             console.log(i);//3
+        //         }
+        //     }
+        // ]
+
+
+
+        //     注意    function 只要被执行时才看里面的内容
+
+
+        //    var dom=document.getElementsByTagName("p");
+        // for(var i=0;i<dom.length;i++){
+
+        //         dom[j].onclick = function(){    // 他会立即
+        //         console.log(j);//3
+        //     };                      
+        // } 
+
+
+
+
+        //   
+
+
+        // var dom=document.getElementsByTagName("p");
+        // for(var i=0;i<dom.length;i++){
+        //    (
+        //     function (j){
+        //         dom[j].onclick = function(){    
+        //         console.log(j);//3
+        //     };
+
+
+        //     }(i)
+        //    ) 
+
+        // }
+
+        //      区别  上面的函数是当for运行完了，function 才调用j，   下方是for运行一次，就调用一次function
+
+        //   var dom=document.getElementsByTagName("p");
+        //     for(var i=0;i<dom.length;i++){
+
+        //             dom[j].onclick = function(){    // 他会立即
+        //             console.log(j);//3
+        //         }();                      
+        //     }  
+
+
+        //   不能输出正确结果，因为循环中setTimeout接受的参数函数通过闭包访问变量i。javascript运行环境为单线程，
+        //setTimeout注册的函数需要等待线程空闲才能执行，此时for循环已经结束，i值为5.五个定时输出都是5 
+        //修改方法：将setTimeout放在函数立即调用表达式中，将i值作为参数传递给包裹函数，创建新闭包
+
+
+        for (var i = 0; i < 5; ++i) {
+            (function (i) {
+                setTimeout(
+                    function () {   //setTimeout先执行 还是  for 先执行
+                        console.log(i + ' ');
+                    }
+                    , 1000)
+            }(i))
+
+
+        }
+
+
+
+    </script>
+
+
 </body>
+
 </html>
