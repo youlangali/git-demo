@@ -92,7 +92,7 @@
 
 
          //  第一种方法其实也是 new Object();
-        var obj = {};   // --> new Object();
+        // var obj = {};   // --> new Object();
        // var obj1 = new Object();
         //   使用  obj.constructor检查
       //   obj.__proto__        -->  Object.prototype,
@@ -100,19 +100,103 @@
         //   __proto__更改的对象是我们要继承的对象，就像更改祖先对象
         //  constructor 更改的是本身的构造器
 
+//    总结： prototype属性，属于构造函数
+//          __proto__ 属性，属于普通对象，指向原型
 
+        //    new 的过程分为三步  
+  
 
-
-
-
+//       var p = new Person('张三',20);      
+// 1. var p={}; 初始化一个对象p。
+//   2. p._proto_=Person.prototype;，将对象p的 __proto__ 属性设置为 Person.prototype
+//   3. Person.call(p,”张三”,20);调用构造函数Person来初始化p。关于call/apply使用
+//    constructor”属性，这个属性对应创建所有指向该原型的实例的构造函数
+//   
 
         //    Object.create(原型)
 
-            
+
+    // var obj = Object.create(原型);
+    // var obj = {name : "sunny",age : 123};
+    // var obj1 = Object.create(obj);    // __proto__才是调出原型，
+
+    // Person.prototype.name = "sunny";
+    // function Person(){
+
+    // }
+    // var person = Object.create(Person.prototype);//
+    // // person.__proto__    //    用了Person的原型
+    // // person.constructor    //   function Person(){}
+    // //  Person.prototype     //  原型
+
+
+            //      ?????
+
+        // 经过包装类，包装类是个对象，含有原型，最终能调用toString方法
+        //undefined是原始值，是没有prototype的
+        //原始值都没有属性和方法,undefined,null 属于原始值
+        //  var obj = Object.create(null) // 是没有原型的
+
+
+        //   "123".toString()     //   不会报错
+        //  var num = 123;   num.toString()      //   不会报错
+            //  因为当执行num.toString时，num是没有toString方法的，
+            //num 在执行toString方法时会先进行包装,Number(num).toString,在Number中
+            //  会有prototype,故而可以调用toString
+
+
+    //     var num = 123;
+    //     // num.toString();    --->new Number(num).toString();
+    // // Number.prototype.toString = function(){
+
+    // }
+    // Number.prototype中含有toString方法
+//   Number.prototype.__proto__ = Object.prototype
+
+
+
+        //  除null 和 undefined之外，其他的都能调用toString方法，123.toString报错，
+        //因为js是浮点型，系统会认为 . 后面应该带数字，所以报错
+        //   
+
+//      重写:名字一样但是实现不同的功能的东西叫做重写
+
+        //  Object.prototype.toString
+        //  Number.prototype.toString
+        //  Array.prototype.toString
+        //  Boolean.prototype.toString
+        //  String.prototype.toString
+    
+        // Number.prototype.toString = function(){
+        //     return "老邓身体好"
+        // }
+        // //    (123).toString()   //     老邓身体好
+
+            // String.prototype.toString = function(){
+            //     return "我最美丽";
+            // }
+            // document.write(123);
+
+
+                //  这说明document.write执行时先调用toString
+
+                // var obj = Object.create(null); // 阻断了构造函数给对象的继承，
+               
+                // // // document.write(obj)// 报错
+                // document.write(obj.toString)// 不会报错
 
 
 
 
+                // obj1 = {
+                    
+                // }
+                
+                // var obj = Object.create(null)// (obj1);
+                // // obj.toString = function(){
+                // //     return "我最美";
+                // // }
+                // document.write(obj);
     </script>
 </body>
 </html>
