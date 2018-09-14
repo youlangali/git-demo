@@ -234,17 +234,66 @@
         //修改方法：将setTimeout放在函数立即调用表达式中，将i值作为参数传递给包裹函数，创建新闭包
 
 
-        for (var i = 0; i < 5; ++i) {
-            (function (i) {
-                setTimeout(
-                    function () {   //setTimeout先执行 还是  for 先执行
-                        console.log(i + ' ');
-                    }
-                    , 1000)
-            }(i))
+        // for (var i = 0; i < 5; ++i) {
+        //     (function (i) {
+        //         setTimeout(
+        //             function () {   //setTimeout先执行 还是  for 先执行
+        //                 console.log(i + ' ');
+        //             }
+        //             , 1000)
+        //     }(i))
 
 
-        }
+        // }
+
+
+
+
+
+// var name = "The Window";   
+// 　　var object = {   
+// 　　　　name : "My Object",   
+// 　　　　getNameFunc : function(){   
+// 　　　　　　return function(){   
+// 　　　　　　　　console.log(this.name);   
+// 　　　　　};   
+// 　　　　}   
+// };   
+// object.getNameFunc()()
+// alert(object.getNameFunc()());  //The Window
+
+
+
+
+
+// var name = "The Window";   
+// 　　  function object(){
+// 　　　var　name = "My Object";  
+// 　　　var　getNameFunc = function(){   
+// 　　　　　　return function(){   
+// 　　　　　　　　console.log(name);
+// 　　　　　} 
+// 　　　　}
+
+// var result = getNameFunc();
+// result()
+
+// }
+// object();
+// // console.log(result)
+
+
+function fun(n,o) {
+    console.log(o);// undefined
+        return {
+            fun:function(m) {
+                return fun(m,n);
+            }
+        };
+}
+var a = fun(0); a.fun(1);  a.fun(2);  a.fun(3);  
+var b = fun(0).fun(1).fun(2).fun(3);
+var c = fun(0).fun(1);  c.fun(2);  c.fun(3);
 
 
 
