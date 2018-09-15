@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // js能正常计算的范围：小数点前16后，和小数点后16位
+// console.log(Math.ceil(123.3))//向上取整数，不管小数点后面是几，都是向上取整数
+
+// console.log(Math.floor(123.6))//想下取整数
+
+
+// console.log(Math.random())//在（0,1）任意取一个小数
+
+//  var i = Math.floor(Math.random()*10)//在0-10之间任意取整
+
+// console.log(123.213434646.toFixed(2))//保留小数后2位
+
+// console.log(Math.random().toFixed(1))//0-1之间取任意整数
+
+
+
+//  call and apply
+
+// function Person(name,age,sex){
+//     this.name = name;
+//     this.age = age;
+//     this.sex = sex
+// }
+// var obj = {};
+// Person.call(obj,"ali",12);  
+ // Person()   -->>   Person.call()相同
+
+
+
+//  function Rose(name,time,sex){
+//      this.name = name;
+//      this.time = time;
+//      this.sex = sex
+//  }
+// function Flower(name,time,sex,xiang,){
+//     // this.name = name;
+//     // this.time = time;
+//     // this.sex = sex;
+
+//     //   var this = {name:"",time:"",sex:"",xiang:""}
+//     Rose.call(this,name,time,sex,xiang)
+//     this.xiang = xiang;
+// }
+// var flower = new Flower("redRose","6years","male","very");
+
+
+
+
+
+// function Sit(c,sitColor){
+//     this.c = c;
+//     this.sitColor = sitColor;
+// }
+// function Model(height,width,len){
+//     this.height = height;
+//     this.width = width;
+//     this.len = len
+// }
+// function Car(wheelSize,style,c,sitColor,height,width,len){
+//     Sit.call(this,c,sitColor);
+//     Model.call(this,height,width,len);
+//     this.wheelSize = wheelSize;
+//     this.style = style
+// }
+// var car = new Car(100,"话里话扫","真皮","red",1800,1900,4900)
+
+
+
+
+
+//   apply:
+
+// function Sit(c,sitColor){
+//     this.c = c;
+//     this.sitColor = sitColor;
+// }
+// function Model(height,width,len){
+//     this.height = height;
+//     this.width = width;
+//     this.len = len
+// }
+// function Car(wheelSize,style,c,sitColor,height,width,len){
+//     Sit.apply(this,[c,sitColor]);
+//     Model.apply(this,[height,width,len]);
+//     this.wheelSize = wheelSize;
+//     this.style = style
+// }
+// var car = new Car(100,"话里话扫","真皮","red",1800,1900,4900)
+
+
+
+//        题目下面是否能够打印出1,2，3,4,5
+
+
+    // function foo(){bar.apply(null,[arguments])};
+    // function bar(x){console.log(arguments)};
+    // foo(1,2,3,4,5)
+
+
+//    this 的用法  查看文档 http://www.ruanyifeng.com/blog/2010/04/using_this_keyword_in_javascript.html
+//  四种情况：1、在单纯的函数中被使用，this是全局对象。
+//           2、this在函数中，而函数作为某一对象的方法，this是指这个对象
+//           3、在构造函数中，this是指普通新对象
+//           4、当apply（）为空时，this指向为全局对象
+
+
+    //  1、运行test（） 和  new test() 的结果分别是什么？
+    // var a = 5;
+    // function test(){
+    //     a = 0 ;
+    //     alert(a);//0  //0
+    //     alert(this.a);//5   //undefined
+    //     var a ;
+    //     alert(a);//0   //0
+    // }
+    // // test();
+    // var s = new test();//因为new 出来的s只能继承test函数this的属性或者方法
+    // 过程：var s = {};
+    // 在test函数中创建了个如：var this = {__proto:test.prototype}；
+    // test.call(s);
+
+
+
+
+
+
+
+
+//        2、分析下面的JavaScript代码段
+
+    //     function employee(name,code){
+    //         this.name = "wangli";
+    //         this.code = "A001";
+    //     }
+    //    var newmp = new employee("zhangming","A002");
+    //     document.write("雇员姓名：" + newemp.name + "<br>");
+    //     document.write("雇员姓名：" + newemp.code + "<br>");
+    //     //输出的结果是（A）
+    //     // A. 雇员姓名：wangli 雇员代码：A001;
+    //     // B. 雇员姓名：zhangming 雇员代码：A002;
+    //     // C. 雇员姓名：null 雇员代码：null;
+    //     // D. 代码有错误，五输出结果
+
+
+
+
+
+
+      //  3、
+    a = 100;
+    function demo(e){
+        function e(){};
+        arguments[0] = 2;
+        document.write(e);
+        if(a){
+            var b = 123;
+            function c(){
+                //猪都能做出来
+            }
+        }
+        var c;
+        a = 10;
+        var a;
+        document.write(c);
+        document.write(a);
+    }
+    var a ;
+    demo(1);
+    document.write(a);
+    document.write(f);
+    </script>
+</body>
+</html>
