@@ -83,6 +83,8 @@
             //         }
             //         F.prototype = Target.prototype;
             //         Origin.prototype = new F();
+            //             // Target.prototype.constructor = Target;
+            //             // Target.prototype.uber = Origin.prototype;
             //     }
             //     inherit(Son,Father);
             //     Son.prototype.sex = "nv";
@@ -93,20 +95,24 @@
 
                 //    圣杯模式的优化版
 
-                    function Father(){
-
-                    }
-                    function Son(){
-
-                    }
-                    var inherit = (function (){
-                        function F(){}
-                        return  function(Target,Origin){
-                            Target.prototype = 
-                        }
-                    }())
-
-
+                    // function Father(){
+                    //         this.lastName = "wang";
+                    // }
+                    // function Son(){
+                    //         this.name = "ali"
+                    // }
+                    // var inherit = (function (Target,Origin){
+                    //     function F(){}
+                    //     return  function(Target,Origin){
+                    //         F.prototype = Target.prototype;
+                    //         Origin.prototype = new F();
+                    // Target.prototype.constructor = Target;
+            //             // Target.prototype.uber = Origin.prototype;
+                    //     }
+                    // }())
+                    // inherit(Father,Son)
+                    // Father.prototype.sex = "female";
+                    // var son = new Son();
 
 
 
@@ -153,9 +159,9 @@
                 // function Son(){
                 //     this.sex = "female";
                 // }
-
+                // Son.prototype = Father.prototype;
                 // var son = new Son();
-                // son.__proto__ = Father.prototype;
+                // // son.__proto__ = Father.prototype;
 
 
 
