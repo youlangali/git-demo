@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    //     Father.prototype.lastName = "deng";
+    //         function Father() {
+
+    //         }
+    //         function Son() {
+
+    //         }
+    // var father = new Father();//   就算不调用也已经继承了原型的属性
+
+
+
+//     共享原型
+    // Father.prototype.lastName = "deng";
+    // function Father() {
+    //     this.ali = 2;
+    // }
+    // function Son() {
+    //     // this.name = 1;
+    // }
+    // Son.prototype.name = 3;
+    // Son.prototype = Father.prototype;
+    // var son = new Son(); //  son对象的构造函数是Father函数，原型是Father.prototype
+                        //   son的继承来自于Son构造函数
+                        //  son对象不能再继承Son.prototype内容
+                        //  原型共享要在son被new出来之前
+
+    
+    //   封装方法
+    // Father.prototype.lastName = "deng";
+    //     function Father() {
+    //         this.ali = 2;
+    //     }
+    //     function Son() {
+    //         this.name = 1;
+    //     }
+    //     function inherit(Target,Origin) {
+    //         Target.prototype = Origin.prototype;
+    //     }
+    
+    // inherit(Son,Father)
+    // var son = new Son();
+
+
+        //     //    在子级的Prototype中添加属性，另一个原型也会受影响
+
+        // function Father(){
+
+        // }
+        // function Son(){
+
+        // }
+        // function inherit(Target,Origin){
+        //     Target.prototype = Origin.prototype;
+        // }
+        // inherit(Son,Father);
+        // Son.prototype.sex = "male";
+        // var son = new Son();
+        // var father = new Father;
+
+
+
+
+    //   圣杯模式  son能继承Father函数的原型，但是自己的原型更改也不会改变Father.prototype 
+    //  无论原型怎么变，都不会影响对象对构造函数的继承，只会影响对象对构造函数原型的继承
+            // function Father() {
+            //         this.wife = "xiaoli";
+            //     };
+            //     function Son() {
+            //         this.name = 1;
+            //     }
+            //     function inherit(Target, Origin) {
+            //         function F() {
+            //         }
+            //         F.prototype = Target.prototype;
+            //         Origin.prototype = new F();
+            //     }
+            //     inherit(Son,Father);
+            //     Son.prototype.sex = "nv";
+            //     Father.prototype.name = "a";
+            //     var son = new Son();
+            //     var father = new Father();
+            
+
+                //    圣杯模式的优化版
+
+                    function Father(){
+
+                    }
+                    function Son(){
+
+                    }
+                    var inherit = (function (){
+                        function F(){}
+                        return  function(Target,Origin){
+                            Target.prototype = 
+                        }
+                    }())
+
+
+
+
+
+
+
+
+
+// //   圣杯模式  ceshi
+    // function Father() {
+    //     this.wife = "xiaoli";
+    // };
+    // function Son() {
+    //     this.name = 1;
+    // }
+    // // Son.prototype = Father.prototype;
+    // var son = new Son();
+
+    // function inherit() {
+    //     function F() {
+    //         this.lastName = "wang";
+    //     }
+    //     F.prototype = Father.prototype;
+    //     var f = new F();
+    //     Son.prototype = f;
+    //     return f;
+    // }
+    // var num = inherit();
+    // Son.prototype.sex = "nv";
+    // // Father.prototype.name = "a";
+    // var son = new Son();
+    //         // var father = new Father();
+
+
+
+
+
+
+
+
+
+                // function Father(){
+                //     this.name = "ali";
+                // }
+                // function Son(){
+                //     this.sex = "female";
+                // }
+
+                // var son = new Son();
+                // son.__proto__ = Father.prototype;
+
+
+
+
+
+
+
+            //    function createAnother(original) {
+            //         var clone = Object.create(original);
+            //         //        //通过调用函数创建一个新对象 
+            //         clone.sayHi = function () {    //以某种方式来增强这个对象   
+            //             console.log("Hi");
+            //         }; 
+            //         return clone; }     //返回这个对象 }  
+            //         var person = { name: "Bob", friends: ["Shelby", "Court", "Van"] };
+            //         function Father(){
+            //             this.name ="name";
+            //         }
+            //          Father.prototype.sex = "female";
+            //         var anotherPerson = createAnother(Father.prototype);
+            //         anotherPerson.sayHi();
+
+
+
+                    // function SuperType(name) {
+                    //         this.name = name;
+                    //         this.colors = ["red", "blue", "green"];
+                    //     }
+                    //     SuperType.prototype.sayName = function () {
+                    //         console.log(this.name);
+                    //     }
+                    //     function SubType(name, age) {
+                    //         SuperType.call(this, name);　　//第二次调用SuperType()   继承SuperType构造函数的内容
+                    //         this.age = age;
+                    //     }
+                    //     var f = new SuperType( "ali");　　//第一次调用SuperType() 继承SuperType的原型
+                    //     SubType.prototype = f;
+                    //     SubType.prototype.sayAge = function () {
+                    //         console.log(this.age);//f对象也会改变   
+                    //     } 
+
+                    //         var sub = new SubType();
+
+
+
+                            // function Father(){
+                            //     this.name = 1;
+                            // }
+                            // function Son(){};
+                            // Son.prototype = new Father();
+                            
+                            // // var name = 2;
+                            // var father = new Father();
+                            // // Father(3);
+
+    </script>   
+</body>
+</html>
