@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    // 命名空间         管理变量，防止污染全局，适用于模块化开发
+
+    //     var org = {
+    //         department1 : {
+    //             jucheng :{
+    //                 name : "abc",
+    //                 age : 123,
+    //             },
+    //         },
+    //         department2 : {
+    //             xuming : {
+
+    //             },
+    //             lisi : {
+
+    //             },
+    //         },
+    //     }
+    // var jc = org.department1.jecheng;
+    // //  调用   jc.name
+    
+
+
+
+
+    // var deng = {
+    //     smoke : function(){
+    //         console.log("smoking is bad for your health");
+    //         return this;//当函数被调用执行时返回的结果
+
+    //     },
+    //     drink : function (){
+    //         console.log("drinking a little");
+    //         return this;
+    //     },
+    //     sleep : function (){
+    //         console.log("i like sleep");
+    //         return this;
+    //     }
+    // }
+    // deng.smoke().drink().sleep()
+
+
+
+
+
+
+
+    //    属性表示方法obj.prop     ||  obj["prop"]
+    var obj = {
+        name : "ali",
+        age : 12,
+        sex : "female",
+        hoppy : "sleep",
+    }
+  for(var key in obj){
+      console.log(obj[key])
+  }
+
+
+    </script>
+</body>
+</html>
