@@ -55,19 +55,107 @@
 
 
 
+         //  遍历对象的方法  key不是数组不能用[num]方法取出
+//     //    属性表示方法obj.prop     ||  obj["prop"]
+//     var obj = {
+//         name : "ali",
+//         age : 12,
+//         sex : "female",
+//         hoppy : "sleep",
+//     }
+//   for(var key in obj){
+//     //   console.log(obj[key])
+//     // console.log(key + " " + typeof(key)) 
+   
+//     }
+    
 
-    //    属性表示方法obj.prop     ||  obj["prop"]
-    var obj = {
-        name : "ali",
-        age : 12,
-        sex : "female",
-        hoppy : "sleep",
-    }
-  for(var key in obj){
-      console.log(obj[key])
-  }
+
+
+    // var obj = {
+    //     name : 14,
+    //     age : 12,
+    //     sex : 24,
+    //     hoppy :21,
+    // }
+    // for(var prop in obj){
+    //     // console.log(obj.prop + 1)//错误,他会当成obj的prop属性，而不是将prop当做变量
+    //     console.log(++obj[prop])
+    // }
+
+
+
+
+
+  
+    // var i = obj[key];
+    // console.log(i);
+
+//  obj["name"],带双引号的代表属性，不带双引号代表变量，带双引号只是代表是字符串
+    //  var obj = {
+    //      name : "wangli",
+    //      home : "wangjia",
+    //  }
+    // obj.name  --- >>   obj["name"]
+
+
+
+
+    //     // 从 1 开始的，而不是从零开始
+    //     var deng = {
+    //         wife1 : {name : "xiaoliu"},
+    //         wife2 : {naem : "xiaozhang"},
+    //         wife3 : {name : "xiaomeng"},
+    //         wife4 : {name : "xiaowang"},
+    //     // sayWife : function (num){
+    //     //     return this["wife" + num]
+    //     // }
+    //     }
+    // for(var key in deng){
+    //     console.log(deng[key]);
+
+    //     function sayWife(num){
+
+    //         var i = deng[key];
+    //         console.log(i);
+    //         console.log(i[num]);
+    //         console.log(num);
+    //     }
+    //     sayWife(1);
+    
+    // }
+    
+
+
+
+
+        //  hasOwnProperty(),是否是自己本身含有的属性，不包括继承的属性
+        // Person.prototype.sex = "boy";
+        // function Person(){
+        //     this.age = 3;
+        // }
+        // var obj = {
+        //     name : "wangli",
+        // }
+        
+        // Person.call(obj);
+        // var person = new Person();
+        // // obj.hasOwnProperty(name)  //  ture
+        // // obj.hasOwnProperty(__proto__)  //  false
+        // // obj.hasOwnProperty(age)  //  报错
+
+        //  //  当这个属性是属于obj本身含有的，hasOwnProperty会判断对错
+        //  //   是则判断该属性是否是自己本身还是系统自带的，
+        // 自己本身的为真，系统自带的为false
+        //  // 当这个属性是继承自别的，会报错
+
+
+
 
 
     </script>
+
+
+    
 </body>
 </html>
