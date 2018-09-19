@@ -129,7 +129,7 @@
 
 
 
-        //  hasOwnProperty(),是否是自己本身含有的属性，不包括继承的属性
+        //hasOwnProperty(),是否是自己本身含有的属性，不包括继承的属性
         // Person.prototype.sex = "boy";
         // function Person(){
         //     this.age = 3;
@@ -137,20 +137,106 @@
         // var obj = {
         //     name : "wangli",
         // }
-        
-        // Person.call(obj);
+        // Object.prototype.c = 1;
+        // // Person.call(obj);
         // var person = new Person();
-        // // obj.hasOwnProperty(name)  //  ture
-        // // obj.hasOwnProperty(__proto__)  //  false
-        // // obj.hasOwnProperty(age)  //  报错
 
-        //  //  当这个属性是属于obj本身含有的，hasOwnProperty会判断对错
-        //  //   是则判断该属性是否是自己本身还是系统自带的，
-        // 自己本身的为真，系统自带的为false
-        //  // 当这个属性是继承自别的，会报错
+        // obj.hasOwnProperty(name)  //  true
+        // obj.hasOwnProperty(__proto__)  //  false
+        // obj.hasOwnProperty(abc)  //  false
+        // obj.hasOwnProperty(age)  //  报错
 
 
 
+        function Ceshi(){
+            this.name = "ali";
+        }
+    var ceshi = new Ceshi();
+
+
+
+
+
+        //  //  返回值为boolean,
+// 当该属性属于
+// 1、人为添加（true）
+// 2、系统自带的（false）
+// 3、继承自Object（false）
+// 4、来自构造函数（true）
+// 都会显示布尔值
+// 来自构造函数原型或者其他，则会报错
+
+
+
+
+//         常用形式for和if组合
+            // var obj = {
+            //     name : "123",
+            //     age : 12,
+            //     sex : "mael",
+            //     height : 180,
+            //     weight : 75,
+            //     __proto__ : {lastName : "deng"},
+            // }
+            // Object.prototype.abc = "13";
+            // for (var key in obj){
+            //     if(obj.hasOwnProperty(key)){
+            //         console.log(obj[key]);
+            //     }
+            // }
+            
+
+
+
+
+
+                //        对象的in属性
+
+    //  Person.prototype.sex = "boy";
+    //     function Person() {
+    //         this.age = 3;
+    //     }
+    //     var obj = {
+    //         name: "wangli",
+    //     }
+    //     Object.prototype.c = 1;
+    //     Person.call(obj);
+    //     var person = new Person();
+
+
+
+
+
+        // Person.prototype.age = 12;
+        //     function Person() {
+        //         this.name = "ali";
+        //     }
+        //     var person = new Person();
+        //     Object.prototype.size = "1";
+
+        
+        //   "age" in obj  // true
+        //   "size" in obj  // true
+        //   "name" in obj  // true
+        //  当该属性是obj的，不管是否是是继承都是true
+
+        
+
+
+
+
+       //     instanceof
+        
+    //    A对象是不是 B构造函数构造出来的
+    // 看  A对象的原型链上   有没有   B的原型
+    //
+
+    //        A  instanceof B
+
+            // Object.prototype.toString = function(){
+            //     this.age = 1;
+            // }
+    // obj.toString();
 
 
     </script>
