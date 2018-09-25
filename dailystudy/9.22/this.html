@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    // this的使用
+
+
+                // function test(c){
+                //     //  var this = Object.create(test.prototype)
+
+                //     var a = 213;
+                //     function b(){};
+
+                // }
+                // // AO{
+                // //     arguments : [1],
+                // //     this : window,
+                // //     c : 1,
+                // //     a : undefined,
+                // //     b : function(){}
+                // // }
+
+                // test(1);
+                // new test;
+
+
+//    只要不是被调用，类似于  b.fun();那么函数就是要走预编译环节，那么this就是指向window
+
+
+
+                    // var name = "222";
+                    // var a = {
+                    //     name : "111",
+                    //     say: function(){
+                    //         console.log(this.name);
+                    //     }
+                    // }
+                    // var fun = a.say;
+                    // fun();  //"222"
+                    // a.say();   //"111"
+                    // var b = {
+                    //     name : "333",
+                    //     say :function (fun){
+                    //         // var this ---> b
+                    //         fun();//但是函数在这儿执行，但是this被调用的那个函数并未被谁调用，所以走的是预编译的环节，故this指向window；
+                    //     }
+                    // }
+                    // b.say(a.say);//  "222"
+                    // b.say = a.say;
+                    // b.say();//  "333"
+
+
+
+
+
+
+
+
+                    // var bar = {a :"002"}
+                    // function print(){
+                    //     bar.a = "a";
+                    //     Object.prototype.b = "b";
+                    //     return function inner(){
+                    //         console.log(bar.a);
+                    //         console.log(bar.b);
+
+                    //     }
+                    // }
+                    // print()();
+
+    
+                        //  test1
+    
+                    // var foo = 123;
+                    // function print(){
+                    //     this.foo = 234;
+                    //     console.log(foo);// 123
+                    // }
+                    // new print();
+
+
+
+                        //   test 2
+
+                        // var foo = 123;
+                        // function print(){
+                        //     this.foo = 234;
+                        //     console.log(foo);//  234
+                        // }
+                        // print();
+
+    
+
+
+
+                //  test 3
+                // var foo = "123";
+                // function print(){
+                //     var foo = "456";
+                //     this.foo = "789";
+                //     console.log(foo);// "456"
+                // }
+                // print();
+
+
+
+                    //   全局环境的GO对象就是window对象
+                    //  test 4    运行test()和new test()的结果分别是什么
+                    // var a = 5;
+                    // function test(){
+                    //     // var this = Object.create(test.prototype)
+                    //     a = 0;
+                    //     alert(a);//0             // 0
+                    //     alert(this.a);//  5       // undefined
+                    //     var  a;
+                    //     alert(a);// 0             //  0
+                    // }
+                    // // test();
+                    // // new test()
+
+
+
+
+
+
+
+                        // function print(){
+                        //     var marty = {
+                        //         name: "marty",
+                        //         printName:function(){
+                        //             console.log(this.name);
+                        //         }
+                        //     }
+                        //     var test1 = {name:"test1"};
+                        //     var test2 = {name:"test2"};
+                        //     var test3 = {name: "test3"};
+                        //     test3.printName = marty.printName;
+                        //     var printName2 = marty.printName.bind({name: 123});
+                        //     marty.printName.call(test1);// test1
+                        //     marty.printName.apply(test2);// test2
+                        //     printName2();
+                        //     test3.printName();//test3
+                        // }
+                        // print();
+
+
+
+
+
+                    //  var bar = {a: "002"};
+                    //  function print(){
+                    //      bar.a = "a";
+                    //      Object.prototype.b = "b";
+                    //      return function inner(){
+                    //          console.log(bar.a);// "a"
+                    //          console.log(bar.b);//  "b"
+                    //      }
+                    //  }
+                    //  print()();
+
+
+                        var arr = [1,2,3];
+                        for(var i = 0;i < 3;i++){
+                          var  arr1[i]= arr[i];
+                        }
+
+
+
+       //  疑惑： 为什么当Target[prop] = Origin[prop];可以将属性都赋值过去了
+                    //    var obj = {
+                    //        name: "123",
+                    //        age: 123,
+                    //        sex: "female",
+                    //        card: ["visa" , "unionpay" , [1,2]],
+                    //     //    __proto__:test.prototype
+                    //    } 
+                    //    var obj1 = {};
+
+                    //    function clone(Target,Origin){
+                    //        for(var prop in Origin){//取出Origin属性
+                    //            if(Origin.hasOwnProperty(prop)){  //  只要属于Origin本身的属性，继承的不要
+
+                    //            if(typeof(Origin[prop]) === "object"){ // 区别原始值与引用值
+                    //                 // Origin[prop] = 1;
+                    //                 // Origin[prop].push(4);
+                    //                 if(Origin[prop] instanceof Array){ //区分数组和对象
+                    //                     var arrlen = Origin[prop].length;
+                    //                     console.log(arrlen)
+                    //                     for(var i = 0;i<arrlen;i++){  //对象
+                                            
+                    //                         //   if(prop[i] instanceof Array){
+
+                    //                         //   }  else{  
+                    //                         //       Target[prop][i]= prop[i];
+                    //                         //   }
+                    //                         // console.log(Origin[prop][i])
+                    //                         // Target[prop]= Origin[prop][i];
+                    //                         // var mid = {};
+                                                
+                                           
+                    //                     //    console.log(a)
+                    //                         Target[prop] = Origin[prop][i]
+                    //                         // console.log(Target[prop])
+                    //                         // a[i]= prop[i];
+                                        
+                    //                     }
+                    //                 }
+                    //                 else{
+
+                    //                 }
+                    //            }else{
+                    //             Target[prop] = Origin[prop];
+
+                    //            }
+                    //            }
+                    //        }
+                    //    }
+                    //    clone(obj1,obj)
+                    //    obj1.card.push(3);
+
+
+
+// function test(){
+//     this.age = 1;
+//     this.say = "hello"
+// }
+// var obj = {
+//     name: "ali"
+// }
+// test.call(obj)
+
+                    // var obj = {
+                    //     name: "ali",
+                    //     age: 123,
+                    // }
+                    // for(var key in obj){
+                    //     console.log(obj[key])//key 是属性名
+                    // }
+
+
+
+
+
+
+
+
+
+
+
+
+                    //   arguments 的属性
+                    // arguments.callee   调出其所在的函数
+
+                    // var num = (function(n){
+                    //     if(n == 1){
+                    //         return 1;
+                    //     }
+                    //     return n * arguments.callee(n - 1)
+                    // }(100))
+
+
+                        //   caller  函数被调用的环境
+
+                        // function test(b){
+                        //     demo(2);
+                        // }
+                        // function demo(a){
+                        //     console.log(demo.caller);
+                        //     console.log(arguments.callee);
+                        // }
+                        // test(1)
+
+                    // function test(a,b){
+                    //     function ceshi(b){
+
+                    //     console.log(arguments.callee)
+                    //     }
+                    //     ceshi(1)
+                    // }
+                    // test(1,2)
+    </script>
+</body>
+</html>
