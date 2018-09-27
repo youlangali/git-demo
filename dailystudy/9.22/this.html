@@ -165,10 +165,12 @@
                     //  print()();
 
 
-                        var arr = [1,2,3];
-                        for(var i = 0;i < 3;i++){
-                          var  arr1[i]= arr[i];
-                        }
+                        // var arr = [1,2,3];
+                        // var arr1 = [];
+                        // for(var i = 0;i < 3;i++){
+                            
+                        //     arr1.push(arr[i]);
+                        // }
 
 
 
@@ -181,6 +183,7 @@
                     //     //    __proto__:test.prototype
                     //    } 
                     //    var obj1 = {};
+
 
                     //    function clone(Target,Origin){
                     //        for(var prop in Origin){//取出Origin属性
@@ -223,6 +226,37 @@
                     //    }
                     //    clone(obj1,obj)
                     //    obj1.card.push(3);
+
+
+                        //    听课后的test
+                       var obj = {
+                           name: "123",
+                           age: 123,
+                           sex: "female",
+                           card: ["visa" , "unionpay" , [1,2]],
+                        //    __proto__:test.prototype
+                       } 
+                       var obj1 = {};
+                       function deepClone(origin,target){
+                           for(var prop in obj){
+                               if(obj.hasOwnProperty(prop)){ // 判断是否是对象本身的属性
+                                var arrStr = Object.prototype.toString,
+                                    arr = "[object Array]";
+                                   if(typeof(obj[prop] == "object")){// 判断是都是引用值
+                                        if(arr.call(obj[prop] = arr)){//是数组
+                                            var 
+                                        }else{//是对象执行
+
+                                        }
+                                   }else{
+                                       target[prop] = origin[prop];
+                                   }
+                               }
+                           }
+                       }
+                        // 遍历对象
+                        //  1 判断是否是引用值
+                        //  2 判断是对象还是数组
 
 
 
