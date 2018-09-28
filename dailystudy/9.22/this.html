@@ -237,27 +237,27 @@
                         //    __proto__:test.prototype
                        } 
                        var obj1 = {};
-                       function deepClone(origin,target){
-                        var target = target || {},
-                            arrStr = Object.prototype.toString,
-                            arr = "[object Array]";
-                           for(var prop in origin){
-                               if(origin.hasOwnProperty(prop)){ // 判断是否是对象本身的属性
-                                   if(origin[prop] !== "null" && typeof(origin[prop]) == "object"){// 判断是都是引用值
-                                        if(arrStr.call(origin[prop]) == arr){//是数组
-                                            target[prop] = [];
-                                        }else{//是对象执行
-                                            target[prop] = {};
-                                        }
-                                        deepClone(origin[prop],target[prop])
-                                   }else{
-                                       target[prop] = origin[prop];
-                                   }
-                               }
-                           }
-                           return target;
-                       }
-                       deepClone(obj,obj1);
+                    //    function deepClone(origin,target){
+                    //     var target = target || {},
+                    //         arrStr = Object.prototype.toString,
+                    //         arr = "[object Array]";
+                    //        for(var prop in origin){
+                    //            if(origin.hasOwnProperty(prop)){ // 判断是否是对象本身的属性
+                    //                if(origin[prop] !== "null" && typeof(origin[prop]) == "object"){// 判断是都是引用值
+                    //                     if(arrStr.call(origin[prop]) == arr){//是数组
+                    //                         target[prop] = [];
+                    //                     }else{//是对象执行
+                    //                         target[prop] = {};
+                    //                     }
+                    //                     deepClone(origin[prop],target[prop])
+                    //                }else{
+                    //                    target[prop] = origin[prop];
+                    //                }
+                    //            }
+                    //        }
+                    //        return target;
+                    //    }
+                    //    deepClone(obj,obj1);
                         // 遍历对象
                         //  1 判断是否是引用值
                         //  2 判断是对象还是数组
@@ -265,34 +265,37 @@
 
                        //   老师的正确答案
                        
-                        // function deepClone(origin,target){
-                        //     var target = target || {},
-                        //     toStr = Object.prototype.toString,
-                        //     arrStr = "[object Array]";
-                        //     for(var prop in origin){
-                        //         if(origin[prop] !== "null" && typeof(origin[prop]) == "object"){
-                        //             if(toStr.call(origin[prop]) == arrStr){
-                        //                 target[prop] = [];
-                        //             }else{
-                        //                 target[prop] = {};
-                        //             }
-                        //             deepClone(origin[prop],target[prop]);
-                        //         }else{
-                        //             target[prop] = origin[prop]
-                        //         }
-                        //     }
-                        //     return target;
-                        // }
-                        // deepClone(obj,obj1)
+                        function deepClone(origin,target){
+                            var target = target || {},
+                            toStr = Object.prototype.toString,
+                            arrStr = "[object Array]";
+                            for(var prop in origin){
+                                if(origin[prop] !== "null" && typeof(origin[prop]) == "object"){
+                                    // if(toStr.call(origin[prop]) == arrStr){
+                                    //     target[prop] = [];
+                                    // }else{
+                                    //     target[prop] = {};
+                                    // }
+                                    target[prop] = toStr.call(origin[prop]) == arrStr ? [] : {};
+                                    deepClone(origin[prop],target[prop]);
+                                }else{
+                                    target[prop] = origin[prop]
+                                }
+                            }
+                            return target;
+                        }
+                        deepClone(obj,obj1)
 
-// function test(){
-//     this.age = 1;
-//     this.say = "hello"
-// }
-// var obj = {
-//     name: "ali"
-// }
-// test.call(obj)
+
+
+                    // function test(){
+                    //     this.age = 1;
+                    //     this.say = "hello"
+                    // }
+                    // var obj = {
+                    //     name: "ali"
+                    // }
+                    // test.call(obj)
 
                     // var obj = {
                     //     name: "ali",
@@ -301,13 +304,6 @@
                     // for(var key in obj){
                     //     console.log(obj[key])//key 是属性名
                     // }
-
-
-
-
-
-
-
 
 
 
@@ -342,7 +338,17 @@
                     //     }
                     //     ceshi(1)
                     // }
-                    // test(1,2)
+                    // test (1,2)
+
+
+
+
+        //          条件判断
+
+            //      条件判断  ?  是 : 否
+            // 3 > 2 ? console.log(1) : console.log(2);
+
+
     </script>
 </body>
 </html>
