@@ -474,6 +474,95 @@
                                 // }
                                 // -1 = -1 + 4
 
+
+
+
+                                    // 数组的sort方法
+                                // 是按照阿斯克码来排列的
+                                    
+                                    //  1、必须写两个参数
+                                    //  2、看返回值  1） 当返回值为负值时，那么前面的数放在前面
+                                            //       2） 为正数时，那么后面的数在前
+                                        //           3) 为0，不动
+
+
+                                // var arr = [1,4,7,9,10];
+                                // arr.sort(function(a,b){
+                                //     // return a - b;// 升序
+                                //     // return b - a // 降序
+                                // })
+
+
+
+
+                                    //      题目：给一个有序的数组，乱序
+                                
+                                // var arr = [1,2,3,4,5,6,7];
+                                // arr.sort(
+                                //     function(a,b){
+                                //         return (Math.random() - 0.5)
+                                //     }
+                                // )
+
+
+                                  //   题目2 
+
+                                //   var zhou = {
+                                //       age: 20,
+                                //       name: "zhou",
+                                //       sex: undefined
+                                //   }  
+                                //   var zhang = {
+                                //       age:  21,
+                                //       name: "zhang",
+                                //       sex: "female"
+                                //   }
+                                //   var wang = {
+                                //       age: 22,
+                                //       name: "wang",
+                                //       sex: "male"
+                                //   }
+                                //   var arr = [zhou,zhang,wang];
+                                //   arr.sort(function(a,b){
+                                //       return a.age - b.age;//年龄按照升序排列
+                                //   })
+                                  
+                                  
+                                  //   按照阿斯克码值，由少到多进行排列
+
+                                //   var arr = ["ajwgoie","fajwoe4jfawoe","等等我","wo等"];
+                                //   function changCode(str){
+                                //       var  num = str.length;
+                                //       for(var i = 0;i < str.length;i++){
+                                //         if(str.charCodeAt(i) > 255){
+                                //             num ++;
+                                //       }
+                                //       }
+                                //        return num;
+                                //   }
+                                // //   changCode("deng");
+
+                                //   arr.sort(function(a,b){
+                                //     return changCode(a) - changCode(b);
+                                //   })
+
+
+
+
+                                    //   数组的concat方法，要写参数
+                                    //    将arr1 拼接在arr后面，但是原数组不变
+                                    // var arr = [1,2,3,4];
+                                    // var arr1 = [5,6,7];
+
+
+                                //    数组的slice方法
+
+                                var arr = [1,2,34];
+                                //   从该位开始截取，截取3位，不写就截取到后面的
+                                arr.slice(1,3)
+                                
+
+
     </script>
 </body>
 </html>
