@@ -44,7 +44,7 @@ CSDN（IT信息集成）       博客园       简书（创作社区）
 
 
 各个网站的接口集合  http://www.bewindoweb.com/index.php
-
+网址集合：http://webjike.com/ui.html
 
 
 各种脚本网站https://greasyfork.org/zh-CN/scripts?utf8
