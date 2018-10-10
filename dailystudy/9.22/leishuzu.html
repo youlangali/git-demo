@@ -106,8 +106,22 @@
     // }
 
 
-
-
+        //   一个字符串[a-z]组成，请找出该字符串第一个只出现一次的字母
+        //     取出所有的字符串     
+        var str = "afeiajsgei";
+        function firstOne(target){
+				var temp = {};
+                var len = target.length;
+            for(var i = 0;i < len;i ++){
+                if(!temp[this[i]]){
+					temp[this[i]] = "0"
+				}else{
+					temp[this[i]] ++;
+				}
+            }
+			return temp;
+        }
+        firstOne(str)
 
 
 
