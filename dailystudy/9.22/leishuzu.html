@@ -88,6 +88,9 @@
     //         }
     //     }
 
+
+    
+
     //     //      数组去重   哈希方法
 
     //     var arr = [3,3,4,4,5,5,5,5,6,7];
@@ -106,59 +109,7 @@
     // }
 
 
-        //   一个字符串[a-z]组成，请找出该字符串第一个只出现一次的字母
-        //     取出所有的字符串     
-        var str = "afeiajsgei";
-        function firstOne(target){
-				var temp = {};
-                var len = target.length;
-            for(var i = 0;i < len;i ++){
-                if(!temp[this[i]]){
-					temp[this[i]] = "0"
-				}else{
-					temp[this[i]] ++;
-				}
-            }
-			return temp;
-        }
-        firstOne(str)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        
 
 
 
@@ -168,12 +119,25 @@
         //  1) 取出所有字符串
         //   2)  找到只出现一次的字母
         //    3)   对比出现一次字母的位置前后
-            function firstW(target){
-                for(var i = 0;i < target.length;i++){
-                     
+          
+        var str = "qwerntyuioppoyituterpquweropuioyqwerutpqwuerioqweiptyqepwurpqtepiqweopiuqyt";
+        function firstOne(target){
+				var temp = {};
+                var len = target.length;
+            for(var i = 0;i < len;i ++){
+                if(!temp[target[i]]){
+					temp[target[i]] = "1"
+				}else{
+					temp[target[i]] ++;
+				}
+            }
+			for(var prop in temp){
+                if(temp[prop] == 1){
+                    return prop
                 }
             }
-
+        }
+       firstOne(str);
 
         //  字符串去重
 
@@ -202,4 +166,4 @@
     
     </script>
 </body>
-</html>,
+</html>
