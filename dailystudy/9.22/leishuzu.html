@@ -65,6 +65,46 @@
 
 
         
+        //    封装type
+        //    1、区分引用值和原始值
+        //     2、区分引用值中的各种
+
+    //     function type(target){
+    //         var temp = {
+    //             "[object Number]" : "number - object",
+    //             "[object String]" : "string - object",
+    //             "[object Boolean]" : "boolean - object",
+    //             "[object Array]" : "array",
+    //             "[object Object]" : "object",
+    //         }
+    //         var ret = typeof(target);
+    //         if(ret == null){
+    //             return "null";
+    //         }else if(ret == "object"){
+    //             var str = Object.prototype.toString.call(target);
+    //                 return temp[str];
+    //         }else{
+    //             return ret;
+    //         }
+    //     }
+
+    //     //      数组去重   哈希方法
+
+    //     var arr = [3,3,4,4,5,5,5,5,6,7];
+    // Array.prototype.unique = function(){
+    // var temp = {};
+    // var target = [];
+    // var len = this.length;//  防止每次循环都要计算this.length，直接将值带进去就行
+    // for(var i = 0;i < len; i ++){
+    //     var th = this[i];
+    //     if(!temp[th]){  //  关键
+    //         temp[th] = "abc"
+    //         target.push(th);
+    //     }
+    // }
+    //     return target;
+    // }
+
 
 
 
