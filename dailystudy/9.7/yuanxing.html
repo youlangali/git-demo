@@ -1,4 +1,4 @@
-;<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -144,6 +144,36 @@
 //                                 // 
 
 
+
+
+
+
+
+
+
+// function Person(){
+
+// }
+// var person = new Person();
+// 过程：1、var person = {}
+//     2.    创建__proto__属性指向构造函数的原型
+//     3、 调用构造函数的内容及其原型
+
+
+
+
+    //       题目
+
+    //     f能取到a,b吗？原理是什么？
+
+    var F = function () { };
+    Object.prototype.a = function () { };
+    Function.prototype.b = function () { };
+    var f = new F();//  只能取到a的值，不能取到b的值
+
+
+    // var F = function(){};
+    // var num = 123;
 </script>
 
 </body>
