@@ -33,10 +33,17 @@
 
 
 
-        // constructor   属于prototype，继承给子代；可以修改
-        // Car.prototype = {
-        //     constructor : Person,
-        // }
+        //constructor   属于prototype，继承给子代；可以修改
+    //     Person.prototype = {
+    //         constructor : Car,
+    //         // age : 10,
+    //     }
+    //     Person.prototype.age = 10;
+    //     Car.prototype = {
+    //         constructor : Person,
+    //         // age : 20,
+    //     }
+    //     Car.prototype.age = 20;
     //     function Person(){
     //         this.lastName = "deng";
     //     }
@@ -141,10 +148,8 @@
 //     }
 
 //     var person = new Person();  //  在new构造函数之前，改变Perosn.prototype,就会按顺序执行，在之后改变，按顺序用就用不到新的，
-//                                 // 
-
-
-
+// //                                 // 
+// Person.prototype.age= 20; //    ?????
 
 
 

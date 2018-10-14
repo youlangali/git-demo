@@ -123,11 +123,13 @@
 //     this.health = function (){
 //         this.number--;
 //     }
-//     return this;//返回this  如果认为的返回空对象，就会执行返回空对象的结果，
-//     如果认为的return 123;系统默认不执行，继续执行隐式的return this
+//     return {};//返回this  如果认为的返回空对象，就会执行返回空对象的结果，
+//     //如果认为的return 123;系统默认不执行，继续执行隐式的return this
 // }
 // var obj = new Person("female","xiaolan");
 // var obj1 = new Person("male","xiaozhang");
+// var obj2 = {};
+// Person.call(obj2);
 
 
 //   自己构造一个函数，不用new方法    只为测试，不用

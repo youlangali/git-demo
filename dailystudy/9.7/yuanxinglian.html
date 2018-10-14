@@ -35,7 +35,7 @@
     
         // var children = new Children();
     
-
+        // children.name = "zz";
 
 
 
@@ -64,7 +64,22 @@
         
 
 
+//     ceshi
 
+            // F.prototype.name = "ali"
+            // function F(){
+            //     this.age = 20;
+            //     this.day = {
+            //         sun : 7,
+            //     }
+            // }
+            // Son.prototype = new F();
+            // function Son(){}
+            // var son = new Son();
+            // Child.prototype = son;
+            // function Child(){}
+            // var child = new Child();
+            //  child.day.say = "hello"
 
 
 
@@ -109,7 +124,7 @@
 //       var p = new Person('张三',20);      
 // 1. var p={}; 初始化一个对象p。
 //   2. p._proto_=Person.prototype;，将对象p的 __proto__ 属性设置为 Person.prototype
-//   3. Person.call(p,”张三”,20);调用构造函数Person来初始化p。关于call/apply使用
+//   3. Person.call(p,”张三”,20);调用构造函数Person来初始化p。关于call/apply使用   //  错
 //    constructor”属性，这个属性对应创建所有指向该原型的实例的构造函数
 //   
 
@@ -120,14 +135,14 @@
     // var obj = {name : "sunny",age : 123};
     // var obj1 = Object.create(obj);    // __proto__才是调出原型，
 
-    // Person.prototype.name = "sunny";
-    // function Person(){
-
-    // }
-    // var person = Object.create(Person.prototype);//
-    // // person.__proto__    //    用了Person的原型
-    // // person.constructor    //   function Person(){}
-    // //  Person.prototype     //  原型
+    Person.prototype.name = "sunny";
+    function Person(){
+        this.company = "ali";
+    }
+    var person = Object.create(Person.prototype);//
+    // person.__proto__    //    用了Person的原型
+    // person.constructor    //   function Person(){}
+    //  Person.prototype     //  原型
 
 
             //      ?????
@@ -178,11 +193,12 @@
             // document.write(123);
 
 
-                //  这说明document.write执行时先调用toString
+                //  这说明document.write执行时先调用toString   ??
 
                 // var obj = Object.create(null); // 阻断了构造函数给对象的继承，
                
-                // // // document.write(obj)// 报错
+                // // document.write(obj)// 报错
+                // document.write(obj.a)// 不会报错
                 // document.write(obj.toString)// 不会报错
 
 
