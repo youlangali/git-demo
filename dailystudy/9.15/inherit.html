@@ -81,14 +81,14 @@
             //     function inherit(Target, Origin) {
             //         function F() {
             //         }
-            //         F.prototype = Target.prototype;
-            //         Origin.prototype = new F();
+            //         F.prototype = Origin.prototype;
+            //         Target.prototype = new F();
             //             // Target.prototype.constructor = Target;
             //             // Target.prototype.uber = Origin.prototype;
             //     }
             //     inherit(Son,Father);
             //     Son.prototype.sex = "nv";
-            //     Father.prototype.name = "a";
+            //     Father.prototype.height = "a";
             //     var son = new Son();
             //     var father = new Father();
             
@@ -104,13 +104,13 @@
                     // var inherit = (function (Target,Origin){
                     //     function F(){}
                     //     return  function(Target,Origin){
-                    //         F.prototype = Target.prototype;
-                    //         Origin.prototype = new F();
+                    //         F.prototype = Origin.prototype;
+                    //         Target.prototype = new F();
                     // Target.prototype.constructor = Target;
-            //             // Target.prototype.uber = Origin.prototype;
+                    //     // Target.prototype.uber = Origin.prototype;
                     //     }
                     // }())
-                    // inherit(Father,Son)
+                    // inherit(Son,Father)
                     // Father.prototype.sex = "female";
                     // var son = new Son();
 
