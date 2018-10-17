@@ -198,8 +198,15 @@
     //                     }
 
 
-
-
+            function step(a){
+                return function (x){
+                    return x + a++
+                }
+            }
+            var a = step(10);//func x + a++
+            var b = step(20);//func x + a++
+            console.log(a(10));
+            console.log(b(20));
 
     </script>
 </body>
