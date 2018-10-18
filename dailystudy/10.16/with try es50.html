@@ -105,11 +105,25 @@
     // Test();//预编译只能被赋值，否则undefined，而不是指向window
 
 
-
+// es3.0  都不能eval();eval()是魔鬼
         // eval()的简单介绍：将字符串当代码使用
         // "use strict";
         // var a = 123;
         // eval('console.log(a)')
+
+
+        //   es5.0模式不能有重复的的属性
+        // 'use strict';
+        // function test(name,name){
+        //     console.log(name);
+        // }
+        // test(1,2)
+
+            // var obj = {
+            //     name: "1",
+            //     name: "2",
+            // }
+
 
 
 
@@ -198,15 +212,28 @@
     //                     }
 
 
-            function step(a){
-                return function (x){
-                    return x + a++
-                }
-            }
-            var a = step(10);//func x + a++
-            var b = step(20);//func x + a++
-            console.log(a(10));
-            console.log(b(20));
+
+        
+
+
+
+
+            // function step(a){
+            //     return function (x){
+            //         return x + a++
+            //     }
+            // }
+            // var a = step(10);//func x + a++
+            // var b = step(20);//func x + a++
+            // console.log(a(10));
+            // console.log(b(20));
+
+            
+        //     var b = 1;
+        //    var a = 1 + b++;//经过一次计算之后，再打印出b就是2
+        //     console.log(b);
+        //     console.log(a);
+        //     console.log(a);
 
     </script>
 </body>
