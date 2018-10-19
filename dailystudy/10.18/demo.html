@@ -7,11 +7,99 @@
     <title>Document</title>
 </head>
 <body>
-    <div name= "ab" id="ali"></div>
+    <div name= "ab" id="ali" class="ali" style="">
+        <!-- this is comment -->
+        <span>
+            <strong>
+
+            </strong>
+        </span>
+        <form action="">
+                123
+        </form>
+        <div>
+
+        </div>
+    </div>
     <script>
         // 通过 name来取div
-        var div = document.getElementsByName('ab')[0];
-        var id = document.getElementById('ali');
+        // var div = document.getElementsByName('ab')[0];
+        // var id = document.getElementById('ali');
+        // var strong  = document.querySelector('div span strong')//  仿css写法
+        // var strong  = document.querySelectorAll('div span strong')
+
+
+        //在文本中创建div
+        // var newDiv = document.createElement('div');//在js中创建div
+        // document.body.appendChild(newDiv);//   将div放入文档中
+
+        //  遍历节点树，所有的浏览器都能很好的兼容,最顶端节点就是#document
+        //   parentNode,childNodes,nextSibling,previousSibling,firstChild,lastChild
+
+        // var strong = document.getElementsByTagName('strong')[0];
+        // var div = document.getElementsByClassName('ali')[0];
+        
+
+        //   遍历元素节点，只有child是ie兼容的,child用的最多，最顶端的元素节点是html
+        //    parentElement,children,firsElementChild,lastElementChild,
+        //   nextElementSibling,previousElementSibling,node.childElementCount  === node.children.length
+        
+
+        //    节点的四个属性
+        //    nodeName   节点名称      nodeValue    节点文本内容（只有text节点和commen节点有）
+        //    nodeType     节点类型，    返回值是相应的数字1,2,3,8，9,11
+        //      attributes     节点的属性，
+        //     node.hasChildNodes(),判断是否有子节点（注：不是元素节点，而是节点，只要内容中间有空隙就有text节点）
+          
+          
+
+
+
+          //     返回元素子节点    不用children
+          var div = document.getElementById("ali");
+          var len = div.childNodes.length;
+        //   var arr = [];
+        //   for(var i = 0; i < len;i ++){
+        //       if(len[i].nodeType == 1){
+        //           arr.push(len[i])
+        //       }
+        //   }
+          
+// function retElementChild(node){
+//     // no  children
+//     var temp = {
+//             length: 0,
+//             push: Array.prototype.push,
+//             splice: Array.prototype.splice,
+//         },
+//         child = node.childNodes,
+//         len = child.length;
+//         for(var i = 0;i < len;i ++){
+//             if(child[i].nodeType == 1){
+//                 temp.push(child[i]);
+//             }
+//         }
+//         return temp;
+// }
+
+        
+
+
+    //   给字符串去重
+
+    var a = "qtuheitwwtopeowtuqiou";
+    function firCode(letter){
+        var 
+    }
+
+
+
+
+
+
+
+
+
     </script>
     
 </body>
