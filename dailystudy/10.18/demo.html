@@ -10,13 +10,17 @@
     <div name= "ab" id="ali" class="ali" style="">
         <!-- this is comment -->
         <span>
-            <strong>
+            <strong class="strong">
 
             </strong>
         </span>
+        <i></i>
         <form action="">
                 123
         </form>
+        <p>
+
+        </p>
         <div>
 
         </div>
@@ -37,6 +41,7 @@
         //   parentNode,childNodes,nextSibling,previousSibling,firstChild,lastChild
 
         // var strong = document.getElementsByTagName('strong')[0];
+        // var form = document.getElementsByTagName('form')[0];
         // var div = document.getElementsByClassName('ali')[0];
         
 
@@ -56,8 +61,8 @@
 
 
           //     返回元素子节点    不用children
-          var div = document.getElementById("ali");
-          var len = div.childNodes.length;
+        //   var div = document.getElementById("ali");
+        //   var len = div.childNodes.length;
         //   var arr = [];
         //   for(var i = 0; i < len;i ++){
         //       if(len[i].nodeType == 1){
@@ -87,20 +92,115 @@
 
     //   给字符串去重
 
-    var a = "qtuheitwwtopeowtuqiou";
-    function firCode(letter){
-        var 
-    }
+    // var a = "qtuheitwwtopeowtuqiou";
+    // function firCode(letter){
+    //     var 
+    // }
+
+
+//     1、遍历元素节点树（在原型链上编程）
+        // Element.prototype.retElement = function(){
+        //     if(ele.nodeType == 1){
+        //         var ele = this.children;
+        //         return child;
+        //     }
+            
+        // }
 
 
 
 
+            //    2、封装函数，返回元素e的第n层祖先元素节点
+        //     function retParent(e,n){
+        //             var par = e.parentElement;
+        //         if(n > 1){
+        //         for(var i = 1;i < n; i ++){
+        //             par = par.parentElement
+        //         }
+        //         }
+        //         return par
+        //     }
+        //    var parent = retParent(strong,3);
+
+
+
+        //  3、封装函数，返回元素e的第n个元素节点，n为正，返回后面的兄弟元素节点，n为负，返回
+        //     返回前面的兄弟节点，n为0，返回自己
+            // function retSibling(e,n){
+
+            //     if(e.nodeType == 1){
+            //         var next = e.nextElementSibling,
+            //             pre = e.previousElementSibling;
+            //         if(n == 0){
+            //             return e;
+            //         }else if(n > 0){
+            //             for(var i = 1 ;i < n;i ++){
+            //                 next = next.nextElementSibling;
+            //             }
+            //             return next;
+            //         }else if(n < 0){
+            //             for(var  i = 1;i < -n;i ++){
+            //                 pre = pre.previousElementSibling;
+            //             }
+            //             return pre;
+            //         }
+            //     }
+            // }
 
 
 
 
+                //   编辑函数，封装myChildren功能，解决以前部分浏览器的兼容性问题
 
+                // function myChildren(e,n){
+                //     var child = e.children;
+                //     var len = child.length;
+                //     if(n == "last"){
+                //         return child[length-1];
+                //     }else if(n == "first"){
+                //         return child[0];
+                //     }else{
+                //         return child[n-1];
+                //     }
+
+                // }
+                // var a = myChildren(div,4);
+
+
+
+                    //    自己封装hasChildren()方法，不可用children属性，
+                    // function hasChildren(e){
+                    //     var childnode = e.childNodes,
+                    //     len = childnode.length;
+                    //     for(var i = 0;i < len;i ++){
+                    //         if(childnode[i].nodeType == 1){
+                    //             return true;
+                    //         }else{
+                    //             return false;
+                    //         }
+                    //     }
+                        
+                    // }
+
+
+
+
+                            //  dom 结构树
+                    // var div = document.getElementById("ali");
+                    //   HTMLElement.prototype.ab = "abc";
+                        // HTMLElement.prototype.a = "ali";
+                        // HTMLBodyElement.prototype.ab = "abc";
+                        // var body = document.getElementsByTagName('body')[0];
+                        // var head = doscument.getElementsByTagName('head')[0];
+
+                        
+                        
     </script>
-    
+    <script>
+        
+        
+
+        
+    </script>
 </body>
 </html>
