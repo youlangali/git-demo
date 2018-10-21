@@ -10,7 +10,7 @@
     <div name= "ab" id="ali" class="ali" style="">
         <!-- this is comment -->
         <span>
-            <strong class="strong">
+            <strong class="strong" id= "ceshi">
 
             </strong>
         </span>
@@ -228,7 +228,13 @@
 
     </script>
     <script>
-        
+       // getElementById方法定义在Document.prototype上，Element节点上不能用
+        // var div = document.getElementById('ali');
+        // var strong = div.getElementById('ceshi');//   会报错
+
+        //   document.body --> body
+        //    document.head    -->   head
+        //     document.documentElement   -->   html
         
 
         
