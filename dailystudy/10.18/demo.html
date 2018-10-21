@@ -206,11 +206,36 @@
                     //     }
                     // }
 
-                        //  老师方法
+                        //  老师方法  假设nextElementSibiling因为兼容不好使
+                        //    for 循环的灵活用法,考虑容错情况
+                        // var form = document.getElementsByTagName('form')[0];
 
-                        function retSibling(){
-                            while
-                        }
+
+                        // function retSibling(e,n) {
+                        //         while (e && n) {
+                        //             if (n > 0) {
+                        //                 if (e.nextElementSibling) {
+                        //                     e = e.nextElementSibling;
+                        //                 } else {
+                        //                     for (e = e.nextSibling; e && e.nodeType != 1; e = e.nextSibling);
+                        //                 }
+                        //                 n--;
+                        //             } else 
+                        //             {
+                        //                 if (e.previousElementSibling) {
+                        //                     e = e.previousElementSibling;
+                        //                 } else {
+                        //                     for (e = e.previousSibling; e && e.nodeType != 1; e = e.previousSibling);
+                        //                 }
+                        //             n++;
+                        //             }
+                        //         }
+                        //         return e;
+                        //     }
+
+
+
+
 
 
                             //  dom 结构树

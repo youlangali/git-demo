@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+   <script>
+       //   document.createElement();
+   var div = document.createElement('div');
+   var span = document.createElement('span');
+   var strong = document.createElement('strong');
+   var text = document.createTextNode('123');
+   var comment = document.createComment('this is comment');
+   document.body.appendChild(div);//  
+
+
+   //    PARENTNODE.appendChild();
+   div.appendChild(text);
+   div.appendChild(comment);
+   div.appendChild(comment);
+   div.appendChild(span);
+   div.appendChild(span);//重复同样的插入是没有用的
+   div.appendChild(strong);
+   strong.appendChild(span);
+   
+   //  parent.remove()
+//    div.remove();// 删除自己
+
+//      parent.removeChild();
+//    div.removeChild(span);//删除孩子
+
+    //    child.insertBefore(a,b)
+    // div.insertBefore(strong,span);//   同一个标签在同级中只能被插入一次
+
+    //   parent.insertBefore(new,origin)
+    // div.insertBefore(strong,text);
+   div.replaceChild(strong,span);
+   strong.replaceChild(strong,span)//报错
+   </script> 
+</body>
+</html>
