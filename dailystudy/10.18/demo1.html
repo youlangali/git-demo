@@ -7,24 +7,35 @@
     <title>Document</title>
 </head>
 <body>
+    <!-- <div  id = "b" name = "c" style = "margin-top: 100px;width: 100px;height: 100px;text-align: center;border: 1px black solid;">
+        <span class="a" style ="" date-log = "0">
+aswe
+        </span>
+    </div>
+    <div class="wrap">
+        <div></div>
+        <span></span>
+        <strong></strong>
+    </div> -->
    <script>
        //   document.createElement();
-   var div = document.createElement('div');
-   var span = document.createElement('span');
-   var strong = document.createElement('strong');
-   var text = document.createTextNode('123');
-   var comment = document.createComment('this is comment');
-   document.body.appendChild(div);//  
+//    var div = document.createElement('div');
+//    var span = document.createElement('span');
+//    var strong = document.createElement('strong');
+//    var text = document.createTextNode('1234t');
+//    var comment = document.createComment('this is comment');
+//    document.body.appendChild(div);//  
 
 
    //    PARENTNODE.appendChild();
-   div.appendChild(text);
-   div.appendChild(comment);
-   div.appendChild(comment);
-   div.appendChild(span);
-   div.appendChild(span);//重复同样的插入是没有用的
-   div.appendChild(strong);
-   strong.appendChild(span);
+//    div.appendChild(text);
+//    div.appendChild(comment);
+//    div.appendChild(comment);
+//    div.appendChild(span);
+//    div.appendChild(span);//重复同样的插入是没有用的
+//    span.appendChild(text);//会覆盖前面一个
+//    div.appendChild(strong);
+//    strong.appendChild(span);
    
    //  parent.remove()
 //    div.remove();// 删除自己
@@ -37,8 +48,60 @@
 
     //   parent.insertBefore(new,origin)
     // div.insertBefore(strong,text);
-   div.replaceChild(strong,span);
-   strong.replaceChild(strong,span)//报错
+//    div.replaceChild(strong,span);
+//    strong.replaceChild(strong,span)//报错
+
+
+    //  innerHTML
+
+
+    // div.innerHTML  = "ali";//是将改元素的子内容全部替换；
+    // div.innerHTML += "doc";//可读可写就可
+
+    // div.innerHTML = "<span><div style='color:red;border:1px red solid;width:100px;height:100px;'>这是一道测试</div></span>"//可以在innerHTML中写结构，样式要‘’；
+
+    //  var cont = div.innerHTML;//获取子元素的所有内容，包括结构
+    // div.innerText = "aofj";//获取子元素的文字内容，不包括结构
+
+
+    // var b = document.getElementById('b');
+    // var a = document.getElementsByClassName('a')[0];
+    // var na = div.getAttribute("name");
+    // a.setAttribute("style","display:block;width:40px;height:40px;text-align:center;color:pink;")
+
+    // a.setAttribute("data-log","0")
+    // a.setAttribute("b","0")
+
+    // 给warp下的子元素节点加上自己的元素节点名臣
+    // var wrap = document.getElementsByClassName('wrap')[0];
+    // var child = wrap.children;
+    // var len = child.length;
+    // for(var i = 0;i < len;i ++){
+    //     child[i].setAttribute('this-name',child[i].nodeName)
+    // }
+
+
+
+
+        //编写一段js脚本生成下面的这段DOM结构，要求：使用标准的Dom方法或属性。
+
+        // <div class="example">
+        //     <p class="slogan">继承最划算</p>
+        // </div>
+    // 提示：dom.className 可以读写class,dom.class 可以提取出类名，可读可写
+
+            
+    // var div = document.createElement('div');
+    // document.body.appendChild(div);
+    // // div.className = "example";
+    // div.setAttribute('calss','example')
+    // var p = document.createElement('p');
+    // div.appendChild(p);
+    // p.className = "slogan"
+    // var text = document.createTextNode('继承最划算');
+    // p.appendChild(text);
+
+
    </script> 
 </body>
 </html>
