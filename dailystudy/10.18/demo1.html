@@ -102,23 +102,18 @@ aswe
     // p.appendChild(text);
 
 
-            // Element.prototype.insertAfter = function(a,b){
-            //     var child = this.children;
-            //     var len = child.length;
-            //     for(var i = 0;i < len;i ++){
-            //         if(child[i] == b){
-            //         child.splice(i,0,a);
-            //         }
-            //     }
-            // }
-
+          
    </script> 
    <div>
        <p></p>
        <a href=""></a>
        <i></i>
    </div>
-   
+    <!-- <div class="con">
+       <p class="cont"></p>
+       <p class="cont"></p>
+       <p class="cont"></p>
+   </div>  -->
    <script>
         //   将目标节点内容的节点顺序逆序
         // var div = document.getElementsByTagName('div')[0];
@@ -156,15 +151,38 @@ aswe
     //         }
     
 
-       
-        
 
+
+            // 封装函数insertAfter，功能类似insertBefore（）；
+       var p = document.getElementsByTagName('p')[0];
+   var div = document.getElementsByTagName('div')[0];
+   var a = document.getElementsByTagName('a')[1];
+   var strong = document.createElement('strong');
+//    Element.prototype.insertAfter = function(a,b){
+//                 var child = this.children;
+//                 var len = child.length;
+//                 for(var i = 0;i < len;i ++){
+//                     if(child[i] == b){
+//                         this.insertBefore(a,child[i + 1])
+//                     }
+//                 }
+//             }
+
+
+
+
+//     老师方法
+
+    // Element.prototype.insertAfter = function(targetNode,afterNode){
+    //     var beforeNode = afterNode.nextElementSibling;
+    //     if(beforeNode == null){
+    //         this.appendChild(targetNode);
+    //     }else{
+    //         this.insertBefore(targetNode,beforeNode);
+    //     }
+    // }
    </script>
-   <!-- <div class="con">
-       <p class="cont"></p>
-       <p class="cont"></p>
-       <p class="cont"></p>
-   </div>  -->
+
 
     
 
