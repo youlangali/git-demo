@@ -7,6 +7,14 @@
     <title>Document</title>
 </head>
 <body>
+    <ol type="1">
+        <li>电影</li>
+        <li>电影</li>
+        <li>电影</li>
+        <li>电影</li>
+        <li>电影</li>
+        <li>电影</li>
+    </ol>
     
     <!-- div.ali[style]>div{ali} -->
     <script>
@@ -65,6 +73,7 @@
     </style>
     seconds:<input type="text" value = "0">
     minutes:<input type="text" value = "0">
+    <del>￥50</del>
     <script>
     // var timer = setInterval(function () {
     //         var one = document.getElementsByTagName('input')[0];
@@ -83,6 +92,89 @@
     //         one.setAttribute("value", val);
     //     }, 10)
     // var one = document.getElementsByTagName('input')[0];
+
+
+    //    老师方法
+    //    var secondNode = document.getElementsByTagName('input')[0];
+    //    var minuteNode = document.getElementsByTagName('input')[1];
+    //    var seconds = 0,
+    //        minutes = 0;    
+    //    var timer = setInterval(function(){
+    //        seconds++;
+    //        if(seconds == 60){
+    //            seconds = 0;
+    //            minutes ++;
+    //        }
+    //        secondNode.value = seconds;
+    //        minuteNode.value = minutes;
+    //        if(minutes == 3){
+    //            clearInterval(timer);
+    //        }
+    //    },100);
+
+
+
+
+
+        //   setInterval的时间准不准
+        // var firstTime = new Date().getTime();
+        // setInterval(function(){
+        //     console.log(new Date().getTime() - firstTime)
+        //     firstTime = new Date().getTime();
+        // },1000)
+
+
+            //  每个setInterval都有个唯一标示，所以可以被clear
+            // var timer = setInterval(function(){},1000)
+            // console.log(timer);
+            // var timer2 = setInterval(function(){},1000);
+            // console.log(timer2);
+
+                
+
+                //   clearInterval 
+                // var i = 0;
+                // var timer = setInterval(function(){
+                //     console.log(i ++);
+                //     if(i == 10){
+                //         clearInterval(1);
+                //     }
+                // },1000)
+
+
+
+                //   setTimeout,一段时间之后，执行里面的代码语句
+                // var timer = setTimeout(function(){
+                //     document.write('我还是个宝宝');
+                // },2000)
+                //     // console.log(timer);
+                //     clearTimeout(timer);
+
+
+
+
+
+                        //setInterval 中this的指向
+                        
+                        // setInterval(function(){
+                        //     console.log(this);
+                        // },1000)
+
+
+                            // setTimeout(function(){
+                            //     console.log(this);
+                            // },1000)
+
+
+                                // setInterval("console.log('a')",1000)
+                                // function a(){
+                                //            console.log("a") ;
+                                }
+                                // setInterval("a()",1000)
+                                // setInterval(a(),1000)    //  无法执行
+                                // setInterval("a()",1000)
+
+
     </script>
 </body>
 </html>
