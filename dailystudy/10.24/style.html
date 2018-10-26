@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    .box{
+        width: 200px;
+        height: 300px;
+        background-color: green;
+    }
+    
+    .top{
+        width: 500px;
+    }
+    
+    </style>
+</head>
+<body>
+    <div class="top" style="width: 100px;height: 100px;background-color: red;">
+
+    </div>
+    <div class="box">
+
+    </div>
+    <script>
+    var div = document.getElementsByTagName('div')[0];
+    var box = document.getElementsByClassName('div')[1];
+    // div.style.width      可访问  
+    // box.style.width      报错，因为dom.style.prop是访问dom结构上的样式
+    //     dom.style.prop 写的样式比在style标签中的样式权重高
+
+    box.style
+    
+    </script>
+</body>
+</html>
