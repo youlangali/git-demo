@@ -13,27 +13,141 @@
     }
     
     .top{
-        width: 500px;
+        /* width: 500px!important; */
+        position: relative;
     }
-    
+    .top::after{
+        position: absolute;
+        content: "";
+        top: 0;
+        left: 0;
+        width: 50px;
+        height: 50px;
+        background-color: black;
+        display: inline-block;
+    }
+    .square{
+        position: relative;
+        left:0 ;
+        height: 0;
+        width: 100px;
+        height: 100px;
+        background-color: red;
+    }
+    .show{
+        position: relative;
+        width: 610px;
+        height: 300px;
+        /* overflow: hidden; */
+        box-sizing: border-box;
+        border: 5px red solid;
+    }
+    .img_wrap{
+        position: relative;
+        left: 0;
+        height: 0;
+        width: 3050px;
+        height: 300px;
+        box-sizing: border-box;
+        border: 2px #003cff solid;
+    }
+    .img_wrap img{
+        float: left;
+    }
     </style>
 </head>
 <body>
-    <div class="top" style="width: 100px;height: 100px;background-color: red;">
+    <!-- <div class="top" id="cont" style="width:10em;height: 100px;background-color: red;">
 
     </div>
     <div class="box">
 
+    </div> -->
+    <!-- 小方块 -->
+    <!-- <div class="square"></div> -->
+
+    <!-- 轮播图 -->
+    <div class="show">
+        <div class="img_wrap">
+            <img src="img/1_video_2.jpg" alt="">
+            <img src="img/1_video_1.jpg" alt="">
+            <img src="img/3_video_1.jpg" alt="">
+            <img src="img/3_video_3.jpg" alt="">
+        </div>
     </div>
     <script>
-    var div = document.getElementsByTagName('div')[0];
-    var box = document.getElementsByClassName('div')[1];
+    // var div = document.getElementsByTagName('div')[0];
+    // var box = document.getElementsByClassName('div')[1];
     // div.style.width      可访问  
     // box.style.width      报错，因为dom.style.prop是访问dom结构上的样式
-    //     dom.style.prop 写的样式比在style标签中的样式权重高
+    //     dom.style.prop 写的样式权重如何？，
 
-    box.style
+
+        //   复合样式要分解开,符合w3c标准
+        // div.style.border = "1px black solid";
+
+        // div.style.borderWidth = "5px";
+        // div.style.borderColor = "black";
+        // div.style.borderStyle = "solid";
+
     
+        //   getComputedStyle(div,null)  只读，且返回绝对单位的值，IE及IE8以下不兼容
+        // window.getComputedStyle(div.null)[prop];
+
+        // window.getComputedStyle(div,null).width
+        //   window.getComputedStyle(div,null).backgroundColor
+
+
+        //   ele.currentStyle  IE独有的属性，不是返回绝对值，只读
+            // div.currentStyle   --->CSSStyleDeclaration
+
+
+        //  封装一个返回元素节点css样式的函数，无兼容性问题
+
+        // function getStyle(ele,prop){
+        //     if(window.getComputedStyle){
+        //         return window.getComputedStyle(ele,null)[prop];
+        //     }else{
+        //         return ele.currentStyle[prop];
+        //     }
+        // }
+
+
+
+            //  window.getComputedStyle(div,null),可以获取伪类的样式
+        //    console.log(window.getComputedStyle(div,'after').width);
+
+            // div.className // 直接访问类名
+
+            //   让方块运动联系
+        //     function getStyle(ele,prop){
+        //     if(window.getComputedStyle){
+        //         return window.getComputedStyle(ele,null)[prop];
+        //     }else{
+        //         return ele.currentStyle[prop];
+        //     }
+        // }
+        //     var square = document.getElementsByClassName('square')[0];
+        //     var speed = 1;
+        //     var timer = setInterval(function(){
+        //         speed += speed/5
+        //         square.style.left = parseInt(getStyle(square,"left")) + speed + "px";
+        //         if(parseInt(getStyle(square,"left")) >= 500){
+        //             clearInterval(timer);
+        //         }
+        //     },100)
+
+
+
+            //    轮播图
+            var img = document.getElementsByTagName('img');
+            var len  = img.length;
+            for(var i = 0;i < len;i ++ )
+            var timer = setInterval(function(){
+                img[i].style.left = window.getComputedStyle(img[i],null).left + 610 + "px";
+            },1000);
+
+
     </script>
 </body>
 </html>
