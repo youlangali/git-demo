@@ -32,29 +32,57 @@
         height: 0;
         width: 100px;
         height: 100px;
+        
         background-color: red;
     }
     .show{
         position: relative;
         width: 610px;
         height: 300px;
-        /* overflow: hidden; */
+        margin-left: 610px;
+        
+        overflow: hidden;
         box-sizing: border-box;
-        border: 5px red solid;
+        border:5px red solid;
     }
     .img_wrap{
-        position: relative;
-        left: 0;
-        height: 0;
-        width: 3050px;
+        position: absolute;
+        /* 
+        top: 0px;
+        left: 0px; */
+        /* margin-left: -610px; */
+        width: 1834px;
         height: 300px;
         box-sizing: border-box;
         border: 2px #003cff solid;
     }
     .img_wrap img{
+        /* position: relative; */
         float: left;
+        width: 610px;
+        display: block;
+         /* left: 0; */
+        /* height: 0; */
+        /* display: inline-block;  */
+    }
+    .raidu_list{
+        position: absolute;
+        left: calc(50% - 60px);
+        bottom: 30px;
+    }
+    .raidu_list div{
+        width: 20px;
+        height:20px;
+        border-radius: 50%;
+        background-color: rgb(195, 255, 0);
+        float: left;
+        margin: 0px 10px;
+    }
+    div.on{
+        background-color: #003cff;
     }
     </style>
+    
 </head>
 <body>
     <!-- <div class="top" id="cont" style="width:10em;height: 100px;background-color: red;">
@@ -68,11 +96,16 @@
 
     <!-- 轮播图 -->
     <div class="show">
-        <div class="img_wrap">
-            <img src="img/1_video_2.jpg" alt="">
+        <div class="img_wrap" >
+            <!-- <img src="img/1_video_2.jpg" alt=""> -->
             <img src="img/1_video_1.jpg" alt="">
-            <img src="img/3_video_1.jpg" alt="">
+            <img src="img/2_video_1.jpg" alt="">
             <img src="img/3_video_3.jpg" alt="">
+        </div>
+        <div class="raidu_list">
+            <div class="on"></div>
+            <div></div>
+            <div></div>
         </div>
     </div>
     <script>
@@ -140,14 +173,87 @@
 
 
             //    轮播图
-            var img = document.getElementsByTagName('img');
-            var len  = img.length;
-            for(var i = 0;i < len;i ++ )
-            var timer = setInterval(function(){
-                img[i].style.left = window.getComputedStyle(img[i],null).left + 610 + "px";
-            },1000);
+            // var img = document.getElementsByTagName('img');
+            // var img_wrap = document.getElementsByClassName('img_wrap')[0];
+            // var list = document.getElementsByClassName('raidu_list')[0];
+            // var radiu = list.getElementsByTagName('div');
+            // var len  = img.length;
+            // var i = 0;
+            //     var timer = setInterval(function(){
+            //             img_wrap.style.left = parseInt(window.getComputedStyle(img_wrap,null).left) - 610 + "px";
+            //             i++;
+            //             for(var j = 0;j < radiu.length;j ++){
+            //                 radiu[j].className = "";
+            //             }
+                        
+                        
+            //             if(parseInt(window.getComputedStyle(img_wrap,null).left) <= -1830){
+            //                 img_wrap.style.left = "0px";
+            //                 i = 0;
+            //             }
+            //             radiu[i].className = "on";
+                    
+            //         // console.log(window.getComputedStyle(img[0],null).left)
+            //         // console.log(img[0])
+            // },3000);
+            
+            
 
 
+
+
+              
+
+
+    </script>
+    <style>
+    .box1{
+        width: 100px;
+        height: 100px;
+        background-color: green;
+    }
+    </style>
+    <!-- <div class="box1" onclick = "console.log('a')"></div> -->
+    <div class="box1"></div>
+    <script>
+          //  绑定事件
+        // ele.onxxx = function(event){}    
+        // 兼容性很好，但是一个元素的同一个事件上只能绑定一个处理程序
+        //   基本等同于写在html上  
+
+    var box1= document.getElementsByClassName('box1')[0];
+    // box1.onclick = function(){
+    //     box1.style.backgroundColor = "red";
+    // }
+    // box1.onclick = function (){
+    //     box1.style.width = '200px';
+    // }
+
+        //   obj.addEventListener(type,fn,false);
+        //    ie9以下不兼容，可以为一个事件绑定多个处理程序
+        // obj.addEventListener(时间类型，处理函数，false)
+
+    // box1.addEventListener('click',function(){
+    //     // box1.style.backgroundColor = 'red';
+    //     console.log('a');
+    // },false)
+
+
+    // box1.addEventListener('click',function(){
+    //     // box1.style.width = '200px';
+    //     console.log('a');
+    // },false)
+
+        // 引用同一个处理函数，只会执行后面一个
+        // box1.addEventListener('click',test,false)
+        // box1.addEventListener('click',test,false)
+        // function test(){
+        //     console.log('a');
+        // }
+
+
+
+        
     </script>
 </body>
 </html>
