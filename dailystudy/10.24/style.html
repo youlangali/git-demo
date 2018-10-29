@@ -248,8 +248,21 @@
                         }
                     }(k))
                 }
-                
-            
+
+                left.onclick = function(){
+                    if(parseInt(window.getComputedStyle(img_wrap, null).left) >= 0 ){
+                        img_wrap.style.left = -1830 + 'px';
+                    }
+                    img_wrap.style.left = parseInt(window.getComputedStyle(img_wrap, null).left) + 610  + "px";
+                }
+                right.onclick = function(){
+                    img_wrap.style.left = parseInt(window.getComputedStyle(img_wrap, null).left) - 610  + "px";
+                    if(parseInt(window.getComputedStyle(img_wrap, null).left) <= -1830){
+                        img_wrap.style.left = 0 + 'px';
+                    }
+
+                    console.log(window.getComputedStyle(img_wrap,null).left)
+                }
               
 
 
