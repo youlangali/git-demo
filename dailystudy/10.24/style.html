@@ -203,66 +203,69 @@
 
 
             //    轮播图
-            var img = document.getElementsByTagName('img');
-                var img_wrap = document.getElementsByClassName('img_wrap')[0];
-                var show = document.getElementsByClassName('show')[0];
-                var list = document.getElementsByClassName('raidu_list')[0];
-                var left = document.getElementsByClassName('left')[0];
-                var right = document.getElementsByClassName('right')[0];
-                var arrow = document.getElementsByClassName('arrow')[0];
-                var radiu = list.getElementsByTagName('div');
-                var len = img.length;
-                var i = 0;
-                var timer;
-                function play() {
-                    timer = setInterval(function () {
-                        img_wrap.style.left = parseInt(window.getComputedStyle(img_wrap, null).left) - 610 + "px";
-                        i++;
-                        for (var j = 0; j < radiu.length; j++) {
-                            radiu[j].className = "";
-                        }
-                        if (parseInt(window.getComputedStyle(img_wrap, null).left) <= -1830) {
-                            img_wrap.style.left = "0px";
-                            i = 0;
-                        }
-                        radiu[i].className = "on";
+            // var img = document.getElementsByTagName('img');
+            //     var img_wrap = document.getElementsByClassName('img_wrap')[0];
+            //     var show = document.getElementsByClassName('show')[0];
+            //     var list = document.getElementsByClassName('raidu_list')[0];
+            //     var left = document.getElementsByClassName('left')[0];
+            //     var right = document.getElementsByClassName('right')[0];
+            //     var arrow = document.getElementsByClassName('arrow')[0];
+            //     var radiu = list.getElementsByTagName('div');
+            //     var len = img.length;
+            //     var i = 0;
+            //     var timer;
+            //     var img_left =  parseInt(window.getComputedStyle(img_wrap, null).left);
+            //     function offset(){
+            //         img_wrap.style.left = img_left - 610 + "px";
+            //     }
+            //     function play() {
+            //         timer = setInterval(function () {
+            //             offset()
+            //             i++;
+            //             for (var j = 0; j < radiu.length; j++) {
+            //                 radiu[j].className = "";
+            //             }
+            //             if (img_left <= -1830) {
+            //                 img_wrap.style.left = "0px";
+            //                 i = 0;
+            //             }
+            //             radiu[i].className = "on";
+            //         }, 3000);
+            //     }
+            //     play();
+            //     //   鼠标经过离开
+            //     function stop() {
+            //         clearInterval(timer);
+            //     }
+            //     show.onmouseover = stop;
+            //     show.onmouseout = play;
+            //     //     圆点
+            //     for (var k = 0; k < radiu.length; k++) {
+            //         (function (k) {
+            //             radiu[k].onclick = function () {
+            //                 img_wrap.style.left = - 610 * k + "px";
+            //                 for (var x = 0; x < radiu.length; x++) {
+            //                     radiu[x].className = "";
+            //                 }
+            //                 radiu[k].className = "on";
+            //             }
+            //         }(k))
+            //     }
+            //     //   左右箭头
 
-                    }, 3000);
-                }
-                play();
-
-                function stop() {
-                    clearInterval(timer);
-                }
-                show.onmouseover = stop;
-                show.onmouseout = play;
-                //     圆点
-                for (var k = 0; k < radiu.length; k++) {
-                    (function (k) {
-                        radiu[k].onclick = function () {
-                            img_wrap.style.left = - 610 * k + "px";
-                            for (var x = 0; x < radiu.length; x++) {
-                                radiu[x].className = "";
-                            }
-                            radiu[k].className = "on";
-                        }
-                    }(k))
-                }
-
-                left.onclick = function(){
-                    if(parseInt(window.getComputedStyle(img_wrap, null).left) >= 0 ){
-                        img_wrap.style.left = -1830 + 'px';
-                    }
-                    img_wrap.style.left = parseInt(window.getComputedStyle(img_wrap, null).left) + 610  + "px";
-                }
-                right.onclick = function(){
-                    img_wrap.style.left = parseInt(window.getComputedStyle(img_wrap, null).left) - 610  + "px";
-                    if(parseInt(window.getComputedStyle(img_wrap, null).left) <= -1830){
-                        img_wrap.style.left = 0 + 'px';
-                    }
-
-                    console.log(window.getComputedStyle(img_wrap,null).left)
-                }
+            //     left.onclick = function(){
+            //         if(parseInt(window.getComputedStyle(img_wrap, null).left) >= 0 ){
+            //             img_wrap.style.left = -1830 + 'px';
+            //         }
+            //         img_wrap.style.left = parseInt(window.getComputedStyle(img_wrap, null).left) + 610  + "px";
+            //     }
+            //     right.onclick = function(){
+            //         img_wrap.style.left = parseInt(window.getComputedStyle(img_wrap, null).left) - 610  + "px";
+            //         if(parseInt(window.getComputedStyle(img_wrap, null).left) <= -1830){
+            //             img_wrap.style.left = 0 + 'px';
+            //         }
+            //         console.log(window.getComputedStyle(img_wrap,null).left)
+            //     }
               
 
 
@@ -273,16 +276,28 @@
         height: 100px;
         background-color: green;
     }
+    .test li{
+        width: 100px;
+        height: 100px;
+        border: 1px red solid;
+    }
     </style>
     <!-- <div class="box1" onclick = "console.log('a')"></div> -->
-    <div class="box1"></div>
+    <!-- <div class="box1"></div> -->
+    <!-- 使用原生js，addEventListener,给每个li元素绑定一个click事件，输出他们的顺序 -->
+    <ul class="test">
+        <li>a</li>
+        <li>a</li>
+        <li>a</li>
+        <li>a</li>
+    </ul>
     <script>
           //  绑定事件
         // ele.onxxx = function(event){}    
         // 兼容性很好，但是一个元素的同一个事件上只能绑定一个处理程序
         //   基本等同于写在html上  
 
-    var box1= document.getElementsByClassName('box1')[0];
+    // var box1= document.getElementsByClassName('box1')[0];
     // box1.onclick = function(){
     //     box1.style.backgroundColor = "red";
     // }
@@ -313,8 +328,53 @@
         // }
 
 
+    // 使用原生js，addEventListener,给每个li元素绑定一个click事件，输出他们的顺序 
 
-        
+        // var li = document.getElementsByTagName('li');
+        // var len = li.length;
+        // for(var i = 0;i < len;i ++){
+        //     (function(i){
+        //     li[i].addEventListener('click',function(){
+        //         console.log(i);
+        //     },false)
+        //     }(i))
+        // }
+
+
+        //  addEventListener    addEvent     onxxxx     的this指向
+
+          var li = document.getElementsByTagName('li');
+
+          // 1  onxxx 中this指向
+        //   li[0].onclick = function(){
+        //       console.log(this);
+        //   }
+
+        //   2  addEventListener 中的this指向
+
+        // li[0].addEventListener('click',function(){
+        //     console.log(this)
+        // },false)
+
+        //   3  addEvent
+        // li[0].addEvent('on','click',function(){
+        //     console.log(this);
+        // })
+
+
+        //   封装兼容性的addEvent(elem,type,handle)方法
+
+        function addEvent(elem,type,handle){
+            if(elem.addEventListener()){
+                elem.addEventListener(type,handle,false)
+            }else{
+                elem.addEvent('on',type,handle)
+            }
+        }
+        addEvent(li[0],'click',function(){
+            console.log('a');
+        })
     </script>
+
 </body>
 </html>
