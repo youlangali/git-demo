@@ -1,0 +1,15 @@
+Ctrl + D   :    选中光标所在的这个词，继续Ctrl + D选中其他相同的词
+
+Ctrl + U    ：  回退上一个光标操作
+
+Shift + Alt + Left   和  Shift + Alt + Right  扩展/缩小选取范围
+
+Ctrl  + Delete  ： 删除光标右侧的所有字
+
+Shift + End  ：  选择从光标到行尾的所有
+
+Shift  + Home  ： 选择从光标到行首的所有
+
+Ctrl + Shift + [    :   对代码进行压缩
+
+

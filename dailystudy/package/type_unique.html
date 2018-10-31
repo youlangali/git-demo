@@ -51,11 +51,40 @@
 
 
 
+     //   封装兼容性的addEvent(elem,type,handle)方法
 
+        function addEvent(elem,type,handle){
+            if(elem.addEventListener){
+                elem.addEventListener(type,handle,false)
+            }else if(elem.attachEvent){
+                elem.attachEvent('on'+ type,handle)
+            }else{
+                elem['on' + type] = handle;
+            }
+        }
 
-
+//     封装  阻止冒泡事件
+    function cancelHandler(e) {
+        var e = e || window.event;
+        if (e.prevenDefault) {
+            e.prevenDefault();
+        } else {
+            e.returnValue = false;
+        }
+    }
 
     
+
+     //   封装阻止默认事件的函数  cancelHandler(event)
+
+            function cancelHandler(e){
+                var e = e || window.event;
+                if(e.returnValue){
+                    e.returnValue = false;
+                }else{
+                    e.prevenDefault();
+                }
+            }
     </script>
 </body>
 </html>

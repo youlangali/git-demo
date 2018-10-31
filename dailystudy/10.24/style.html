@@ -356,24 +356,30 @@
         //     console.log(this)
         // },false)
 
-        //   3  addEvent
-        // li[0].addEvent('on','click',function(){
+        //   3  attachEvent
+        // li[0].attachEvent('on','click',function(){
         //     console.log(this);
         // })
 
 
         //   封装兼容性的addEvent(elem,type,handle)方法
 
-        function addEvent(elem,type,handle){
-            if(elem.addEventListener()){
-                elem.addEventListener(type,handle,false)
-            }else{
-                elem.addEvent('on',type,handle)
-            }
-        }
-        addEvent(li[0],'click',function(){
-            console.log('a');
-        })
+        // function addEvent(elem,type,handle){
+        //     if(elem.addEventListener){
+        //         elem.addEventListener(type,handle,false)
+        //     }else if(elem.attachEvent){
+        //         elem.attachEvent('on'+ type,handle)
+        //     }else{
+        //         ele['on' + type] = handle;
+        //     }
+        // }
+        // addEvent(li[0],'click',function(){
+        //     console.log('a');
+        // })
+
+
+
+            
     </script>
 
 </body>
