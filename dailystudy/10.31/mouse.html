@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    input{
+        margin-top: 100px;
+        width: 300px;
+        height: 30px;
+        font-size: 20px;
+        color: #424242;
+        border: 1px red solid;
+    }
+    </style>
+</head>
+<body>
+    <div style="width: 100px;height: 100px;background-color: red;">
+        <div class="son" style="margin-left:100px;width: 50px;height: 50px;background-color: yellow;">
+
+        </div>
+    </div>
+    <input type="text" value="请输入姓名" onfocus="if(this.value == '请输入姓名'){this.value = ''}" onblur="if(this.value == ''){this.value = '请输入姓名'}">
+    <script>
+        x = 0;
+    y = 0;
+    var div = document.getElementsByTagName('div')[0];
+    var son = document.getElementsByClassName('son')[0];
+    div.onmouseenter = function(){// 鼠标经过
+        div.style.backgroundColor = 'green';
+        x +=1;
+        console.log('x' +":" + x);
+    }
+    // son.onmouseenter = function(){// 鼠标经过
+    //     // son.style.backgroundColor = 'black';
+    //     y +=1;
+    //     console.log('y' + ":" + y);
+    // }
+
+
+        // div.onmouseleave = function(){
+        //     div.style.backgroundColor = 'black';
+        // }
+
+
+
+
+    // div.onmouseout  = function(){//鼠标移出
+    //     div.style.backgroundColor = 'yellow';
+    // }
+    // div.onmouseleave = function(){//鼠标移出
+    //     div.style.backgroundColor = 'black';
+    // }
+    
+    // div.onmouseover = function(){//鼠标经过
+    //     // div.style.backgroundColor = 'pink';
+    //     x +=1;
+    //     console.log('x' +":" + x);
+    // }
+    // son.onmouseover = function(){//鼠标经过
+    //     // son.style.backgroundColor = 'black';
+    //     y +=1;
+    //     console.log('y' + ":" + y);
+    // }
+
+        //   onmouseove  鼠标移动
+    // div.onmousemove = function(){//鼠标移动
+    //     // div.style.backgroundColor = '#345';
+    //     x +=1;
+    //     console.log('x' +":" + x);
+    // }
+    // div.onmousemove = function(){//鼠标经过
+    //     // div.style.backgroundColor = '#345';
+    //     y +=1;
+    //     console.log('y' + ":" + y);
+    // }
+
+
+    // div.onmouseup = function(){//鼠标按下放开
+    //     div.style.backgroundColor = 'blue';
+    // }
+
+
+    // mouseenter和mouseover的区别
+    // mouseenter不存在冒泡现象,第一次经过其子元素会触发父元素的mounseenter事件，
+    //但是后面在父元素范围内不断的触发子元素的mouseenter事件，*不会*
+    //触发父元素的mouseenter事件
+
+    // mouseover存在冒泡，在父元素范围内不断的触发子元素的mouseover事件*也会*
+    //不断的触发父级的mouseover事件
+
+        //    鼠标右键事件
+        // div.oncontextmenu = function(){
+        //     console.log('a')
+        // }
+
+
+            //  顺序  onmousedown > onmouseup > click       click只监听左键
+            // document.onclick = function(){
+            //     console.log('click');
+            // }
+            // document.onmousedown = function(){
+            //     console.log('mousedown');
+            // }
+            // document.onmouseup = function(){
+            //     console.log('mouseup');
+            // }
+                
+                
+
+                //     onmousedown 和 mouseup 监听左右键事件
+                // document.onmousedown = function(e){
+                //     if(e.button == 2){
+                //         console.log('right');
+                //     }else if(e.button == 0){
+                //         console.log('left');
+                //     }else if(e.button == 1){
+                //         console.log('scroll')
+                //     }
+                // }
+
+
+                    //   区别a的点击和拖拽动作题目
+
+
+                    //  keydown keyup keypress
+                    
+
+                    // document.onkeydown = function(){
+                    //     console.log('keydown');
+                    // }
+                    // document.onkeyup = function(){
+                    //     console.log('keyup')
+                    // }
+                    // document.onkeypress = function(){
+                    //     console.log('keypress')
+                    // }
+
+
+                        //   onkeypress只能监控字符类按键 和 onkeydown 能监控所有的按键
+                        // document.onkeydown = function(e){
+                        //     console.log(e)
+                        // }
+                        // document.onkeypress = function(e){
+                        //     // console.log(e)
+                        //     console.log(String.fromCharCode(e.charCode))
+                        // }
+
+                        //   文本事件,
+                        //  当开始改动input中的内容就会触发oninput事件
+                        var input = document.getElementsByTagName('input')[0];
+                        // input.oninput = function(e){
+                        //     console.log(this.value)
+                        // }
+
+                        // onchange 是当input失去焦点时被触发，且input被触发前后无改变，也不会触发onchangge事件
+                        // input.onchange = function(){
+                        //     console.log(this.value);
+                        // }
+    </script>
+</body>
+</html>

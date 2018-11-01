@@ -24,18 +24,31 @@
     </style>
 </head>
 <body>
-    <div class="wrapper">
+    <!-- <div class="wrapper">
         <div class="cont">
             <div class="son"></div>
         </div>
     </div>
-    <div style="width: 100px;height: 1000px;"></div>
+    <div style="width: 100px;height: 1000px;"></div> -->
     <!-- <a href="#">这是百度的网址</a> -->
-    <a href="javascript:void(0)">这是百度的网址</a>
+    <!-- <a href="javascript:void(0)">这是百度的网址</a> -->
+
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+        <li>7</li>
+        <li>8</li>
+        <li>9</li>
+        <li>10</li>
+    </ul>
     <script>
-    var wrapper = document.getElementsByClassName('wrapper')[0];
-    var cont = document.getElementsByClassName('cont')[0];
-    var son = document.getElementsByClassName('son')[0];
+    // var wrapper = document.getElementsByClassName('wrapper')[0];
+    // var cont = document.getElementsByClassName('cont')[0];
+    // var son = document.getElementsByClassName('son')[0];
 
     //   事件冒泡
     // document.addEventListener('click',function(){
@@ -115,13 +128,25 @@
         //     void   === > return 
         //     void(0)    ===>>   return false
 
-                wrapper.onclick = function(e){
-                    var event
-                }
 
-                
+                //    事件源对象
+                // wrapper.onclick = function(e){
+                //     var e = e ||window.event;
+                //     console.log(e)
+                //     // console.log(e.target)    firfox and Chrome 有
+                //     // console.log(e.secElement)     IE    andChrome 有
+                // }
+
+                //  事件委托
+
+                    // var ul = document.getElementsByTagName('ul')[0];
+                    // ul.onclick  = function(e){
+                    //     var e = e || window.event;
+                    //     target =  e.target || e.srcElement;
+                    //     console.log(target.innerText)
+                    // }
+                    
     </script>
-    <b>阿里</b>
-    <strong>阿狸</strong>
+    
 </body>
 </html>
