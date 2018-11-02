@@ -1,12 +1,26 @@
-<!DOCTYPE html>
+;<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <!-- IE独有，等所欲dom文档加载完才执行 -->
+    <!-- <script src="joob.js" defer = "defer">
+    </script> -->
+
+
+    <!-- W3C标准，只能对外部的引用的js有作用 -->
+    <!-- <script src="joob.js" synac = "synac"></script> -->
 </head>
 <body>
+    <script>
+         var script = document.createElement('script');
+         script.src = 'joob.js';
+         script.type = 'text/javascript';
+         document.head.appendChild(script);
+    
+    </script>
     <script>
     // var obj = {
     //     "name" : "deng",
@@ -17,7 +31,13 @@
 
     // domTree +  cssTree  =  randerTree
     // reflow 重排  dom节点的删除，添加
-    //              dom节点
+    //              dom节点的宽高变化，位置变化，display none -->block;
+    //              offsetWidth   offsetLeft
+
+    //   repaint 重绘
+
+
+
     </script>
 </body>
 </html>
