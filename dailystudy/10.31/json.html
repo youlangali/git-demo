@@ -1,4 +1,4 @@
-;<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -16,10 +16,43 @@
 <body>
     <script>
          var script = document.createElement('script');
-         script.src = 'joob.js';
          script.type = 'text/javascript';
+         
          document.head.appendChild(script);
-    
+            // script.onload = function(){//兼容性很好，firfox,opera ,chrome,safari
+            //     test();
+            // }
+
+            // script.onreadystatechange = function(){//   IE独有
+            //     if(script.readyState == 'completed' || script.readyState == 'loaded'){
+            //         test();
+            //     }
+            // }
+
+            //   兼容写法
+                //      当需要满足条件后执行外部js中的函数时，
+              function loadScript(url,callBack){
+                  script.type = 'text/javascript';
+                  if(script.onreadystatechange){
+                      if(script.readyState == 'completed' || script.readyState == 'loaded'){
+                        //   eval(callBack);
+                        // callBack();
+                        tool[callBack]();
+                      }
+                  }else{
+                      script.onload = function(){
+                        // eval(callBack);
+                        // callBack();
+                        tool[callBack]();
+                      }
+                  }
+                  script.src = url;
+              }
+            //   loadScript('tools.js',function(){test()})
+              loadScript('tools.js','test')
+              //直接传送变量会undefined，所以传送‘test（）’，但是要用eval（callback），来运行字符串形式的代码
+              //  或者传送一个函数引用，function(){test()}，传进去不会访问内部变量
+            // script.src = 'tools.js';
     </script>
     <script>
     // var obj = {
@@ -35,6 +68,8 @@
     //              offsetWidth   offsetLeft
 
     //   repaint 重绘
+
+
 
 
 
