@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    //  正则表达式创建的两种方法
+    // var reg = new RegExp('abc','m');//构造函数
+    // var reg = /abc/;//字面量方法
+
+
+        // var reg = /acd/i;//ignoreCase缩写,无视大小写
+    //     var reg = /acd/g;//global缩写,查找所有匹配字符串，而非查找到第一个就停止
+
+    //  var reg = /acd/;//多行匹配
+    // var str = 'AcdAbcdcd\nacd'
+
+        //   \n  换行 
+        //   \t   一个制表符缩进
+        //  \r   行结束符
+
+        // var str = 'ackg\tjoa';
+
+        // var reg = /^a/gm;//^a   意思是行首第一个a    // gm  全局匹配多行执行
+        // var str = 'acavavav\na';
+
+    //使用RegExp的两种方式
+    // str.match(reg)
+    // reg.test(str)
+
+
+        // []里面代表一个字符
+        // var reg = /[cv]a/g;// [cv]代表第一个字符中cv中是其中一个就满足要求
+        // var str = 'acavavava';
+        
+        //   [0-9]匹配包括0到9的字符，[A-z]// 匹配包括A-Z，a-z的52个字符串
+        // var reg = /[0-9]d[a-z]/g;
+        // var str = '1230dz'
+
+        // var reg = /[ab][cd][d]/g;
+        // var str = 'abcd';
+        
+
+        // var reg = /[0-9A-z][cd][d]/g;
+        // var str = 'abcd';
+
+        //  ^ 用法
+        // var reg = /^[^a][^b]/gm;// 在[]中 ^ 表示非
+        // var str = "dc1c\nbc";
+
+        // var reg = /[^a][^b]/g;
+        // var str = "ab1cd";
+
+        // var reg = /(anc|acd)[0-9]/g;
+        // var str = "acd1";
+
+        //  world
+        // \w  === [0-9A-z]
+        //  \W  === [^\w]
+        
+        // var reg = /\wcd2/g;
+        // var reg = /\Wcd/g;
+        // var str = "b*cd2";
+
+        // \d  === [0-9]
+        // \D    ==== [^\d]
+        // var reg = /\d\d\d/g;
+        // var str = "123";
+
+        // var reg = /\w\d/g;
+        // var str = "sa4ofn";// ?
+        // var str = "*aa4ofn";
+
+        //   \b   ===  单词边界(单词与单词不连接在一起的就是单词边界)
+        //    \B  === 非单词边界
+        // var reg = /\bcde\b/g;
+        // var str = "abc cde acde";
+
+        // var reg = /\bc/g;
+        // var str = "abb cde\ncde*c";
+
+        // var reg = /\bcde\B/g;
+        // var str = "abc cdefgh"
+
+        //  \t // table 一个制表符缩进
+        // var reg = /\tc/g;
+        // // var str = "ac   cde";
+        // var str = "ac\tcde";
+
+        //  匹配所有字符，[\d\D]、[\w\W] ……
+        // var reg = /[\d\D]/g;
+        // var str = "忘记是否恶化";
+
+        //   .   === [^\r\n]
+        //   ???
+        // var reg = /^\d\d/g;  //  ^在[]之外是以什么为开头
+        // // // var reg = /[^\d]\w/g;
+        // var str = "a1s1";
+
+        // var reg = /./g;
+        // var str = "老 邓身体好";
+
+        // var reg = /[ack][b]/g;
+        // // var reg = /[ack]/g;
+        // var str = "ackb";
+        // var reg = /[0-9]/g;
+        // var str  = "165a486";
+
+        //   \s   === 寻找空白字符
+        //   \S  === 寻找非空白字符
+        // 空白字符可以是：
+        //     空格符(space character)
+        //     制表符(tab character)
+        //     回车符(carriage return character)
+        //     换行符(new line character)
+        //     垂直换行符(vertical tab character)
+        //     换页符(form feed character)
+
+        var reg = /\s/g;
+        var reg = /\S/g;
+        var str = "afe 12\rf\ne"
+    </script>
+</body>
+</html>
