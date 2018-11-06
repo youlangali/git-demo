@@ -75,7 +75,7 @@
         // var str = "sa4ofn";// ?
         // var str = "*aa4ofn";
 
-        //   \b   ===  单词边界(单词与单词不连接在一起的就是单词边界)
+        //   \b   ===  boundary单词边界(单词与单词不连接在一起的就是单词边界)
         //    \B  === 非单词边界
         // var reg = /\bcde\b/g;
         // var str = "abc cde acde";
@@ -120,9 +120,63 @@
         //     垂直换行符(vertical tab character)
         //     换页符(form feed character)
 
-        var reg = /\s/g;
-        var reg = /\S/g;
-        var str = "afe 12\rf\ne"
+        // var reg = /\s/g;
+        // var reg = /\S/g;
+        // var str = "afe 12\rf\ne"
+
+
+        // n+   {1, }   重复1到正无穷
+        // n*   {0, }    重复0到正无穷
+        // n?   {0,1}    重复{0,1}
+        // n{x}  {x}      重复x次
+        // n{x,y}  {x,y}     重复x到y 
+        //  n{x, }  {x, }     重复x到无穷次
+
+        // var reg = /^abc$/g;
+        // var str = "abc";
+
+        // var reg = /^\d|\d$/g;
+        // var str = "123abc1";
+        
+        //   题目： 检查一个字符串首尾是否含有数字？
+        // var reg = /^\d|\d$/g;   //   这样是输出一位数字
+        // var reg = /^\d[\s\S]*\d$/g;   // 这是输出字符串首尾都有数字
+        // var reg = /^\d[\s\S]*|[\s\S]*\d$/g;   // 这是输出自负春首尾一个有数字就行
+        // var str = "12ab1";
+
+        //    正则表达式是贪婪表达式，，能匹配多个，绝不输出一个
+        // var reg = /\w+/g;
+        // var reg = /\w{2,}/g;
+        // var reg = /a{1,3}/g;
+        // var str = "aaaaaaa";
+
+
+        // var reg = /[abcdede]/gm;  //  一个占位里面abcdede任选一个都可以匹配
+        // var reg = /[^abcdede]/gm;  //  一个占位里面只能匹配除abcdede之外的字符
+        // var reg = /ed$/g;
+        // var str = "abcdeded";
+
+
+        // var reg = /^abc$/g;
+        // var str = "abcabc";
+
+        // var reg = /^\d|\d$/g;
+        // var str = "123abc";
+
+
+        var reg = /ab/g;
+        var str = "abababab";
+        console.log(reg.lastIndex)
+        console.log(reg.exec(str))
+        console.log(reg.lastIndex)
+        console.log(reg.exec(str))
+        console.log(reg.lastIndex)
+        console.log(reg.exec(str))
+        console.log(reg.lastIndex)
+        console.log(reg.exec(str))
+        console.log(reg.exec(str))
+        console.log(reg.exec(str))
+
     </script>
 </body>
 </html>
