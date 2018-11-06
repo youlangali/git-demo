@@ -164,19 +164,45 @@
         // var str = "123abc";
 
 
-        var reg = /ab/g;
-        var str = "abababab";
-        console.log(reg.lastIndex)
-        console.log(reg.exec(str))
-        console.log(reg.lastIndex)
-        console.log(reg.exec(str))
-        console.log(reg.lastIndex)
-        console.log(reg.exec(str))
-        console.log(reg.lastIndex)
-        console.log(reg.exec(str))
-        console.log(reg.exec(str))
-        console.log(reg.exec(str))
+        // // var reg = /ab/g;
+        // var reg = /ab/;// 如果没有属性g的情况
+        
+        // var str = "abababab";
+        // console.log(reg.lastIndex)
+        // console.log(reg.exec(str))
+        // console.log(reg.lastIndex)
+        // console.log(reg.exec(str))
+        // console.log(reg.lastIndex)
+        // console.log(reg.exec(str))
+        // console.log(reg.lastIndex)
+        // console.log(reg.exec(str))
+        // console.log(reg.exec(str))
+        // console.log(reg.exec(str))
+        //     // 配合使用
+        // reg.lastIndex = 2; //手动更改会使得reg.exec展示相应的index位置的字符串
+        // console.log(reg.exec(str))//   返回str.match(reg)的值中匹配的第二个
 
+
+        //     子表达式（a）    \1反向引用第一个子表达式 \2反向引用第二个子表达式
+
+        //  选出任何的xxyy形式的正则表达式
+        // var str = "aabb1122aaaabb";
+        // var reg = /(\w)\1(\w)\2/g;
+        // console.log(reg.exec(str))
+        // console.log(str.match(reg))
+
+
+
+        // var reg = /(\w)\1(\w)\2/g;
+        // var reg = /d/g;
+        // var str = "aabbccddd";
+        // console.log(str.split("c"));// split  将字符串分割成字符串数组
+        // // console.log(str.split(reg));
+        
+
+        var str = "boo:and:foo";
+        var reg = /o/;
+        
     </script>
 </body>
 </html>
