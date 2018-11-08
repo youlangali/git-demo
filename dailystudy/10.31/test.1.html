@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+            *{
+                margin: 0;
+                padding: 0;
+            }
+            ul{
+                list-style: none;
+            }
+        .box1{
+            width: 1000px;
+            height: 80px;
+            font-size: 20px;
+            line-height: 80px;
+        }
+        .box1 > li{
+            float: left;
+            width: 33%;
+            border: 1px red solid;
+            text-align: center;
+            cursor: pointer;
+        }
+        .box2{
+            display: none;
+        }
+        .box3{
+            display: none
+        }
+        .active{
+            display: block;
+        }
+        
+        </style>
+</head>
+<body>
+        <ul class="box1">
+            <li>
+                第一级导航
+                <ul class="box2">
+                    <li>
+                        第二级导航
+                    </li>
+                    <li>
+                        第二级导航
+                        <ul class="box3">
+                            <li>第三级导航</li>
+                            <li>第三级导航</li>
+                            <li>第三级导航</li>
+                        </ul>
+                    </li>
+                    <li>第二级导航</li>
+                </ul>
+            </li>
+            <li>
+                第一级导航
+                <ul class="box2">
+                    <li>
+                        第二级导航
+                    </li>
+                    <li>
+                        第二级导航
+                        <ul class="box3">
+                            <li>第三级导航</li>
+                            <li>第三级导航</li>
+                            <li>第三级导航</li>
+                        </ul>
+                    </li>
+                    <li>第二级导航</li>
+                </ul>
+            </li>
+            <li>第一级导航</li>
+        </ul>
+        <script>
+        var box1 = document.getElementsByClassName('box1')[0];
+        var box1Li = box1.children;
+        var len = boxLi.length;
+        for(var i = 0;i < len ;i ++){
+            box1Li.onclick = function(){
+                box1Li.children.style.display  = "block";//box1Li里面的children是ul
+            }
+        }
+        </script>
+</body>
+</html>

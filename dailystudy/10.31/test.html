@@ -15,109 +15,73 @@
         }
     .box1{
         width: 1000px;
-        height: 100px;
-        text-align: center;
-        font-size: 24px;
-        line-height: 100px;
-        background-color: pink;
-        color: rgb(0, 53, 0);
+        height: 80px;
+        font-size: 20px;
+        line-height: 80px;
     }
-    .box1 > li{
-        float: left;
-        width: 20%;
-        box-sizing: border-box;
-        border: 1px red solid;
-    }
-    .box11,.box111{
+    .box2{
         display: none;
     }
-    .show{
+    .box3{
+        display: none
+    }
+    .active{
         display: block;
     }
+    
     </style>
 </head>
 <body>
+    <!-- ???? -->
     <ul class="box1">
-        <li class="box1Li">
-            1a
-            <ul class="box11">
+        <li>
+            ?????
+            <ul class="box2">
                 <li>
-                    2
-                    <ul class="box111">
-                        <li>333</li>
-                        <li>333</li>
-                        <li>333</li>
-                        <li>333</li>
-                        <li>333</li>
-                    </ul>
+                    ?????
                 </li>
                 <li>
-                    2
-                    <ul class="box222">
-                        <li>box333</li>
-                        <li>box333</li>
-                        <li>box333</li>
-                        <li>box333</li>
+                    ?????
+                    <ul class="box3">
+                        <li>?????</li>
+                        <li>?????</li>
+                        <li>?????</li>
                     </ul>
                 </li>
-                <li>box2</li>
-                <li>box2</li>
-                <li>box2</li>
+                <li>?????</li>
             </ul>
         </li>
-        <li class="box1Li">
-            1b
-            <ul class="box11">
+        <li>
+            ?????
+            <ul class="box2">
                 <li>
-                    <ul class="box111">
-                        <li>1a</li>
-                        <li>1a</li>
-                        <li>1a</li>
-                        <li>1a</li>
-                    </ul>
+                    ?????
                 </li>
                 <li>
-                    <ul class="box222">
-                        <li>1a</li>
-                        <li>1a</li>
-                        <li>1a</li>
-                        <li>1a</li>
+                    ?????
+                    <ul class="box3">
+                        <li>?????</li>
+                        <li>?????</li>
+                        <li>?????</li>
                     </ul>
                 </li>
-                <li>333</li>
-                <li>333</li>
-                <li>1333阿</li>
+                <li>?????</li>
             </ul>
         </li>
-        <li class="box1Li">1a</li>
-        <li class="box1Li">1a</li>
-        <li class="box1Li">1a</li>
+        <li>?????</li>
     </ul>
-    
     <script>
-        var box1Li = document.getElementsByClassName(' box1Li');
-        var len = box1Li.length;
-        for(var i = 0;i < len;i ++){
-            box1Li[i].onclick = function(){
-                for(var j = 0;j < len;j ++){
-                    console.log(box1Li[j].children[0])
-                    box1Li[j].children[0].style.display = 'none';
-                }
-                var box11 = this.children[0];
-                box11.style.display = 'block';
-            }
-        }
-        // (function(){
-            
-        // }())
-            
-            
-            
-            
-        
         
         
         
     </script>
+            
+            
+            
+        
+        
+        
+        
+ 
 </body>
 </html>
