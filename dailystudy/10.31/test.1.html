@@ -26,7 +26,7 @@
             text-align: center;
             cursor: pointer;
         }
-        .box2,.box22{
+        .box2{
             display: none;
             position: relative;
         }
@@ -52,25 +52,25 @@
                     <li>
                         第二级导航
                         <ul class="box3">
-                            <li>第3级导航</li>
-                            <li>第3级导航</li>
-                            <li>第3级导航</li>
+                            <li>第35级导航</li>
+                            <li>第35级导航</li>
+                            <li>第35级导航</li>
                         </ul>
                     </li>
                     <li>
                         第二级导航
                         <ul class="box3">
-                            <li>第33级导航</li>
-                            <li>第33级导航</li>
-                            <li>第33级导航</li>
+                            <li>第335级导航</li>
+                            <li>第3355级导航</li>
+                            <li>第335级导航</li>
                         </ul>
                     </li>
                     <li>
                         第二级导航
                         <ul class="box3">
-                            <li>第333级导航</li>
-                            <li>第333级导航</li>
-                            <li>第333级导航</li>
+                            <li>第3335级导航</li>
+                            <li>第3335级导航</li>
+                            <li>第3335级导航</li>
                         </ul>
                     </li>
                 </ul>
@@ -81,25 +81,25 @@
                     <li>
                         第二级导航
                         <ul class="box3">
-                            <li>第4级导航</li>
-                            <li>第4级导航</li>
-                            <li>第4级导航</li>
+                            <li>第3ff级导航</li>
+                            <li>第3ff级导航</li>
+                            <li>第3ff级导航</li>
                         </ul>
                     </li>
                     <li>
                         第二级导航
                         <ul class="box3">
-                            <li>第44级导航</li>
-                            <li>第44级导航</li>
-                            <li>第44级导航</li>
+                            <li>第33gg级导航</li>
+                            <li>第33gg级导航</li>
+                            <li>第33gg级导航</li>
                         </ul>
                     </li>
                     <li>
                         第二级导航
                         <ul class="box3">
-                            <li>第444级导航</li>
-                            <li>第444级导航</li>
-                            <li>第444级导航</li>
+                            <li>第333rr级导航</li>
+                            <li>第333rr级导航</li>
+                            <li>第333rr级导航</li>
                         </ul>
                     </li>
                 </ul>
@@ -110,37 +110,40 @@
                     <li>
                         第二级导航
                         <ul class="box3">
-                            <li>第三级导航</li>
-                            <li>第三级导航</li>
-                            <li>第三级导航</li>
+                            <li>第311级导航</li>
+                            <li>第311级导航</li>
+                            <li>第311级导航</li>
                         </ul>
                     </li>
                     <li>
                         第二级导航
                         <ul class="box3">
-                            <li>第三级导航</li>
-                            <li>第三级导航</li>
-                            <li>第三级导航</li>
+                            <li>第33111级导航</li>
+                            <li>第33111级导航</li>
+                            <li>第33111级导航</li>
                         </ul>
                     </li>
                     <li>
                         第二级导航
                         <ul class="box3">
-                            <li>第三级导航</li>
-                            <li>第三级导航</li>
-                            <li>第三级导航</li>
+                            <li>第333111级导航</li>
+                            <li>第333111级导航</li>
+                            <li>第333111级导航</li>
                         </ul>
                     </li>
                 </ul>
             </li>
-           
             
         </ul>
         <script>
         var box1 = document.getElementsByClassName('box1')[0];
-        var box2 = document.getElementsByClassName('box2')[0];
-        var box1Li = box1.children;
+        var box2 = document.getElementsByClassName('box2');
+        for(var i = 0;i <box2.length;i ++){
+
+        }
+        var box1Li = box1.children;//li
         var box2Li = box2.children;
+        // console.log(box2Li)
         var len = box1Li.length;
         var len2 = box2Li.length;
         for(var i = 0;i < len ;i ++){
@@ -152,24 +155,30 @@
                     }
                     box1Li[i].children[0].style.display =  "block";//box1Li里面的children是ul
                     // console.log(box1Li[i].children[0])
-                    for(var k = 0;k < len2 ;k ++){
-            (function(k){
-                box1Li[i].addEventListener('click',function(){
-                    for(var m = 0;m < len2;m ++){
-                        box2Li[m].children[0].style.display = "none";
-                        console.log(box2Li[m].children[0])
-                    }
-                    box2Li[k].children[0].style.display =  "block";//box1Li里面的children是ul
-                    // console.log(box1Li[i].children[0])
-                },true)
-            }(k))
-        }
+                    
                 },false)
-                
             }(i))
         }
-
-        
+        // for(var k = 0;k < len2 ;k ++){
+        //                 // console.log(k);
+        //     (function(k){
+        //         box2Li[k].addEventListener('click',function(){
+        //             console.log(k);
+        //             for(var m = 0;m < len2;m ++){
+        //                 box2Li[m].children[0].style.display = "none";
+        //                 console.log(box2Li[m].children[0])//循环出现
+        //             }
+        //             box2Li[k].children[0].style.display =  "block";//box1Li里面的children是ul
+        //             // console.log(box2Li[i].children[0])
+        //             // console.log(k);
+        //         },false)
+        //     }(k))
+        // }
+        // box2Li[1].addEventListener('click',function(){
+        //     box2Li[1].children[0].style.display =  "block";
+        // },false)
+            // console.log(box2Li[2].children[0]);
+        // box2Li[1].children[0].style.display =  "block";
         </script>
 </body>
 </html>
