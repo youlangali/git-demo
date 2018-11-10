@@ -5,12 +5,97 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <style>
+    .visible{
+        position: relative;
+        width: 300px;   
+        height: 150px;
+        margin: 0 auto;
+        box-sizing: border-box;
+        border: 1px red solid;
+    }
+    .wrap{
+        width: 902px;
+        height: 150px;
+        position: absolute;
+        left: 0;
+        top: 0;
+        box-sizing: border-box;
+        border: 1px red solid;
+    }
+    .wrap img{
+        width: 300px;
+        height: 150px;
+        display: block;
+        float: left;
+    }
+    .round{
+        position: absolute;
+        width: 60px;
+        left: calc(50% - 30px);
+        bottom: 10px;
+    }
+    .round div{
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background-color: rgb(255, 0, 0);
+        float: left;
+        margin: 0 5px;
+        cursor: pointer;
+    }
+    </style>
 </head>
 <body>
     <!-- 轮播图 -->
-    
+    <div class="visible">
+        <div class="wrap">
+            <img src="img/1.jpg" alt="">
+            <img src="img/2.jpg" alt="">
+            <img src="img/3.jpg" alt="">
+        </div>
+        <div class="round">
+                <div class="roundlist" index="0"></div>
+                <div class="roundlist" index="1"></div>
+                <div class="roundlist" index="2"></div>
+        </div>
+    </div>
     <script>
-    
+        var wrap = document.getElementsByClassName('wrap')[0];
+        var roundList = document.getElementsByClassName('roundlist');
+        // console.log(
+        //     roundList[0].getAttribute('index')
+        // )
+            function animate(speed) {
+                var justLeft = parseInt(getComputedStyle(wrap).left);
+                wrap.style.left = justLeft - speed + 'px';
+                if (justLeft == -600) {
+                    wrap.style.left = 0 + 'px';
+                }
+            }
+            // var timer = setInterval(
+            //     function () {
+            //         animate(300)
+            //     }
+            //     , 1000)
+                //    为了让点可以改变图片的运动轨迹
+                var len = roundList.length;
+                for(var i = 0;i < len;i ++){
+                    // console.log(i);
+                    roundList[i].addEventListener('click',function(){
+                        // clearInterval(timer);
+                        var firstIndex = -parseInt(getComputedStyle(wrap).left) / 300;
+                        var lastIndex = this.getAttribute('index');
+                        var index = firstIndex - lastIndex;
+                         wrap.style.left = index * 300 + 'px';
+                         console.log(firstIndex);
+                         console.log(lastIndex);
+                        // console.log(this.getAttribute('index'));
+                        // animate(index)
+                    },false) 
+                }
+               
+                
     </script>
 </body>
 </html>
