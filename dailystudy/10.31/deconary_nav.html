@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+            *{
+                margin: 0;
+                padding: 0;
+            }
+            ul{
+                list-style: none;
+            }
+        .box1{
+            width: 1000px;
+            height: 80px;
+            font-size: 20px;
+            line-height: 80px;
+        }
+        .box1 > li{
+            float: left;
+            width: 33%;
+            border: 1px red solid;
+            text-align: center;
+            cursor: pointer;
+        }
+        .box2{
+            display: none;
+            position: relative;
+        }
+        .box3{
+            display: none;
+            position:absolute;
+            width: 100%;
+            left: 100%;
+            top:0;
+            background-color: red;
+        }
+        .active{
+            display: block;
+        }
+        
+        </style>
+</head>
+<body>
+        <ul class="box1">
+            <li>
+                第一级导航
+                <ul class="box2">
+                    <li class="box2Li">
+                        第二级导航
+                        <ul class="box3">
+                            <li>第35级导航</li>
+                            <li>第35级导航</li>
+                            <li>第35级导航</li>
+                        </ul>
+                    </li>
+                    <li class="box2Li">
+                        第二级导航
+                        <ul class="box3">
+                            <li>第335级导航</li>
+                            <li>第3355级导航</li>
+                            <li>第335级导航</li>
+                        </ul>
+                    </li>
+                    <li class="box2Li">
+                        第二级导航
+                        <ul class="box3">
+                            <li>第3335级导航</li>
+                            <li>第3335级导航</li>
+                            <li>第3335级导航</li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                第一级导航
+                <ul class="box2">
+                    <li class="box2Li">
+                        第二级导航
+                        <ul class="box3">
+                            <li>第r级导航</li>
+                            <li>第r级导航</li>
+                            <li>第r级导航</li>
+                        </ul>
+                    </li>
+                    <li class="box2Li">
+                        第二级导航
+                        <ul class="box3">
+                            <li>第rr级导航</li>
+                            <li>第rr级导航</li>
+                            <li>第rr级导航</li>
+                        </ul>
+                    </li>
+                    <li class="box2Li">
+                        第二级导航
+                        <ul class="box3">
+                            <li>第rrr级导航</li>
+                            <li>第rrr级导航</li>
+                            <li>第rrr级导航</li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                第一级导航
+                <ul class="box2">
+                    <li class="box2Li">
+                        第二级导航
+                        <ul class="box3">
+                            <li>第t级导航</li>
+                            <li>第t级导航</li>
+                            <li>第t级导航</li>
+                        </ul>
+                    </li>
+                    <li class="box2Li">
+                        第二级导航
+                        <ul class="box3">
+                            <li>第tt级导航</li>
+                            <li>第tt级导航</li>
+                            <li>第tt级导航</li>
+                        </ul>
+                    </li>
+                    <li class="box2Li">
+                        第二级导航
+                        <ul class="box3">
+                            <li>第ttt级导航</li>
+                            <li>第ttt级导航</li>
+                            <li>第ttt5级导航</li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            
+        </ul>
+        <script>
+        var box1 = document.getElementsByClassName('box1')[0];
+            var box2Li = document.getElementsByClassName('box2Li');
+                var box1Li = box1.children ;//li
+           
+                
+            // var len = box1Li.length;
+            // for (var i = 0; i < len; i++) {
+            //         if(box1Li[i].children[0]){
+            //             box1Li[i].addEventListener('click', function () {
+            //             for (var j = 0; j < len; j++) {
+            //                 if(box1Li[j].children[0]){
+            //                     box1Li[j].children[0].style.display = "none";
+            //                 }
+            //             }
+            //             this.children[0].style.display = "block";//box1Li里面的children是ul
+            //         }, false)
+            //         }
+            // }
+
+            //  使用target方法  可能不兼容
+            // var len2 = box2.length;
+            // for (var i = 0; i < len2; i++) {
+            //     (function(i){
+            //         box2[i].addEventListener('click', function (e) {
+            //             // var len3 = box2[i].children.length;
+            //         // for (var j = 0; j < 9; j++) {
+            //         //     // box3[j].style.display = "none";
+            //         //     }
+            //         for (var j = 0; j < len2; j++) {
+            //             box2[i].children[j].children[0].style.display = "none";//将ul   box2里面的li遍历出来消失
+            //             }
+            //         var e = e || window.event;
+            //         var target = e.target || e.srcElement;
+            //         target.children[0].style.display = 'block';
+            //     }, true)
+            //     }(i))
+            // }
+            
+            //   使用原始方法
+            //  将box2 ul    下的li遍历出来   加上点击事件  然后将box2 ul    下的li遍历出来  将子元素的box3隐藏
+            // var len2 = box2Li.length;
+            // for(var i = 0;i < len2;i ++){
+                    
+            //     box2Li[i].addEventListener('click',function(){
+            //         for(var j = 0;j < len2;j ++){
+            //             box2Li[j].children[0].style.display = 'none';
+            //             console.log(box2Li[j].children[0])
+            //         }
+            //             this.children[0].style.display = 'block';
+            //             // console.log(this);
+            //         },false)
+            // }
+
+
+            //  优化
+            
+            function secNav(ele){
+                var len = ele.length;
+                for (var i = 0; i < len; i++) {
+                    var eleSon = ele[i].children[0];
+                    if(eleSon){
+                        ele[i].addEventListener('click', function () {
+                        for (var j = 0; j < len; j++) {
+                            if(eleSon){
+                                ele[j].children[0].style.display = "none";
+                            }
+                        }
+                        this.children[0].style.display = "block";//box1Li里面的children是ul
+                    }, false)
+                    }
+                }
+            }
+            secNav(box1Li);
+            secNav(box2Li);
+        </script>
+</body>
+</html>
