@@ -203,69 +203,69 @@
 
 
             //    轮播图
-            // var img = document.getElementsByTagName('img');
-            //     var img_wrap = document.getElementsByClassName('img_wrap')[0];
-            //     var show = document.getElementsByClassName('show')[0];
-            //     var list = document.getElementsByClassName('raidu_list')[0];
-            //     var left = document.getElementsByClassName('left')[0];
-            //     var right = document.getElementsByClassName('right')[0];
-            //     var arrow = document.getElementsByClassName('arrow')[0];
-            //     var radiu = list.getElementsByTagName('div');
-            //     var len = img.length;
-            //     var i = 0;
-            //     var timer;
-            //     var img_left =  parseInt(window.getComputedStyle(img_wrap, null).left);
-            //     function offset(){
-            //         img_wrap.style.left = img_left - 610 + "px";
-            //     }
-            //     function play() {
-            //         timer = setInterval(function () {
-            //             offset()
-            //             i++;
-            //             for (var j = 0; j < radiu.length; j++) {
-            //                 radiu[j].className = "";
-            //             }
-            //             if (img_left <= -1830) {
-            //                 img_wrap.style.left = "0px";
-            //                 i = 0;
-            //             }
-            //             radiu[i].className = "on";
-            //         }, 3000);
-            //     }
-            //     play();
-            //     //   鼠标经过离开
-            //     function stop() {
-            //         clearInterval(timer);
-            //     }
-            //     show.onmouseover = stop;
-            //     show.onmouseout = play;
-            //     //     圆点
-            //     for (var k = 0; k < radiu.length; k++) {
-            //         (function (k) {
-            //             radiu[k].onclick = function () {
-            //                 img_wrap.style.left = - 610 * k + "px";
-            //                 for (var x = 0; x < radiu.length; x++) {
-            //                     radiu[x].className = "";
-            //                 }
-            //                 radiu[k].className = "on";
-            //             }
-            //         }(k))
-            //     }
-            //     //   左右箭头
+            var img = document.getElementsByTagName('img');
+                var img_wrap = document.getElementsByClassName('img_wrap')[0];
+                var show = document.getElementsByClassName('show')[0];
+                var list = document.getElementsByClassName('raidu_list')[0];
+                var left = document.getElementsByClassName('left')[0];
+                var right = document.getElementsByClassName('right')[0];
+                var arrow = document.getElementsByClassName('arrow')[0];
+                var radiu = list.getElementsByTagName('div');
+                var len = img.length;
+                var i = 0;
+                var timer;
+                var img_left =  parseInt(window.getComputedStyle(img_wrap, null).left);
+                function offset(){
+                    img_wrap.style.left = img_left - 610 + "px";
+                }
+                function play() {
+                    timer = setInterval(function () {
+                        offset()
+                        i++;
+                        for (var j = 0; j < radiu.length; j++) {
+                            radiu[j].className = "";
+                        }
+                        if (img_left <= -1830) {
+                            img_wrap.style.left = "0px";
+                            i = 0;
+                        }
+                        radiu[i].className = "on";
+                    }, 3000);
+                }
+                play();
+                //   鼠标经过离开
+                function stop() {
+                    clearInterval(timer);
+                }
+                show.onmouseover = stop;
+                show.onmouseout = play;
+                //     圆点
+                for (var k = 0; k < radiu.length; k++) {
+                    (function (k) {
+                        radiu[k].onclick = function () {
+                            img_wrap.style.left = - 610 * k + "px";
+                            for (var x = 0; x < radiu.length; x++) {
+                                radiu[x].className = "";
+                            }
+                            radiu[k].className = "on";
+                        }
+                    }(k))
+                }
+                //   左右箭头
 
-            //     left.onclick = function(){
-            //         if(parseInt(window.getComputedStyle(img_wrap, null).left) >= 0 ){
-            //             img_wrap.style.left = -1830 + 'px';
-            //         }
-            //         img_wrap.style.left = parseInt(window.getComputedStyle(img_wrap, null).left) + 610  + "px";
-            //     }
-            //     right.onclick = function(){
-            //         img_wrap.style.left = parseInt(window.getComputedStyle(img_wrap, null).left) - 610  + "px";
-            //         if(parseInt(window.getComputedStyle(img_wrap, null).left) <= -1830){
-            //             img_wrap.style.left = 0 + 'px';
-            //         }
-            //         console.log(window.getComputedStyle(img_wrap,null).left)
-            //     }
+                left.onclick = function(){
+                    if(parseInt(window.getComputedStyle(img_wrap, null).left) >= 0 ){
+                        img_wrap.style.left = -1830 + 'px';
+                    }
+                    img_wrap.style.left = parseInt(window.getComputedStyle(img_wrap, null).left) + 610  + "px";
+                }
+                right.onclick = function(){
+                    img_wrap.style.left = parseInt(window.getComputedStyle(img_wrap, null).left) - 610  + "px";
+                    if(parseInt(window.getComputedStyle(img_wrap, null).left) <= -1830){
+                        img_wrap.style.left = 0 + 'px';
+                    }
+                    console.log(window.getComputedStyle(img_wrap,null).left)
+                }
               
 
 
