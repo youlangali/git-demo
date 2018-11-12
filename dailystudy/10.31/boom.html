@@ -27,7 +27,7 @@
 </head>
 <body>
     <ul class="wrap">
-        <li class="square" index="0"></li>
+        <li class="square" index="1"></li>
         <li class="square" index="2"></li>
         <li class="square" index="3"></li>
         <li class="square" index="4"></li>
@@ -38,8 +38,36 @@
         <li class="square" index="9"></li>
     </ul>
     <script>
-    //点开这个框    给予这个li一个数n 以及这个li的位置  将这个n散乱的分给九宫格之外的空格
+    //1、点开这个框    给予这个li一个数n 以及这个li的位置  将这个n散乱的分给九宫格之外的空格
+    var n,index,x;
     
+        // console.log(n);
+    var wrap = document.getElementsByClassName('wrap')[0];
+    var square = document.getElementsByClassName('square')[0];
+    
+    wrap.onclick = function(e){
+        n = Math.ceil(Math.random()*4);
+        var e = e || window.event;
+        var target = e.target || e.srcElement;
+        target.innerHTML = n;
+        x = target.getAttribute('index');//  x 是字符串形式
+        console.log(x - 4)
+        // console.log(index);
+        // return false;
+    }
+    var eightLi = {
+        0: function(){
+            
+        },
+        1: x - 4,
+        2: x - 3,
+        3: x - 2,
+        4: x - 1,
+        5: x + 1,
+        6: x + 2,
+        7: x + 3,
+        8: x + 4,
+    }
     </script>
 </body>
 </html>
