@@ -13,7 +13,7 @@
         margin: 0 auto;
         box-sizing: border-box;
         border: 1px red solid;
-        overflow: hidden;
+        /* overflow: hidden; */
     }
     .wrap{
         width: 902px;
@@ -91,81 +91,89 @@
         var roundList = document.getElementsByClassName('roundlist');
         var left = document.getElementsByClassName('left')[0];
         var right = document.getElementsByClassName('right')[0];
-        
-            function animate(speed) {
-                    var justLeft = parseInt(getComputedStyle(wrap).left);
-                    wrap.style.left = justLeft - speed + 'px';
-                    if (justLeft == -600) {
-                        wrap.style.left = 0 + 'px';
-                    }
-                }
-                //  点的变色
-                function round() {
-                    for (var j = 0; j < len; j++) {
-                        roundList[j].className = "roundlist";
-                    }
-                    var index = parseInt(getComputedStyle(wrap).left) / -300;
-                    roundList[index].className = "roundlist on";
-                }
+            // function animate(speed) {
+            //         var justLeft = parseInt(getComputedStyle(wrap).left) - speed;
+            //         if (justLeft < -600) {
+            //             justLeft = 0;
+            //         }else if(justLeft > 0){
+            //             justLeft = -600;
+            //         }
+            //         wrap.style.left = justLeft + 'px';
+            //     }
+            //     //  点的变色
+            //     function round() {
+            //         for (var j = 0; j < len; j++) {
+            //             roundList[j].className = "roundlist";
+            //         }
+            //         var index = parseInt(getComputedStyle(wrap).left) / -300;
+            //         roundList[index].className = "roundlist on";
+            //     }
 
-                function play() {
-                    timer = setInterval(
-                        function () {
-                            animate(300);
-                            round();
-                        }
-                        , 1000)
-                }
+            //     function play() {
+            //         timer = setInterval(
+            //             function () {
+            //                 animate(300);
+            //                 round();
+            //             }
+            //             , 1000)
+            //     }
 
-                play();
-                function stop() {
-                    clearInterval(timer)
-                }
+            //     play();
+            //     function stop() {
+            //         clearInterval(timer)
+            //     }
 
-                //    为了让点可以改变图片的运动轨迹
-                //   鼠标经过
-                visible.onmouseover = stop;
-                visible.onmouseout = play;
-                var len = roundList.length;
-                for (var i = 0; i < len; i++) {
-                    roundList[i].addEventListener('click', function () {
+            //     //    为了让点可以改变图片的运动轨迹
+            //     //   鼠标经过
+            //     visible.onmouseover = stop;
+            //     visible.onmouseout = play;
+            //     var len = roundList.length;
+            //     for (var i = 0; i < len; i++) {
+            //         roundList[i].addEventListener('click', function () {
+            //             var firstIndex = -parseInt(getComputedStyle(wrap).left) / 300;
+            //             var lastIndex = this.getAttribute('index');
+            //             var index = firstIndex - lastIndex;
+            //             wrap.style.left = parseInt(getComputedStyle(wrap).left) + index * 300 + 'px';
+            //             round();
+            //         }, false)
+            //     }
+            //     //   两边按钮点击动图
+            //     left.onclick = function () {
+            //         animate(-300)
+            //         round();
+            //     }
+            //     right.onclick = function () {
+            //         animate(300)
+            //         round();
+            //     }
 
-                        var firstIndex = -parseInt(getComputedStyle(wrap).left) / 300;
-                        var lastIndex = this.getAttribute('index');
-                        var index = firstIndex - lastIndex;
-                        wrap.style.left = parseInt(getComputedStyle(wrap).left) + index * 300 + 'px';
-                        round();
-                    }, false)
-                }
-                //   两边按钮点击动图
-                left.onclick = function () {
-                    var justLeft = parseInt(getComputedStyle(wrap).left);
-                    wrap.style.left = justLeft + 300 + 'px';
-                    if (justLeft == 0) {
-                        wrap.style.left = -600 + 'px';
-                    }
-                    round();
-                }
-                right.onclick = function () {
-                    animate(300)
-                    round();
-                }
+
+             
+
+
+
+                //   第二种百度方法
+                // var index = 1;
+                // function animate(offest){
+                //     var newLeft = parseInt(getComputedStyle(wrap).left) + offest;
+                //     if(newLeft > 0){
+                //         newLeft = -600;
+                //     }else if(newLeft < -600){
+                //         newLeft = 0;
+                //     }
+                //     wrap.style.left = newLeft + 'px';
+                // }
+                
+                // left.onclick = function(){
+                //     animate(300)
+                // }
+                // right.onclick = function(){
+                //     animate(-300)
+                // }
+
+
+
     </script>
-    <!-- <style>
-    .b{
-        width: 100px;
-        height: 100px;
-        border: 1px red solid;
-    }
-    </style>
-    <div class="arrow a">
-
-    </div>
-    <script>
-    var a = document.getElementsByClassName('a')[0];
-    a.className = "arrow a b";
-    console.log(a.className)
-    </script> -->
     
 </body>
 </html>
