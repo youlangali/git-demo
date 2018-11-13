@@ -7,18 +7,19 @@
     <title>Document</title>
     <style>
     .wrap{
-        width: 300px;
-        height: 300px;
+        width: 250px;
+        height: 250px;
         list-style: none;
         margin: 0;
         padding: 0;
     }
     .wrap li{
         float: left;
-        width: 100px;
-        height: 100px;
+        width: 50px;
+        height: 50px;
         box-sizing: border-box;
         border: 1px red solid;
+        background-color: rgb(255, 122, 122);
     }
     .red{
         background-color: red;
@@ -27,23 +28,40 @@
 </head>
 <body>
     <ul class="wrap">
-        <li class="square" index="1"></li>
-        <li class="square" index="2"></li>
-        <li class="square" index="3"></li>
-        <li class="square" index="4"></li>
-        <li class="square" index="5"></li>
-        <li class="square" index="6"></li>
-        <li class="square" index="7"></li>
-        <li class="square" index="8"></li>
-        <li class="square" index="9"></li>
+        <li class="square" index="1" value="true"></li>
+        <li class="square" index="2" value="true"></li>
+        <li class="square" index="3" value="true"></li>
+        <li class="square" index="4" value="true"></li>
+        <li class="square" index="5" value="true"></li>
+        <li class="square" index="6" value="1"></li>
+        <li class="square" index="7" value="1"></li>
+        <li class="square" index="8" value="true"></li>
+        <li class="square" index="9" value="2"></li>
+        <li class="square" index="10" value="1"></li>
+        <li class="square" index="11" value="true"></li>
+        <li class="square" index="12" value="1"></li>
+        <li class="square" index="13" value="boom"></li>
+        <li class="square" index="14" value="boom"></li>
+        <li class="square" index="15" value="1"></li>
+        <li class="square" index="16" value="true"></li>
+        <li class="square" index="17" value="1"></li>
+        <li class="square" index="18" value="2"></li>
+        <li class="square" index="19" value="3"></li>
+        <li class="square" index="20" value="true"></li>
+        <li class="square" index="21" value="true"></li>
+        <li class="square" index="22" value="true"></li>
+        <li class="square" index="23" value="true"></li>
+        <li class="square" index="24" value="1"></li>
+        <li class="square" index="25" value="boom"></li>
+        <!-- <li class="square" index="25" value="1"></li> -->
     </ul>
-    <script>
+    <!-- <script>
     //1、点开这个框    给予这个li一个数n 以及这个li的位置  将这个n散乱的分给九宫格之外的空格
     var n,index,x;
     
         // console.log(n);
     var wrap = document.getElementsByClassName('wrap')[0];
-    var square = document.getElementsByClassName('square')[0];
+    // var square = docume                                                                                                                                                                           nt.getElementsByClassName('square')[0];
     
     wrap.onclick = function(e){
         n = Math.ceil(Math.random()*4);
@@ -68,6 +86,66 @@
         7: x + 3,
         8: x + 4,
     }
-    </script>
+    </script> -->
+<script>
+//   1 当点击一个li     遇到value = true 相连就全部底色消失
+    var wrap = document.getElementsByClassName('wrap')[0];
+    var li = document.getElementsByClassName('square');
+    // 遍历兄弟节点,点击的这个li 的value = true ,那么将value = true 的兄弟元素节点选出来
+    // function sibling(ele) {
+    //         while (ele.nextSibling) {
+    //             if (ele.nextSibling.nodeType == 1) {
+    //                 if(ele.getAttribute('value') == 'true' ){
+    //                     ele.style.backgroundColor = "white";
+    //                     }
+    //                 ele = ele.nextSibling;
+    //             }
+    //         }
+    //     }
+    // sibling(square);
+    // wrap.onclick = function(e){
+    //     var e = e || window.event;
+    //     var target = e.target || e.srcElement;
+    //     sibling(target);
+    //     // target.style.backgroundColor = " ";
+    // }
+
+    //   从一个下手，
+    function blank(n) {
+        for(var i = 0;i < )
+            if (li[n-1] && li[n-1].getAttribute('value') == 'true') {
+                li[n-1].style.backgroundColor = "black";
+                if (n % 5 !== 0) {
+                    if (li[n] && li[n].getAttribute('value') == 'true') {
+                        li[n].style.backgroundColor = "black";
+                        blank(n+1);
+                    }
+                }
+                if (li[n + 4] && li[n + 4].getAttribute('value') == 'true') {
+                    li[n +4].style.backgroundColor = "black";
+                    blank(n + 5);
+                }
+                if (n - 5 >= 0) {
+                    if (li[n - 6] && li[n - 6].getAttribute('value') == 'true') {
+                        li[n -6].style.backgroundColor = "black";
+                        blank(n - 5);
+                    }
+                }
+            }
+        }
+        // function pre(n){
+            
+        //         if (n - 1 > 0) {
+        //             if (li[n - 2] && li[n - 2].getAttribute('value') == 'true') {
+        //                 li[n-2].style.backgroundColor = "black";
+        //                 blank(n - 1);
+        //             }
+        //         }
+        // }
+        blank(1)//指代第三个li
+</script>
+
+
+
 </body>
 </html>
