@@ -92,57 +92,88 @@
     var wrap = document.getElementsByClassName('wrap')[0];
     var li = document.getElementsByClassName('square');
     // 遍历兄弟节点,点击的这个li 的value = true ,那么将value = true 的兄弟元素节点选出来
-    // function sibling(ele) {
-    //         while (ele.nextSibling) {
-    //             if (ele.nextSibling.nodeType == 1) {
-    //                 if(ele.getAttribute('value') == 'true' ){
-    //                     ele.style.backgroundColor = "white";
-    //                     }
-    //                 ele = ele.nextSibling;
-    //             }
-    //         }
-    //     }
-    // sibling(square);
-    // wrap.onclick = function(e){
-    //     var e = e || window.event;
-    //     var target = e.target || e.srcElement;
-    //     sibling(target);
-    //     // target.style.backgroundColor = " ";
-    // }
+    // var index;
+    wrap.onclick = function(e){
+        var e = e || window.event;
+        var target = e.target || e.srcElement;
+        var index = target.getAttribute('index');
+        //  console.log(index)
+        // target.style.backgroundColor = " ";
+        test(index);
+        
+
+    }
 
     //   从一个下手，
-    function blank(n) {
-        for(var i = 0;i < )
-            if (li[n-1] && li[n-1].getAttribute('value') == 'true') {
-                li[n-1].style.backgroundColor = "black";
-                if (n % 5 !== 0) {
-                    if (li[n] && li[n].getAttribute('value') == 'true') {
-                        li[n].style.backgroundColor = "black";
-                        blank(n+1);
-                    }
+    function nextbot(n) {
+            if (n <= 25 && li[n - 1] && li[n - 1].getAttribute('value') == 'true') {
+                li[n - 1].style.backgroundColor = "black";
+                var x = 5 * Math.ceil(n / 5);
+                // console.log(x);
+                if (n % 5 !== 0 && n < x && li[n] && li[n].getAttribute('value') == 'true') {
+                    li[n].style.backgroundColor = "black";
+                    nextbot(n + 1);
                 }
-                if (li[n + 4] && li[n + 4].getAttribute('value') == 'true') {
-                    li[n +4].style.backgroundColor = "black";
-                    blank(n + 5);
-                }
-                if (n - 5 >= 0) {
-                    if (li[n - 6] && li[n - 6].getAttribute('value') == 'true') {
-                        li[n -6].style.backgroundColor = "black";
-                        blank(n - 5);
-                    }
+                if (n - 5 > 0 && li[n - 6] && li[n - 6].getAttribute('value') == 'true') {
+                    li[n - 6 ].style.backgroundColor = "black";
+                    nextbot(n - 5);
                 }
             }
         }
-        // function pre(n){
-            
-        //         if (n - 1 > 0) {
-        //             if (li[n - 2] && li[n - 2].getAttribute('value') == 'true') {
-        //                 li[n-2].style.backgroundColor = "black";
-        //                 blank(n - 1);
-        //             }
-        //         }
-        // }
-        blank(1)//指代第三个li
+        function nextup(n) {
+            if (n <= 25 && li[n - 1] && li[n - 1].getAttribute('value') == 'true') {
+                li[n - 1].style.backgroundColor = "black";
+                var x = 5 * Math.ceil(n / 5);
+                // console.log(x);
+                if (n % 5 !== 0 && n < x && li[n] && li[n].getAttribute('value') == 'true') {
+                    li[n].style.backgroundColor = "black";
+                    nextup(n + 1);
+                }
+                if (n <= 25 && li[n + 4] && li[n + 4].getAttribute('value') == 'true') {
+                    li[n + 4].style.backgroundColor = "black";
+                    nextup(n + 5);
+                }
+            }
+        }
+        function preup(n) {
+            if (n <= 25 && li[n - 1] && li[n - 1].getAttribute('value') == 'true') {
+                li[n - 1].style.backgroundColor = "black";
+                var x = 5 * Math.ceil(n / 5);
+                // console.log(x);
+                if (n - 1 > 0 && li[n - 2] && li[n - 2].getAttribute('value') == 'true') {
+                    li[n - 2].style.backgroundColor = "black";
+                    preup(n - 1);
+                }
+                if (n <= 25 && li[n + 4] && li[n + 4].getAttribute('value') == 'true') {
+                    li[n + 4].style.backgroundColor = "black";
+                    preup(n + 5);
+                }
+            }
+        }
+        function prebot(n) {
+            if (n <= 25 && li[n - 1] && li[n - 1].getAttribute('value') == 'true') {
+                li[n - 1].style.backgroundColor = "black";
+                var x = 5 * Math.ceil(n / 5);
+                if (n - 1 > 0 && li[n - 2] && li[n - 2].getAttribute('value') == 'true') {
+                    li[n - 2].style.backgroundColor = "black";
+                    prebot(n - 1);
+                }
+                if (n - 5 > 0 && li[n - 6] && li[n - 6].getAttribute('value') == 'true') {
+                    li[n - 6].style.backgroundColor = "black";
+                    prebot(n - 5);
+                }
+            }
+        }
+        // console.log(index);
+    function test(index){
+        function test(index){
+    function test(index){
+        nextup(index)//指代第三个li
+        nextbot(index)//指代第三个li
+        preup(index)//指代第三个li
+        prebot(index)//指代第三个li
+    }
+        
 </script>
 
 
