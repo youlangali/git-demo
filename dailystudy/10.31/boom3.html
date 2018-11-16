@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        ul,li{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+    .flag{
+        background: url(img/flag.jpg);
+        background-size: 100%;
+    }
+    .div{
+        float: left;
+        width: 50px;
+        height: 50px;
+        box-sizing: border-box;
+        border: 1px red solid;
+    }
+    .box{
+        width:500px;
+        height: 500px;
+    }
+    .lei_num{
+        color: red ;
+        font-size: 16px;
+        text-align: center;
+    }
+    .div_origin{
+        background-color: burlywood;
+    }
+    .div_number{
+        color: red;
+        line-height: 60px;
+    }
+    </style>
+</head>
+<body>
+        <ul class="box">
+           
+        </ul>
+    <script>
+        //init
+        var leiNum,leiArr = [];
+        var direction = [[-1,-1],[-1,0],[-1,1],[0,-1],[0,1],[1,-1],[1,1]];//每个格子的八个方位
+        var length = direction.length;
+        var box = document.getElementsByClassName('box')[0];
+        var divElements = document.getElementsByClassName('div');
+        //  1、先100个格子，随机分布10分雷
+        var leiNum = 10;
+        for (var i = 0; i <= leiNum; i++) {
+                var randomLei = Math.floor(Math.random() * 99) + 1;
+                if (leiArr.indexOf(randomLei) == -1) {
+                    leiArr.push(randomLei);
+                } else {
+                    i--;
+                    continue;
+                }
+            }
+        for(var i = 1;i < 11;i ++){
+            for(var j = 1;j < 11; j ++){
+                div = document.createElement('div');
+                div.addEventListener('click',function(){
+                    // 格子展示，0就一起展示
+                },false);
+                div.addEventListener('contextmenu',function(e){
+                    e.preventDefault();
+                    // 插旗
+                },false);
+                div.className = "div div_origin";
+                box.appendChild(div);
+            }
+        }
+        //  先判断这个格子是不是雷，每个格子八个方位的雷的数量，并且赋给格子本身
+        // var leiArr = [43, 98, 24, 10, 25, 30, 45, 3, 78, 85, 23];
+        function directionLei(x,y){
+            var number = (x -1 )*10 + y;
+            if(leiArr.indexOf(number) !== -1){
+                return 100;//这是雷
+            }else{
+                number = 0;
+                for(var k = 0;k < length;k ++){
+                var i  = x + direction[k][0];
+                var j  = y + direction[k][1];
+                if(i < 11 && j < 11 && i > 0 && j > 0)
+                var u = (i - 1)*10 + j;
+                if(leiArr.indexOf(u) !== -1){
+                    number ++
+                }
+            }
+            }
+            return number;
+        }
+        // var num = directionLei(6,10);
+        //点击后每个格子的展示，如果是雷，就爆炸，如果不是雷，就数字，连续0，就一起展示
+        function show(x,y,obj){
+            var isFlagDiv = obj.className.indexOf('div_flag');
+            if(isFlagDiv == -1){
+                var number = directionLei(x,y);
+            if(number == 100){
+                alert("you are lose");
+                // obj.classList.add('div_lei');
+                // obj.classList.remove('div_origin');
+            }else{
+                obj.classList.remove('div_origin');
+                obj.classList.add('div_number');
+                obj.innderHTML = number;
+            }
+            if(number === 0){
+                for(var k = 0;k < length;k ++){
+                    var i = (x - 1)*10 + direction[k][0];
+                    var j = (y- 1)*10 + direction[k][0];
+                    var u = (i - 1)*10 + j;
+
+                }
+                // if(obj.className.indexOf('div_origin') == -1){
+
+                // }
+            }
+            }
+            
+        }
+    </script>
+</body>
+</html>
