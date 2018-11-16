@@ -64,16 +64,21 @@
             }
         for(var i = 1;i < 11;i ++){
             for(var j = 1;j < 11; j ++){
-                div = document.createElement('div');
-                div.addEventListener('click',function(){
+                (function(i,j){
+                    div = document.createElement('div');
+                div.addEventListener('click',function(e){
                     // 格子展示，0就一起展示
+                    show(i,j,e.target)
                 },false);
                 div.addEventListener('contextmenu',function(e){
                     e.preventDefault();
                     // 插旗
+                    flag(i,j,e.target)
                 },false);
                 div.className = "div div_origin";
                 box.appendChild(div);
+                }(i,j))
+                
             }
         }
         //  先判断这个格子是不是雷，每个格子八个方位的雷的数量，并且赋给格子本身
@@ -111,19 +116,33 @@
                 obj.classList.add('div_number');
                 obj.innderHTML = number;
             }
-            if(number === 0){
-                for(var k = 0;k < length;k ++){
-                    var i = (x - 1)*10 + direction[k][0];
-                    var j = (y- 1)*10 + direction[k][0];
-                    var u = (i - 1)*10 + j;
-
+            if (number === 0) {
+                    for (var k = 0; k < length; k++) {
+                        var i = (x - 1) * 10 + direction[k][0];
+                        var j = (y - 1) * 10 + direction[k][0];
+                        var u = (i - 1) * 10 + j;
+                        var dirDiv = divElements[(u - 1) * 10 + j - 1]
+                        if (dirDiv !== undefined && i > 0 && j > 0 && i < 11 && j < 11) {
+                            if (dirDiv.innerHTML === '') {
+                                show(i, j, dirDiv);
+                            }
+                        }
+                    }
                 }
-                // if(obj.className.indexOf('div_origin') == -1){
-
-                // }
-            }
             }
             
+        }
+
+        //   插旗的过程
+        function flag(x,y,obj){
+            var isNumberDiv = obj.className.indexOf('div_number');
+            var isFlagDiv = obj.className.indexOf('div_flag');
+           if(isNumberDiv == -1){
+               (isFlagDiv == -1) ? leiNum --:leiNum++;
+           }
+           if(leiNum === 0){
+               alert("you are winer");
+           }
         }
     </script>
 </body>
