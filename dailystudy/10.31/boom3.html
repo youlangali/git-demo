@@ -26,13 +26,15 @@
         width:500px;
         height: 500px;
     }
-    .lei_num{
+    /* .lei_num{
         color: red ;
         font-size: 16px;
         text-align: center;
-    }
+    } */
     .div_origin{
         background-color: burlywood;
+        box-shadow: 1px 5px 5px #A9A9A9;
+
     }
     .div_number{
         color: red;
@@ -90,19 +92,21 @@
             }else{
                 number = 0;
                 for(var k = 0;k < length;k ++){
-                var i  = x + direction[k][0];
-                var j  = y + direction[k][1];
-                if(i < 11 && j < 11 && i > 0 && j > 0)
-                var u = (i - 1)*10 + j;
+                 i  = x + direction[k][0];
+                 j  = y + direction[k][1];
+                if(i < 11 && j < 11 && i > 0 && j > 0){
+                    var u = (i - 1)*10 + j;
                 if(leiArr.indexOf(u) !== -1){
                     number ++
                 }
-            }
+                }
+                
             }
             return number;
+            }
         }
         // var num = directionLei(6,10);
-        //点击后每个格子的展示，如果是雷，就爆炸，如果不是雷，就数字，连续0，就一起展示
+        //点击后每个格子的展    示，如果是雷，就爆炸，如果不是雷，就数字，连续0，就一起展示
         function show(x,y,obj){
             var isFlagDiv = obj.className.indexOf('div_flag');
             if(isFlagDiv == -1){
@@ -118,9 +122,9 @@
             }
             if (number === 0) {
                     for (var k = 0; k < length; k++) {
-                        var i = (x - 1) * 10 + direction[k][0];
-                        var j = (y - 1) * 10 + direction[k][0];
-                        var u = (i - 1) * 10 + j;
+                        var i = x + direction[k][0];
+                        var j = y + direction[k][0];
+                        // var u = (i - 1) * 10 + j;
                         var dirDiv = divElements[(u - 1) * 10 + j - 1]
                         if (dirDiv !== undefined && i > 0 && j > 0 && i < 11 && j < 11) {
                             if (dirDiv.innerHTML === '') {
@@ -130,20 +134,26 @@
                     }
                 }
             }
-            
         }
 
         //   插旗的过程
         function flag(x,y,obj){
             var isNumberDiv = obj.className.indexOf('div_number');
             var isFlagDiv = obj.className.indexOf('div_flag');
-           if(isNumberDiv == -1){
-               (isFlagDiv == -1) ? leiNum --:leiNum++;
-           }
+           if(isNumberDiv == -1)
+           {
+            (isFlagDiv === -1 )?obj.classList.add('div_flag'):obj.classList.remove('div_flag');
+            var tagetDiv = (x - 1) * 10 + y;
+            if(leiArr.indexOf(tagetDiv)!==-1 )
+            {
+                (isFlagDiv === -1)?leiNum--:leiNum++;
+            }
+        }
            if(leiNum === 0){
                alert("you are winer");
            }
         }
+        // flag(1,2,obj)
     </script>
 </body>
 </html>
