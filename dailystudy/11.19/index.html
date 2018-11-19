@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <label for="demo" id="label">姓名</label>
+    <input type="text" id="demo" value="请输入姓名" index= "0">
+    <div class="pre"></div>
+    <script>
+    //   浏览器基本组成   
+    // 1、url -> ip
+    // 2、tcp
+    // 3、js html css img
+    // 4、js时间线
+    // 5、渲染过程  -->   渲染引擎
+    // 6、tcp 四次挥手
+
+
+        //渲染模式（怪异模式，标准模式）
+        // console.log(document.compatMode);//用来判断当前浏览器渲染的方式，backCompat是指怪异模式，css1Compat是指标准模式
+
+
+
+        //  lable的用法
+    // var demo = document.getElementById('demo');
+    // var label = document.getElementById('label');
+    // demo.onclick = function(){
+    //     console.log(this);
+    // }
+    // label.onclick = function(){
+    //     console.log(this);
+    // }
+
+
+
+
+        //  属性 和 特性
+        //   属性：标签自带的属性，DOM对象 === input 一一对应   映射关系   你变我也变   可以通过demo.className 等方式获取
+        //   特性： 人为的给标签加的属性，和DOM对象没有映射关系，不能通过demo.className 等方式获取，更改，可以通过getAttribute和setAttribute获取，修改
+    // var demo = document.getElementById('demo');
+    // // 属性
+    // console.log(demo.id);
+    // console.log(demo.value);
+    // console.log(demo.type);
+    // demo.id = "test";
+    // console.log(demo.id);
+    // //特性
+    // console.log(demo.index);
+    // demo.index = "2";
+    // console.log(demo.index);
+    // demo.setAttribute('index',"2");
+
+
+
+
+    //   预加载和懒加载
+    //  预加载：就是不让图片像“瀑布”一样出现，影响视觉体验，而是等图片加载完一次性的展示出来
+    //    懒加载： 就是先加载一部分，等用户触发了事件再加载另一页面，用在鼠标滚轮事件
+    //   预加载
+    // var pre = document.getElementsByClassName('pre')[0];
+    // var img = new Image();
+    // img.onload = function(){
+    //     pre.appendChild('pre');
+    // }
+    // img.src = 'http://static.fuwo.com/upload/attachment/1603/03/afcd5162e10111e5bfc200163e00254c.jpg';
+    //  监控滑轮事件    懒加载
+    //  不断判断当前div的位置
+    //   采取预加载
+    //   把图片正式的添加到页面之中
+
+
+
+
+    // Math.random()//[0,1)
+    //  在12和36之间任取一个数
+    // var num = 12 + 24*Math.random();
+
+
+    //    概率抽奖问题
+    // var num = Math.random()*100;
+    // if(num < 1){
+    //     console.log('一次');
+    // }else if(num < 2){
+    //     console.log('二次');
+    // }else if(num <3){
+    //     console.log('三次');
+    // }else{
+    //     console.log('谢谢惠顾')
+    // }
+
+
+
+    //   虚拟dom
+    </script>
+</body>
+</html>
