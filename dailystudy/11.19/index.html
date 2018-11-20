@@ -7,9 +7,23 @@
     <title>Document</title>
 </head>
 <body>
-    <label for="demo" id="label">姓名</label>
+    <!-- <label for="demo" id="label">姓名</label>
     <input type="text" id="demo" value="请输入姓名" index= "0">
     <div class="pre"></div>
+    <ul id="wrapper"> 
+
+    </ul> -->
+
+    <div class="  demo   active   wrapper ">
+            <span class="  demodemo">1</span>
+            <span class=" demo    active  ">
+                <div class="en demo  ">
+2
+                </div>
+            </span>
+    </div>
+    <div class="      demo      sibling ">3</div>
+    <div>2</div>
     <script>
     //   浏览器基本组成   
     // 1、url -> ip
@@ -95,6 +109,48 @@
 
 
     //   虚拟dom
+    // var oF = document.createDocumentFragment();
+    // var oUl = document.getElementById('wrapper');
+    // for(var i = 0;i < 10; i ++){
+    //     var newLi = document.createElement('li');
+    //     newLi.innerText = i + '';
+    //     oF.appendChild(newLi);
+    // }
+    // oUl.appendChild(oF);
+    //   操作  获取   修改
+
+
+
+    // className  ie9以下不兼容  document   Element
+    Element.prototype.getElementsByClassName = Document.prototype.getElementsByClassName = function(_className){
+        //   _className
+        //获取document下面的所有标签
+        var allDomArray =this.getElementsByTagName('*');
+        // console.log(allDomArray);
+        var lastDomArray = [];
+        function trimSpace(strClass){//去掉空格
+        var reg = /\s+/g;
+        return strClass.replace(reg,' ');
+        }
+        
+        var allDomlen = allDomArray.length;
+        for (var i = 0; i < allDomlen; i++) {
+            var lastStrArray = trimSpace(allDomArray[i].className).trim();
+            var classArray = lastStrArray.split(' ');
+            for (var j = 0; j < classArray.length; j++) {
+                if (classArray[j] == _className) {
+                    lastDomArray.push(allDomArray[i]);
+                    break;
+                }
+            }
+        }
+        return lastDomArray
+    };
+    var wrapper = document.getElementsByClassName('wrapper')[0];
+    var active = wrapper.getElementsByClassName('active');
+    // var demo = document.getElementsByClassName('demo');
+
+
     </script>
 </body>
 </html>
