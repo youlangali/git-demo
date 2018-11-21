@@ -126,7 +126,10 @@
   Element.prototype.getElementsByClassName = Document.prototype.getElementsByClassName = function (_className,_className2){
         //   _className
         //获取document下面的所有标签
+
+        
         var allDomArray = this.getElementsByTagName('*');
+  
         // console.log(allDomArray);
         var lastDomArray = [];
         function trimSpace(strClass){//去掉空格
@@ -145,24 +148,19 @@
                 }
             }
         }
-        // (typeof _className2) == "undefined" ?  : console.log(_className2);
-        // if(typeof _className2 == "undefined"){
-        //     return lastDomArray
-        // }else{
-        //     this.getElementsByClassName(_className2);
-        // }
-        
-        // console.log(typeof _className2);
-        
+        // return lastDomArray;
+        var obj = [];
+        var k;
+        obj[k] = lastDomArray;
+        console.log(obj);
+       k++;
+        (typeof _className2) == "undefined" ? console.log(2) : this.getElementsByClassName(_className2);
+       
     };
     var wrapper = document.getElementsByClassName('en','wrapper');
     // var active = wrapper.getElementsByClassName('active en');
 
-    // function obj(){
-
-    // }
-    
-    
+   
     </script>
 </body>
 </html>
