@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        /* body{
+            position: relative;
+        } */
+    .red{
+        position:absolute;
+        left: 0;
+        top: 0;
+        width: 100px;
+        height: 100px;
+        background-color: red;
+        opacity: 0.01;
+    }
+    .btn{
+        position: absolute;
+        top: 300px;
+        background-color: #000;
+        color: white;
+    }
+    </style>
+</head>
+<body>
+    <div class="red"></div>
+    <button class="btn">run</button>
+    <script>
+    var div = document.getElementsByClassName('red')[0];
+    var btn = document.getElementsByClassName('btn')[0];
+    function getStyle(ele,attr){
+        if(ele.currentStyle){
+            return ele.currentStyle[attr];
+        }else{
+            return window.getComputedStyle(ele,false)[attr];
+        }
+    }
+    var speed;
+    var cur;
+    btn.onclick = function () {
+            
+        }
+       var timer = setInterval(function(){
+            cur = parseFloat(getStyle(div, 'opacity'));
+                speed = (1 - cur) / 7;
+                
+                div.style.opacity = cur + speed;
+                if(cur == 1){
+                    clearInterval(timer)
+                }
+                console.log(1);
+       },300)
+//    function active(ele,target) {
+                 
+//             }
+            // active(div,1);
+    // console.log(typeof getStyle(div,'width'))
+    </script>
+</body>
+</html>

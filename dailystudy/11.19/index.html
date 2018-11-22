@@ -14,7 +14,7 @@
 
     </ul> -->
 
-    <div class="  demo   active   wrapper ">
+    <!-- <div class="  demo   active   wrapper ">
             <span class="  demodemo">1</span>
             <span class=" demo    active  ">
                 <div class="en demo  ">
@@ -23,7 +23,12 @@
             </span>
     </div>
     <div class="      demo      sibling ">3</div>
-    <div>2</div>
+    <div>2</div> -->
+
+    <div>
+
+    </div>
+
     <script>
     //   浏览器基本组成   
     // 1、url -> ip
@@ -123,42 +128,50 @@
 
     // className  ie9以下不兼容  document   Element  ？？？无法做到两个传送？？？？
     
-  Element.prototype.getElementsByClassName = Document.prototype.getElementsByClassName = function (_className,_className2){
-        //   _className
-        //获取document下面的所有标签
-
+//   Element.prototype.getElementsByClassName = Document.prototype.getElementsByClassName = function (_className,_className2){
+//         //   _className
+//         //获取document下面的所有标签
         
-        var allDomArray = this.getElementsByTagName('*');
-  
-        // console.log(allDomArray);
-        var lastDomArray = [];
-        function trimSpace(strClass){//去掉空格
-        var reg = /\s+/g;
-        return strClass.replace(reg,' ');
-        }
+//         var allDomArray = this.getElementsByTagName('*');
         
-        var allDomlen = allDomArray.length;
-        for (var i = 0; i < allDomlen; i++) {
-            var lastStrArray = trimSpace(allDomArray[i].className).trim();
-            var classArray = lastStrArray.split(' ');
-            for (var j = 0; j < classArray.length; j++) {
-                if (classArray[j] == _className) {
-                    lastDomArray.push(allDomArray[i]);
-                    break;
-                }
-            }
-        }
-        // return lastDomArray;
-        var obj = [];
-        var k;
-        obj[k] = lastDomArray;
-        console.log(obj);
-       k++;
-        (typeof _className2) == "undefined" ? console.log(2) : this.getElementsByClassName(_className2);
-       
-    };
-    var wrapper = document.getElementsByClassName('en','wrapper');
+//             var lastDomArray = [];//如果要保留两个数值，就不能将这个最终的容器包含在循环之内，不然会重新归0；
+        
+//         function trimSpace(strClass){//去掉空格
+//         var reg = /\s+/g;
+//         return strClass.replace(reg,' ');
+//         }
+//         function ret(_className) {
+//           var allDomlen = allDomArray.length;
+//           for (var i = 0; i < allDomlen; i++) {
+//               var lastStrArray = trimSpace(allDomArray[i].className).trim();
+//               var classArray = lastStrArray.split(' ');
+//               for (var j = 0; j < classArray.length; j++) {
+//                   if (classArray[j] == _className) {
+//                       lastDomArray.push(allDomArray[i]);
+//                       break;
+//                   }
+//               }
+//           }
+//       }
+//         ret(_className);
+//         (typeof _className2) == "undefined" ? console.log(2) : ret(_className2);
+//        return lastDomArray;
+//     };
+//     var wrapper = document.getElementsByClassName('en','wrapper');
     // var active = wrapper.getElementsByClassName('active en');
+
+
+
+    //  debugger
+    // var div = document.getElementsByTagName('div');
+    // for(var i = 0;i < 2;i ++){
+    //     debugger;
+    //     console.log(i);
+    //     div[i].className = "class" + i;
+        
+    // }
+   
+
 
    
     </script>
