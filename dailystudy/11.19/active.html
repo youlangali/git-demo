@@ -16,7 +16,7 @@
         width: 100px;
         height: 100px;
         background-color: red;
-        opacity: 0.01;
+        opacity: 1;
     }
     .btn{
         position: absolute;
@@ -24,11 +24,21 @@
         background-color: #000;
         color: white;
     }
+    span.line{
+        position: absolute;
+        display: block;
+        top: 0;
+        left: 600px;
+        /* width: 1px; */
+        height: 300px;
+        border: 1px #000000 solid;
+    }
     </style>
 </head>
 <body>
     <div class="red"></div>
     <button class="btn">run</button>
+    <span class="line"></span>
     <script>
     var div = document.getElementsByClassName('red')[0];
     var btn = document.getElementsByClassName('btn')[0];
@@ -39,26 +49,39 @@
             return window.getComputedStyle(ele,false)[attr];
         }
     }
-    var speed;
-    var cur;
-    btn.onclick = function () {
+    // var speed;
+    // var cur;
+    // btn.onclick = function () {
+    //         move(div,100)
+    //     }
+    //     function move(ele, target) {
+    //             var timer = setInterval(function () {
+    //                 cur = parseFloat(getStyle(ele, 'opacity')) * 100;
+    //                 speed = (target - cur) / 7;
+    //                 ele.style.opacity = (cur + speed) / 100;
+    //                 if (Math.ceil(cur) == 100) {
+    //                     clearInterval(timer)
+    //                 }
+    //                 console.log(Math.ceil(cur));
+    //             }, 300)
+    //         }
+       
+        //   从左运动到线就停止
+        // var cur,speed;
+        // var timer = setInterval(function(){
+        //     cur = parseFloat(getStyle(div,'left'));
+        //     // console.log(cur);
+        //     speed = (500 - cur)/7;
+        //     div.style.left = cur + speed + 'px';
+        //     console.log(div.style.left)
+        //     if(Math.ceil(cur) >= 500){
+        //         div.style.left = 500 + 'px';
+        //         clearInterval(timer);
+        //     }
+        // },30)
+
+            //   从右运动到线就停止
             
-        }
-       var timer = setInterval(function(){
-            cur = parseFloat(getStyle(div, 'opacity'));
-                speed = (1 - cur) / 7;
-                
-                div.style.opacity = cur + speed;
-                if(cur == 1){
-                    clearInterval(timer)
-                }
-                console.log(1);
-       },300)
-//    function active(ele,target) {
-                 
-//             }
-            // active(div,1);
-    // console.log(typeof getStyle(div,'width'))
     </script>
 </body>
 </html>
