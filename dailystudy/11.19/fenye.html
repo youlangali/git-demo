@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        ul{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+    .cont1{
+        display: none;
+        width: 100%;
+        height: 200px;
+        background-color: red;
+        color: white;
+        font-size: 50px;
+        text-align: center;
+    }
+    ul.subpage{
+        width: 400px;
+        margin: 0 auto;
+    }
+   .subpage > li{
+        float: left;
+        width: 40px;
+        height: 40px;
+        line-height: 40px;
+        text-align: center;
+        background-color: aliceblue;
+        box-sizing: border-box;
+        border: 1px rgb(236, 236, 236) solid;
+        cursor: pointer;
+    }
+    .wrapper{
+        width: 480px;
+        margin: 0 auto;
+    }
+    .left,.right{
+        width: 40px;
+        height: 40px;
+        background-color: aliceblue;
+        box-sizing: border-box;
+        border: 1px rgb(236, 236, 236) solid;
+        line-height: 40px;
+        text-align: center;
+    }
+    .left{
+        float: left;
+    }
+    .right{
+        float: right;
+    }
+    li.yellow{
+        background-color: coral;
+    }
+    </style>
+</head>
+<body>
+    <div>
+        <ul class="cont1">
+            <li>1</li>
+        </ul>
+        <ul class="cont1">
+            <li>2</li>
+        </ul>
+        <ul class="cont1">
+            <li>3</li>
+        </ul>
+        <ul class="cont1">
+            <li>4</li>
+        </ul>
+        <ul class="cont1">
+            <li>5</li>
+        </ul>
+        <ul class="cont1">
+            <li>6</li>
+        </ul>
+        <ul class="cont1">
+            <li>7</li>
+        </ul>
+        <ul class="cont1">
+            <li>8</li>
+        </ul>
+        <ul class="cont1">
+            <li>9</li>
+        </ul>
+        <ul class="cont1">
+            <li>10</li>
+        </ul>
+       
+    </div>
+    <div class="wrapper">
+        <div class="left">《</div>
+        <ul class="subpage">
+            <li class="yellow" index="0">1</li>
+            <li index="1">2</li>
+            <li index="2">3</li>
+            <li index="3">4</li>
+            <li index="4">5</li>
+            <li index="5">6</li>
+            <li index="6">7</li>
+            <li index="7">8</li>
+            <li index="8">9</li>
+            <li index="9">10</li>
+        </ul>
+        <div class="right">》</div>
+    </div>
+    
+
+    <script>
+    var subpage = document.getElementsByClassName('subpage')[0];
+    var left = document.getElementsByClassName('left')[0];
+    var right = document.getElementsByClassName('right')[0];
+    var subLi = subpage.getElementsByTagName('li');
+    var cont1 = document.getElementsByClassName('cont1');
+    cont1[0].style.display  = "block";
+    var liLen = subLi.length;
+    var index = 0;
+        for (var i = 0; i < liLen; i++) {
+            subLi[i].onclick = function(){
+                index = this.getAttribute('index');
+                // console.log(index);
+                active(index);
+            }
+        }
+        
+    function active(index) {
+            for (var j = 0; j < liLen; j++) {
+                subLi[j].className = "";
+                cont1[j].style.display = 'none';
+            }
+            
+            subLi[index].className = 'yellow';
+            cont1[index].style.display = 'block';
+        }
+
+    left.onclick = function(){
+        index--;
+        if(index < 0){
+            index = 0;
+        }
+        active(index);
+    }
+    right.onclick = function(){
+        // console.log(index);
+        index++;
+        if(index > 9){
+            index = 9;
+        }
+        active(index);
+        
+    }
+    </script>
+</body>
+</html>

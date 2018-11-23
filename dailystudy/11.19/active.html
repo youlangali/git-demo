@@ -11,7 +11,7 @@
         } */
     .red{
         position:absolute;
-        left: 0;
+        left:1200px;
         top: 0;
         width: 100px;
         height: 100px;
@@ -65,7 +65,7 @@
     //                 console.log(Math.ceil(cur));
     //             }, 300)
     //         }
-       
+        
         //   从左运动到线就停止
         // var cur,speed;
         // var timer = setInterval(function(){
@@ -81,7 +81,28 @@
         // },30)
 
             //   从右运动到线就停止
-            
+        //     var cur,speed;
+        // var timer = setInterval(function(){
+        //     cur = parseFloat(getStyle(div,'left'));
+        //     // console.log(cur);
+        //     speed = (500 - cur)/7;
+        //     div.style.left = cur + speed + 'px';
+        //     console.log(div.style.left)
+        //     if(Math.ceil(cur) <= 500){
+        //         div.style.left = 500 + 'px';
+        //         clearInterval(timer);
+        //     }
+        // },30)
+
+                //   颜色
+                var cur ,speed;
+                var timer = setInterval(function(){
+                    var cur = parseFloat(getStyle(div,'opacity'));
+                    speed = (target - cur)/7;
+                    div.style.opacity = cur + speed;
+                },300);
+
+        
     </script>
 </body>
 </html>
