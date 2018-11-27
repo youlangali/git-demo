@@ -135,7 +135,7 @@ var target1 = {
                     } else {
                         cur = parseInt(getStyle(ele, attr));
                     }
-                    console.log(cur)
+                    // console.log(cur)
                     speed = (target[attr] - cur) / 7;
                     // console.log(Math.ceil(speed));
                     speed = speed > 0 ? Math.ceil(speed) : Math.floor(speed);
@@ -147,26 +147,19 @@ var target1 = {
                     if (target[attr] !== cur) {
                         stop = false;
                     }
+                    // console.log(speed);
                 }
                 if (stop) {
+                    // console.log(stop);
                     clearInterval(ele.timer);
                     typeof callback == 'function' ? callback() : '';
                 }
             }, 30)
         }
-    // div[0].onclick = function(){
-    //     move(this,target,function(){
-    //         move(div[1],target)
-    //     })
-    // }
+    
     move(div[0],target,function(){
         move(div[1],target)
     })
-    // div[0].onmouseenter = function(){
-    //     move(this,'width',target)
-    // }
-    // div[0].onmouseleave = function(){
-    //     move(this,'width',target1)
-    // }
+   
 </script>
 </html>

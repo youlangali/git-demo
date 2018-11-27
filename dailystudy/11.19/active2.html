@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    .red{
+        /* position:absolute; */
+        /* left:0px;
+        top: 0; */
+        margin-bottom: 40px;
+        width: 100px;
+        height: 100px;
+        background-color: red;
+        opacity:1;
+    }
+    </style>
+    
+</head>
+<body>
+    <div class="red"></div>
+    <div class="red"></div>
+    <div class="red"></div>
+    <div class="red"></div>
+    <script>
+    var div = document.getElementsByClassName('red');
+    // var speed,cur;
+    // for(var i = 0;i < div.length;i ++){
+    //     div[i].onmouseenter = function(){
+    //         startMove(this,400)
+    //     }
+    //     div[i].onmouseleave= function(){
+    //         startMove(this,100)
+    //     }
+    // }
+
+    div[0].onmouseenter = function(){
+            move(this,'width',target)
+        }
+        div[0].onmouseleave= function(){
+            move(this,'width',target)
+        }
+    function getStyle(ele,attr){
+        if(ele.currentStyle){
+            return ele.currentStyle[attr];
+        }else{
+            return window.getComputedStyle(ele,false)[attr];
+        }
+    }
+    //   四个轮播width动起来
+// var timer;
+//     function startMove(ele, target) {
+//                 clearInterval(ele.timer);
+//                 var speed;
+//             ele.timer = setInterval(function () {
+//                 speed = (target - ele.offsetWidth)/7;
+//                 speed = speed > 0 ? Math.ceil(speed) : Math.floor(speed);
+//                 if (ele.offsetWidth === target) {
+//                     clearInterval(ele.timer);
+//                 }else{
+//                     // console.log(target,ele.offsetWidth);
+//                 ele.style.width = ele.offsetWidth + speed + 'px';
+//                 // console.log(ele.style.width,speed);
+//                 }
+//             }, 30)
+//         }
+
+//   多物多值多属性
+var Targetobj = {
+    width: 400,
+    height:400,
+    opacity:50,
+    left: 300,
+    top:200
+}
+function move(ele,attr,target){
+    clearInterval(ele.timer);
+    var speed,cur;
+    ele.timer = setInterval(function(){
+        if(attr == 'opacity'){
+            cur = parseInt(getStyle(ele,'opacity'))*100;
+        }else{
+            cur = parseInt(getStyle(ele,attr));
+        }
+        speed = (target[attr] - cur)/7;
+        speed = speed > 0 ? Math.ceil(speed) : Math.floor(speed);
+        if(attr == 'opacity'){
+            ele.style[attr] = (cur + speed)/100;
+        }else{
+            ele.style[attr] = cur + speed + 'px';
+        }
+        if(target[attr] == cur){
+            clearInterval(ele.timer);
+        }
+        
+    },300)
+}
+// move(div[0],'width',Targetobj)
+    </script>
+</body>
+</html>
