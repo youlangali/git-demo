@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    /* .red{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100px;
+        height: 100px;
+        opacity: 1;
+        border-radius: 50%;
+        background-color: #f40;
+    }
+    .line{
+        position: absolute;
+        left: 300px;
+        top: 0;
+        height: 100px;
+        border: 1px red solid;
+    } */
+    ul{
+        padding: 0;
+        margin: 0;
+        list-style: none;
+    }
+    .nav{
+        position: relative;
+        width: 600px;
+        height: 80px;
+        margin: 100px auto 0;
+    }
+    .nav_list{
+        width: 148px;
+        height: 78px;
+        border: 1px #000000 solid;
+        text-align: center;
+        font-size: 20px;
+        color: red;
+        line-height: 78px;
+        float: left;
+    }
+    .bg{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 150px;
+        height: 80px;
+        background-color: rgb(255, 81, 0);
+        z-index: -1;
+    }
+    </style>
+</head>
+<body>
+    <!-- 加速运动 -->
+    <!-- <div class="red"></div>
+    <span class="line"></span> -->
+
+
+    <!-- 导航 -->
+    <ul class="nav">
+        <li class="nav_list">wepack</li>
+        <li class="nav_list">es6</li>
+        <li class="nav_list">node</li>
+        <li class="nav_list">vue</li>
+        <li class="bg"></li>
+    </ul>
+    <script>
+        var div = document.getElementsByClassName('red')[0];
+        function getStyle(ele,attr){
+            if(ele.currentStyle){
+                return ele.currentStyle[attr];
+            }else{
+                return window.getComputedStyle(ele,false)[attr];
+            }
+        }
+        // function move(ele){
+        //     clearInterval(ele.timer);
+        //     var speed = 0,cur,a = 2;
+        //     ele.timer = setInterval(function(){
+        //         speed = speed + a;
+        //         ele.style.left = ele.offsetLeft + speed + 'px';
+        //     },30)
+        // }
+        // div.onclick = function(){
+        //     move(this)
+        // }
+
+        //  弹性运动
+    //     function move(ele){
+    //         clearInterval(ele.timer);
+    //         var speed = 50,a,cur,u = 0.8;
+    //         ele.timer = setInterval(function(){
+    //             a = (300 - ele.offsetLeft)/8;
+    //             speed +=a;
+    //             speed *=u;
+    //             // console.log(speed,a,ele.style.left);
+    //             ele.style.left = ele.offsetLeft + speed + 'px';
+    //             if(Math.abs(speed) <= 1 && Math.abs(300 - ele.offsetLeft) <= 1){
+    //                 clearInterval(ele.timer);
+    //                 console.log(speed,ele.offsetLeft);
+    //                 ele.style.left = 300 + 'px';
+    //             }
+    //         },30)
+    //     }
+    //  div.onclick = function(){
+    //         move(this)
+    //     }
+
+    //   导航特效
+    var nav = document.getElementsByClassName('nav_list');
+    var bg = document.getElementsByClassName('bg')[0];
+    for(var i = 0;i < nav.length;i ++){
+        nav[i].onmouseenter = function(){
+            var newLeft = this.offsetLeft;
+            // console.log(typeof newLeft);
+            move(bg,newLeft);
+            // console.log(1)
+        }
+    }
+    function move(ele,target){
+            clearInterval(ele.timer);
+            var speed = 50,a,cur,u = 0.72;
+            ele.timer = setInterval(function(){
+                a = (target - ele.offsetLeft)/4;
+                speed +=a;
+                speed *=u;
+                // console.log(speed,a,ele.style.left);
+                ele.style.left = ele.offsetLeft + speed + 'px';
+                if(Math.abs(speed) <= 1 && Math.abs(target - ele.offsetLeft) <= 1){
+                    clearInterval(ele.timer);
+                    // console.log(speed,ele.offsetLeft);
+                    ele.style.left = target + 'px';
+                }
+                console.log(speed,a,ele.style.left,ele.offsetLeft);
+            },30)
+        }
+        // move()
+    </script>
+</body>
+</html>
