@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    .red{
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100px;
+        height: 100px;
+        background-color: red;
+
+    }
+    </style>
+</head>
+<body>
+    <!-- 弹性运动，遇到边界就弹回来 -->
+    <div class="red"></div>
+    <script>
+    var div = document.getElementsByClassName('red')[0];
+    function getStyle(ele,attr){
+        if(ele.currentStyle){
+           return ele.currentStyle[attr];
+        }else{
+           return window.getComputedStyle(ele,false)[attr];
+        }
+    }
+   function move(ele){
+       clearInterval(ele.timer);
+       var speedX = 3,
+       speedY = 4;
+       ele.timer = setInterval(function(){
+           ele.style.left = ele.offsetLeft + speedX + 'px';
+           ele.style.top = ele.offsetTop + speedY + 'px';
+       },30)
+   }
+   div.onclick = function(){
+       move(this);
+   }
+   // ele.offsetWidth是指ele的当前对象的宽度，包括width，padding,border
+   //  ele.clientWidth 是指ele的可视化区域的宽度，不包括边框
+    </script>
+</body>
+</html>
