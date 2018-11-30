@@ -33,9 +33,13 @@
        clearInterval(ele.timer);
        var speedX = 3,
        speedY = 4;
+       var newLeft = ele.offsetLeft;
+       var newTop = ele.offsetLeft;
        ele.timer = setInterval(function(){
            ele.style.left = ele.offsetLeft + speedX + 'px';
            ele.style.top = ele.offsetTop + speedY + 'px';
+           
+           if(ele.offsetTop )
        },30)
    }
    div.onclick = function(){

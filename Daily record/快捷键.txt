@@ -12,4 +12,4 @@ Shift  + Home  ： 选择从光标到行首的所有
 
 Ctrl + Shift + [    :   对代码进行压缩
 
-
+Ctrl + Left   : 光标跳动
