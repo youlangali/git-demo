@@ -15,11 +15,21 @@
         background-color: red;
 
     }
+    .black{
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: inline-block;
+        width: 5px;
+        height: 5px;
+        background-color: black;
+    }
     </style>
 </head>
 <body>
     <!-- 弹性运动，遇到边界就弹回来 -->
     <div class="red"></div>
+    <!-- <span class="black"></span> -->
     <script>
     var div = document.getElementsByClassName('red')[0];
     function getStyle(ele,attr){
@@ -29,22 +39,130 @@
            return window.getComputedStyle(ele,false)[attr];
         }
     }
-   function move(ele){
+   function move(ele,speedX,speedY){
        clearInterval(ele.timer);
-       var speedX = 3,
-       speedY = 4;
+    //    var speedX = 6,
+    //    speedY = 8;
        var newLeft = ele.offsetLeft;
        var newTop = ele.offsetLeft;
+       var g = 2;
        ele.timer = setInterval(function(){
+           speedY += g;
            ele.style.left = ele.offsetLeft + speedX + 'px';
            ele.style.top = ele.offsetTop + speedY + 'px';
-           
-           if(ele.offsetTop )
+           var limitHei = document.documentElement.clientHeight - ele.offsetHeight,
+                limitWid = document.documentElement.clientWidth - ele.offsetWidth;
+               
+           if(ele.offsetTop >= limitHei && speedY > 0){
+               speedY *= -0.8;
+               speedX *= 0.8;
+               ele.style.top = limitHei + 'px';
+           }
+        //    console.log(ele.offsetTop,speed);
+           if(ele.offsetTop <= 0 && speedY < 0){
+                speedY *= -0.8;
+                speedX *= 0.8;
+               ele.style.top = '0px';
+           }
+           if(ele.offsetLeft >= limitWid && speedX > 0){
+                speedX *= -0.8;
+                speedY *= 0.8;
+               ele.style.left = limitWid + 'px';
+           }
+           if(ele.offsetLeft <= 0 && speedX < 0){
+               speedX *= -0.8;
+               speedY *= 0.8;
+               ele.style.left = '0px';
+           }
+           if(Math.abs(speedX) <= 1){
+               speedX = 0;
+           }
+           if(Math.abs(speedY) <= 1){
+               speedY = 0;
+           }
+         if(speedX == 0 && speedY == 0 && ele.offsetTop == limitHei){
+             clearInterval(ele.timer);
+         }
+           console.log(ele.style.top,speedY,speedX);
+
        },30)
    }
-   div.onclick = function(){
-       move(this);
-   }
+//    div.onclick = function(){
+//        move(this);
+//    }
+
+//   拖拽运动
+
+function attachMOve(ele){
+
+}
+// div.onmousedown = function(e){
+//     var e = e || window.event;
+//     // var disX = e.clienX - this.offsetLeft,
+//     //     disY = e.clientY - this.offsetTop;
+//     var oriX = e.clientX,
+//         oriY = e.clientY;
+//         var that = this;
+//         document.onmousemove = function(e){
+//             var disX = e.clientX - oriX;
+//             var disY = e.clientY - oriY;
+//             that.style.left = disX + that.offsetLeft + 'px';
+//             that.style.top = disY + that.offsetTop + 'px';
+//             oriX = e.clientX;
+//             oriY = e.clientY;
+//         }
+//         console.log(oriY)
+// }
+// document.onmouseup = function(){
+//     document.onmousedown = null;
+//     document.onmousemove = null;
+// }
+
+// var lastX = div.offsetLeft;
+// var lastY = div.offsetTop;
+// div.onmousedown = function(e){
+//     clearInterval(this.timer);
+//     var e = e || window.event;
+//     var disX = e.clientX - this.offsetLeft;
+//     var disY = e.clientY - this.offsetTop;
+//     var that = this;
+//     var iSpeedX = 0;
+//     var iSpeedY = 0;
+//     document.onmousemove = function(e){
+//         var newLeft = e.clientX - disX;
+//         var newTop = e.clientY - disY;
+        
+//         iSpeedX = newLeft - lastX;
+//         iSpeedY = newTop - lastY;
+//         lastX = newLeft;
+//         lastY = newTop;
+//         // var span = document.createElement('span');
+//         // span.className = 'black';
+//         that.style.left = newLeft + 'px'  ;
+//         that.style.top =  newTop + 'px';
+//         // span.style.left = that.offsetLeft + 'px';
+//         // span.style.top = that.offsetTop + 'px';
+//         // document.body.appendChild(span);
+//         // console.log(newLeft,newTop,div.offsetLeft,div.offsetHeight)
+//         console.log(that.offsetLeft,that.offsetTop)
+//     }
+//     // console.log(lastX,lastY,disX,disY);
+// document.onmouseup = function(){
+//     document.onmousedown = null;
+//     document.onmousemove = null;
+//     move(that,iSpeedX,iSpeedY)
+// }
+// }
+var x = 0,y=0;
+div.onmousedown = function(e){
+    document.onmousemove = function(){
+        x+=1;
+    }
+    document.onmouseup = function(){
+        document.onmousemove = null;
+    }
+}
+
    // ele.offsetWidth是指ele的当前对象的宽度，包括width，padding,border
    //  ele.clientWidth 是指ele的可视化区域的宽度，不包括边框
    
