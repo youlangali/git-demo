@@ -13,3 +13,11 @@ Shift  + Home  ： 选择从光标到行首的所有
 Ctrl + Shift + [    :   对代码进行压缩
 
 Ctrl + Left   : 光标跳动
+
+Ctrl + Backspace : 删除左侧整个单词
+
+Ctrl + Delet ：删除右侧整个单词
+
+Backspace ： 删除左侧单个字母
+
+Delete : 删除右侧单个字母

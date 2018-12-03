@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+            *{
+                margin: 0;
+                padding: 0;
+                list-style: none;
+            }
+        .visible{
+            position: relative;
+            top: 100px;
+            left: 10%;
+            width: 300px;
+            height: 150px;
+            overflow: hidden;
+            /* margin: 100px auto 0; */
+        }
+        .wrapper{
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 1200px;
+            height: 150px;
+        }
+        .wrapper li{
+            float: left;
+        }
+        .wrapper img{
+            width: 300px;
+            height: 150px;
+        }
+        .radio{
+            position: absolute;
+            bottom: 10px;
+            left: 35%;
+            margin: 0 auto;
+        }
+        .radio li{
+            float: left;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            margin-left: 5px;
+            text-align: center;
+            background-color: chartreuse;
+        }
+        .red{
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-color: red;
+        }
+        .btn{
+            position: absolute;
+            top: 40%;
+            font-size: 20px;
+            color: #ececec;
+            /* border: 1px red solid; */
+
+        }
+        
+        /* .visible :hover{
+            color:white;
+            cursor: pointer;
+            background-color: white;
+            display: none;
+            
+        } */
+        .pre{
+            left: 10px;
+        }
+        .next{
+            right: 10px;
+        }
+        </style>
+        <script src="move.js"></script>
+</head>
+<body>
+        <div class="visible">
+                <ul class="wrapper">
+                    <li><img src="img/4.jpg" alt=""></li>
+                    <li><img src="img/5.jpg" alt=""></li>
+                    <li><img src="img/7.jpg" alt=""></li>
+                    <li><img src="img/4.jpg" alt=""></li>
+                </ul>
+                <div class="btn pre">&lt;</div>
+                <div class="btn next">&gt;</div>
+                <ul class="radio">
+                    <li class="active"></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+            </div>
+    <script>
+        var vis = document.getElementsByClassName('visible')[0];
+    var red = document.getElementsByClassName('red')[0];
+    var wrap = document.getElementsByClassName('wrapper')[0];
+    var pre = document.getElementsByClassName('pre')[0];
+    var next = document.getElementsByClassName('next')[0];
+    var num = wrap.children.length - 1;
+    var moveWidth = wrap.children[0].offsetWidth;
+var direction;
+    pre.onclick = function(){
+        direction = 'right-left';
+        autoMove(direction);
+    }
+    next.onclick = function(){
+        direction = 'left-right';
+        autoMove(direction);
+    }
+    function autoMove(direction){
+        clearInterval(timer);
+        if(!direction || direction == 'left-right'){//图片的方向
+            move(wrap,{left: wrap.offsetLeft - moveWidth},function(){
+                if(wrap.offsetLeft == -num * moveWidth){
+                    wrap.style.left = '0px';
+                }
+            })
+        }else if(direction == 'right-left'){
+            if(wrap.offsetLeft == 0){
+                wrap.style.left = -num * moveWidth + 'px';
+            }
+            move(wrap,{left:wrap.offsetLeft + moveWidth},function(){
+
+            })
+        }
+    }
+    
+    // timer = setInterval(autoMove,1500);
+    timer = setTimeout(autoMove,1500)
+    </script>
+</body>
+</html>
