@@ -96,12 +96,10 @@
                     <li class="active"></li>
                     <li></li>
                     <li></li>
-                    <li></li>
-                    <li></li>
                 </ul>
             </div>
     <script>
-        var vis = document.getElementsByClassName('visible')[0];
+    var vis = document.getElementsByClassName('visible')[0];
     var red = document.getElementsByClassName('red')[0];
     var wrap = document.getElementsByClassName('wrapper')[0];
     var pre = document.getElementsByClassName('pre')[0];
@@ -118,25 +116,27 @@ var direction;
         autoMove(direction);
     }
     function autoMove(direction){
-        clearInterval(timer);
+        clearTimeout(timer);
         if(!direction || direction == 'left-right'){//图片的方向
             move(wrap,{left: wrap.offsetLeft - moveWidth},function(){
                 if(wrap.offsetLeft == -num * moveWidth){
                     wrap.style.left = '0px';
                 }
+                timer = setTimeout(autoMove,1500);
             })
         }else if(direction == 'right-left'){
             if(wrap.offsetLeft == 0){
                 wrap.style.left = -num * moveWidth + 'px';
             }
             move(wrap,{left:wrap.offsetLeft + moveWidth},function(){
-
+                timer = setTimeout(autoMove,1500);
             })
         }
     }
     
     // timer = setInterval(autoMove,1500);
     timer = setTimeout(autoMove,1500)
+   
     </script>
 </body>
 </html>
