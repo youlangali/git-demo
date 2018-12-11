@@ -59,6 +59,7 @@
     }
     
     </style>
+    <script src="move.js"></script>
 </head>
 <body>
     <div class="visible">
@@ -85,38 +86,50 @@
     var vis = document.getElementsByClassName('visible')[0];
     var red = document.getElementsByClassName('red')[0];
     var wrap = document.getElementsByClassName('wrapper')[0];
-    var wrapChild = wrap.children;
-    var num = wrapChild.length - 1;
-    
-    setInterval(function(){
-        
-            var newLeft = wrap.offsetLeft - 300;
-            move(wrap,newLeft,function(){
-                if(newLeft == -900){
-                    wrap.style.left = '0px';
-                }
-            });
-    },2000)
-    function move(ele,target,callback){
-        clearInterval(ele.timer);
-        var speed; 
-        ele.timer = setInterval(function(){
-            var cur = ele.offsetLeft;
-            speed = (target - cur)/7;
-            speed = speed > 0 ? Math.ceil(speed) : Math.floor(speed);
-            ele.style.left = cur + speed + 'px';
-            if(target == cur){
-                ele.style.left = target + 'px';
-                clearInterval(ele.timer);
-                // console.log('over');
-                typeof callback == 'function' ? callback() : '';
-            }
-            // console.log('not over')
-            // console.log(target,cur)
-        },40)
-    }
+    var num = wrap.children.length - 1;
+    var moveWidth = wrap.children[0].offsetWidth;
+    // setInterval(function(){
+    //         var newLeft = wrap.offsetLeft - moveWidth;
+    //         move(wrap,newLeft,function(){
+    //             if(newLeft == -num*moveWidth){
+    //                 wrap.style.left = '0px';
+    //             }
+    //         });
+    // },2000)
+  
+
+    // function move(ele,target,callback){
+    //     clearInterval(ele.timer);
+    //     var speed; 
+    //     ele.timer = setInterval(function(){
+    //         var cur = ele.offsetLeft;
+    //         speed = (target - cur)/7;
+    //         speed = speed > 0 ? Math.ceil(speed) : Math.floor(speed);
+    //         ele.style.left = cur + speed + 'px';
+    //         if(target == cur){
+    //             ele.style.left = target + 'px';
+    //             clearInterval(ele.timer);
+    //             // console.log('over');
+    //             typeof callback == 'function' ? callback() : '';
+    //         }
+    //         // console.log('not over')
+    //         // console.log(target,cur)
+    //     },40)
+    // }
     
 
+
+//   老师办法
+function autoMove(direction){
+        if(!direction || direction == "left-right"){
+            move(wrap,{left:wrap.offsetLeft - moveWidth},function(){
+                if(wrap.offsetLeft == -num * moveWidth){
+                    wrap.style.left = '0px';
+                }
+            })
+        }
+    }
+timer = setInterval(autoMove,1500);
     </script>
 </body>
 </html>

@@ -79,6 +79,9 @@
         .next{
             right: 10px;
         }
+        li.active{
+            background-color: red;
+        }
         </style>
         <script src="move.js"></script>
 </head>
@@ -104,9 +107,11 @@
     var wrap = document.getElementsByClassName('wrapper')[0];
     var pre = document.getElementsByClassName('pre')[0];
     var next = document.getElementsByClassName('next')[0];
+    var radio = document.getElementsByClassName('radio')[0];
+    var radioList = radio.getElementsByTagName('li');
     var num = wrap.children.length - 1;
     var moveWidth = wrap.children[0].offsetWidth;
-    var lock;
+    var lock = true,index = 0;
 var direction;
     pre.onclick = function(){
             direction = 'right-left';
@@ -117,31 +122,55 @@ var direction;
         autoMove(direction);
     }
     function autoMove(direction){
-        clearTimeout(timer);
+        // console.log(1);
         // console.log(direction);
-         
-        if(!direction || direction == 'left-right'){//图片的方向
+         if(lock){
+             
+             lock = false;
+             clearTimeout(timer);
+             if(!direction || direction == 'left-right'){//图片的方向
+                index++;
             move(wrap,{left: wrap.offsetLeft - moveWidth},function(){
                 if(wrap.offsetLeft == -num * moveWidth){
+                    index = 0;
                     wrap.style.left = '0px';
                 }
                 timer = setTimeout(autoMove,1500);
                 lock = true;
+                changeIndex(index);
             })
         }else if(direction == 'right-left'){
             if(wrap.offsetLeft == 0){
                 wrap.style.left = -num * moveWidth + 'px';
+                index =  num;
             }
+            index --;
             move(wrap,{left:wrap.offsetLeft + moveWidth},function(){
                 timer = setTimeout(autoMove,1500);
                 lock = true;
+                changeIndex(index);
             })
         }
+         }
+        
     }
     
-    // timer = setInterval(autoMove,1500);
     timer = setTimeout(autoMove,1500)
+
+    //  底部的点
    
+   function changeIndex(index){
+       for(var i = 0; i <radioList.length; i ++){
+           radio.children[i].className = '';
+       }
+       radioList[index].className = 'active';
+    //    console.log();
+   }
+   for(var i = 0;i < radioList.length;i ++){
+       radioList[i].onclick = function(){
+           
+       }
+   }
     </script>
 </body>
 </html>
