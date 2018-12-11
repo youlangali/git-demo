@@ -106,10 +106,11 @@
     var next = document.getElementsByClassName('next')[0];
     var num = wrap.children.length - 1;
     var moveWidth = wrap.children[0].offsetWidth;
+    var lock;
 var direction;
     pre.onclick = function(){
-        direction = 'right-left';
-        autoMove(direction);
+            direction = 'right-left';
+            autoMove(direction);
     }
     next.onclick = function(){
         direction = 'left-right';
@@ -117,12 +118,15 @@ var direction;
     }
     function autoMove(direction){
         clearTimeout(timer);
+        // console.log(direction);
+         
         if(!direction || direction == 'left-right'){//图片的方向
             move(wrap,{left: wrap.offsetLeft - moveWidth},function(){
                 if(wrap.offsetLeft == -num * moveWidth){
                     wrap.style.left = '0px';
                 }
                 timer = setTimeout(autoMove,1500);
+                lock = true;
             })
         }else if(direction == 'right-left'){
             if(wrap.offsetLeft == 0){
@@ -130,6 +134,7 @@ var direction;
             }
             move(wrap,{left:wrap.offsetLeft + moveWidth},function(){
                 timer = setTimeout(autoMove,1500);
+                lock = true;
             })
         }
     }
