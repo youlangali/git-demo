@@ -149,12 +149,11 @@ var direction;
                 timer = setTimeout(autoMove,1500);
                 lock = true;
                 changeIndex(index);
+                
             })
         }
          }
-        
     }
-    
     timer = setTimeout(autoMove,1500)
 
     //  底部的点
@@ -167,10 +166,23 @@ var direction;
     //    console.log();
    }
    for(var i = 0;i < radioList.length;i ++){
-       radioList[i].onclick = function(){
-           
+           (function(myIndex){
+           radioList[i].onclick = function () {
+                   lock = false;
+                   clearTimeout(timer);
+                   index = myIndex;
+                move(wrap,{left:-index * moveWidth},function(){
+                    lock = true;
+                    timer = setTimeout(autoMove,1500);
+                    changeIndex(index);
+                })
+           }
+       }(i))
        }
-   }
+       //   对运动的一种延伸，是物体速度和加速度，定时器的一种合理运用
+       
+       
+
     </script>
 </body>
 </html>
