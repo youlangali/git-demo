@@ -21,3 +21,7 @@ Ctrl + Delet ：删除右侧整个单词
 Backspace ： 删除左侧单个字母
 
 Delete : 删除右侧单个字母
+
+Ctrl + Top : 向上滑动页面
+
+Ctrl + Bottom  ：向下滑动页面

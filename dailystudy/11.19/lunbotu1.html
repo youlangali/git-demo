@@ -61,18 +61,18 @@
             position: absolute;
             top: 40%;
             font-size: 20px;
-            color: #ececec;
+            color: #e7e7e7;
             /* border: 1px red solid; */
 
         }
         
-        /* .visible :hover{
-            color:white;
+        .visible :hover{
+            color:white; 
             cursor: pointer;
             background-color: white;
-            display: none;
+            /* display: none; */
             
-        } */
+        }
         .pre{
             left: 10px;
         }
@@ -180,8 +180,12 @@ var direction;
        }(i))
        }
        //   对运动的一种延伸，是物体速度和加速度，定时器的一种合理运用
-       
-       
+       vis.onmouseover = function(){
+           clearTimeout(timer);
+       }
+       vis.onmouseleave = function(){
+           timer = setTimeout(autoMove,1500);
+       }
 
     </script>
 </body>

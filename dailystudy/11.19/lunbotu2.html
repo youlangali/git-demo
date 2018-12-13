@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        ul,li{
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        }
+    .wrap{
+        position: relative;
+        width: 300px;
+        height: 200px;
+        position: absolute;
+        top:45%;
+        left:30%;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               low: hidden;
+        overflow: hidden;
+    }   
+    .sliderPage{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 1200px;
+        height: 200px; 
+    }
+    .sliderPage li{
+        width: 300px;
+        height: 200px;
+        float: left;
+    }
+    .sliderPage img{
+       width: 100%;
+    }
+    .sliderRadio{
+        position: absolute;
+        left: calc(50% - 30px);
+        bottom: 20px;
+        width: 60px;
+        height: 10px;
+    }
+    .sliderRadio li{
+        float: left;
+        width: 10px;
+        height: 10px;
+        margin:0 5px;
+        border-radius: 50%;
+        background-color: red;
+    }
+    .sliderBtn{
+        position: absolute;
+        top:45%;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
+        color: #adadad;
+        font-size: 20px;
+    }
+    .pre{
+        left: 10px;
+    }
+    .next{
+        right: 10px;
+    }
+    .wrap:hover .sliderBtn{
+        color: #ffffff;
+    }
+    li.active{
+        background-color: white;
+    }
+    </style>
+</head>
+<body>
+   <div class="wrap">
+        <ul class="sliderPage">
+            <li><img src="img/4.jpg" alt=""></li>
+            <li><img src="img/5.jpg" alt=""></li>
+            <li><img src="img/7.jpg" alt=""></li>
+            <li><img src="img/4.jpg" alt=""></li>
+        </ul>
+        <div class="sliderBtn pre">&lt;</div>
+        <div class="sliderBtn next">&gt;</div>
+        <ul class="sliderRadio">
+            <li class="active"></li>
+            <li></li>
+            <li></li>
+        </ul>
+   </div> 
+   <script src="move.js"></script>
+   <script>
+    //    init
+   var wrap = document.getElementsByClassName('wrap')[0];
+    var sliderPage = document.getElementsByClassName('sliderPage')[0];
+    var sliderPre = document.getElementsByClassName('pre')[0];
+    var sliderNext = document.getElementsByClassName('next')[0];
+    var sliderRadio = document.getElementsByClassName('sliderRadio')[0];
+    var sliderRadioLi = sliderRadio.getElementsByTagName('li');
+
+    var moveWidth = sliderPage.children[0].offsetWidth;
+    var num = sliderPage.children.length - 1;
+    var sliderDir;
+    var lock = true,index = 0;
+    // 自动轮播
+    function autoMove(sliderDir){
+        clearTimeout(timer);
+        if(lock){
+            lock = false;
+            if (sliderDir == 'left' || !sliderDir) {//图片的移动方向
+                move(sliderPage, { left: sliderPage.offsetLeft - moveWidth }, function () {
+                    index++;
+                    if (sliderPage.offsetLeft == -num * moveWidth) {
+                        sliderPage.style.left = '0px';
+                        index = 0;
+                    }
+                    // index++;
+                    // if(index == 3){
+                    //     index = 0;
+                    // }
+                    changeIndex(index);
+                    lock = true;
+                    
+                    timer = setTimeout(autoMove,1500);
+                })
+            } else if (sliderDir == 'right') {
+                move(sliderPage, { left: sliderPage.offsetLeft + moveWidth }, function () {
+                    
+                    if (sliderPage.offsetLeft == 0) {
+                        sliderPage.style.left = -num * moveWidth + 'px';
+                        index = 0;
+                    }
+                    changeIndex(index);
+                    index --;
+                    lock = true;
+                    timer = setTimeout(autoMove,1500);
+                })
+            }
+        }
+        
+        
+    }
+    timer = setTimeout(autoMove,1500);
+    // 点击左右轮播
+    sliderNext.onclick = function(){
+        sliderDir = 'left';  
+        autoMove(sliderDir);
+    }
+    sliderPre.onclick = function(){
+        sliderDir = 'right';   
+        autoMove(sliderDir);
+    }
+    //   底部的点
+    function changeIndex(index){
+        for(var i = 0;i < sliderRadioLi.length;i ++){
+            sliderRadioLi[i].className = '';
+        }
+        sliderRadioLi[index].className = 'active';
+    }
+
+   </script>
+</body>
+</html>
