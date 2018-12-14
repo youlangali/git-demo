@@ -122,14 +122,19 @@
                     timer = setTimeout(autoMove,1500);
                 })
             } else if (sliderDir == 'right') {
-                move(sliderPage, { left: sliderPage.offsetLeft + moveWidth }, function () {
-                    
-                    if (sliderPage.offsetLeft == 0) {
+
+                
+                if (sliderPage.offsetLeft == 0) {
                         sliderPage.style.left = -num * moveWidth + 'px';
-                        index = 0;
+                        index = num;
                     }
-                    changeIndex(index);
+                move(sliderPage, { left: sliderPage.offsetLeft + moveWidth }, function () {
+                  
+                    console.log(sliderPage.offsetLeft,index)
+                    
                     index --;
+                    changeIndex(index);
+                    
                     lock = true;
                     timer = setTimeout(autoMove,1500);
                 })
@@ -155,7 +160,21 @@
         }
         sliderRadioLi[index].className = 'active';
     }
-
+    for(var i = 0;i < sliderRadioLi.length;i ++){
+        (function(i){
+            sliderRadioLi[i].onclick = function () {
+                clearTimeout(timer);
+                    lock = false;
+                    changeIndex(i);
+                    move(sliderPage,{left:-i * moveWidth},function(){
+                        index = i;
+                        lock = true;
+                        timer = setTimeout(autoMove,1500);
+                    })
+            }
+        }(i))
+        
+    }
    </script>
 </body>
 </html>
