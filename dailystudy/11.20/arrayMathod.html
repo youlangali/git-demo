@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+    <script>
+    //   Array 的方法
+    //   forEach() 必须传一个参数function，可以传第二个参数（会改变forEach中this的指向，
+    //如果不写第二参数就是指向window）
+    var personArr = [
+        {name: '房',src: "images/1.jpg", dis: '爱学习', sex: 'm' },
+        {name: '车',src: "images/2.jpg", dis: '苦恼', sex: 'f' },
+        {name: '滴滴',src: "images/3.jpg", dis: '加班', sex: 'm' },
+        {name: '腾讯',src: "images/4.jpg", dis: '休息', sex: 'f' },
+        {name: '阿里',src: "images/5.jpg", dis: '抄袭', sex: 'f' },
+    ]
+var li = document.getElementsByTagName('li');
+personArr.forEach(function(ele,index,self){
+// console.log(ele,index,self,this);
+    li[index].innerText = ele.name;
+},li)    
+    //  模拟forEach方法
+    Array.prototype.myForEach = function(func){
+        var param2 = arguments[1],arr = this,len = arr.length;
+        for(var i = 0;i < len;i ++){
+            func.apply(param2,[arr[i],i,arr])
+        }
+    }
+    personArr.myForEach(function(ele,index,self){
+        console.log(ele,index,self,this)
+    },{name: 'ff'})
+    </script>
+</body>
+</html>
