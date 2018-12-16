@@ -15,31 +15,159 @@
         <li></li>
     </ul>
     <script>
-    //   Array 的方法
+    //   Array 的方法   以下array的方法都是以foreach为基础的延伸
     //   forEach() 必须传一个参数function，可以传第二个参数（会改变forEach中this的指向，
     //如果不写第二参数就是指向window）
-    var personArr = [
-        {name: '房',src: "images/1.jpg", dis: '爱学习', sex: 'm' },
-        {name: '车',src: "images/2.jpg", dis: '苦恼', sex: 'f' },
-        {name: '滴滴',src: "images/3.jpg", dis: '加班', sex: 'm' },
-        {name: '腾讯',src: "images/4.jpg", dis: '休息', sex: 'f' },
-        {name: '阿里',src: "images/5.jpg", dis: '抄袭', sex: 'f' },
-    ]
-var li = document.getElementsByTagName('li');
-personArr.forEach(function(ele,index,self){
-// console.log(ele,index,self,this);
-    li[index].innerText = ele.name;
-},li)    
-    //  模拟forEach方法
-    Array.prototype.myForEach = function(func){
-        var param2 = arguments[1],arr = this,len = arr.length;
-        for(var i = 0;i < len;i ++){
-            func.apply(param2,[arr[i],i,arr])
-        }
-    }
-    personArr.myForEach(function(ele,index,self){
-        console.log(ele,index,self,this)
-    },{name: 'ff'})
+    //  第二个参数会改变this指向，如果不写this就是指向window
+//     var personArr = [
+//         {name: '房',src: "images/1.jpg", dis: '爱学习', sex: 'm' },
+//         {name: '车',src: "images/2.jpg", dis: '苦恼', sex: 'f' },
+//         {name: '滴滴',src: "images/3.jpg", dis: '加班', sex: 'm' },
+//         {name: '腾讯',src: "images/4.jpg", dis: '休息', sex: 'f' },
+//         {name: '阿里',src: "images/5.jpg", dis: '抄袭', sex: 'f' },
+//     ]
+// var li = document.getElementsByTagName('li');
+// var arr = personArr.forEach(function(ele,index,self){
+//     // ele.name += 1;
+// // console.log(ele,index,self,this);
+//     // li[index].innerText = ele.name;
+
+// },li)    
+//     //  模拟forEach方法
+//     Array.prototype.myForEach = function(func){
+//         var param2 = arguments[1],arr = this,len = arr.length;
+//         for(var i = 0;i < len;i ++){
+//             func.apply(param2,[arr[i],i,arr])
+//         }
+//     }
+//     personArr.myForEach(function(ele,index,self){
+//         console.log(ele,index,self,this)
+//     },{name: 'ff'})
+
+    //filter 过滤  返回新的数组
+    // 必须要func参数，可以有第二个参数 ，
+    // func参数返回true or false ，true就保留ele，false就不保留，不会改变原数组
+    //  第二个参数会改变this指向，如果不写this就是指向window
+
+    // var personArr = [
+    //     {name: '房',src: "images/1.jpg", dis: '爱学习', sex: 'm' },
+    //     {name: '房',src: "images/2.jpg", dis: '苦恼', sex: 'f' },
+    //     {name: '滴滴',src: "images/3.jpg", dis: '加班', sex: 'm' },
+    //     {name: '腾讯',src: "images/4.jpg", dis: '休息', sex: 'f' },
+    //     {name: '阿里',src: "images/5.jpg", dis: '抄袭', sex: 'f' },
+    // ]
+    // var newArr = personArr.filter(function(ele,index,self){
+    //     // console.log(ele,index,self,this)
+    //     return ele.name == '房';
+    // },{name:'ff'})
+
+    // // //  模仿filter方法
+
+    // Array.prototype.myFilter = function(func){
+    //     var arr = this,len = arr.length,param2 = arguments[1],newArr = [];
+    //     for(var i = 0;i < len;i ++){
+    //         func.apply(param2,[arr[i],i,arr]) ? newArr.push(arr[i]) : '';
+    //     }
+    //     return newArr;
+    // }
+    // var newArr1 = personArr.myFilter(function(ele,index,self){
+    //     // console.log(ele,index,self,this)
+    //     return ele.name == '房';
+    // },{name:'ff'})
+
+
+    //   map   映射   返回新数组 func ele index self
+    //  第二个参数会改变this指向，如果不写this就是指向window
+    // var personArr = [
+    //     {name: '房',src: "images/1.jpg", dis: '爱学习', sex: 'm' },
+    //     {name: '房',src: "images/2.jpg", dis: '苦恼', sex: 'f' },
+    //     {name: '滴滴',src: "images/3.jpg", dis: '加班', sex: 'm' },
+    //     {name: '腾讯',src: "images/4.jpg", dis: '休息', sex: 'f' },
+    //     {name: '阿里',src: "images/5.jpg", dis: '抄袭', sex: 'f' },
+    // ]
+    // var arr = personArr.map(function(ele,index,self){
+    //     // console.log(ele,index,self,this)
+    //     ele.name += 10;
+    //     return ele;
+    // },{name:'ff'})
+    // arr[0].name = 'sadasdagoe';
+    //  模拟 map
+    // Array.prototype.myMap = function(func){
+    //     var arr = this,len = arr.length,param2 = arguments[1] || window,newArr = [];
+    //     for(var i = 0;i < len; i ++){
+    //         newArr.push(func.apply(param2,[arr[i],i,arr]))
+    //     }
+    //     return newArr;
+    // }
+    // var arr1 = personArr.myMap(function(ele,index,arr){
+    //     ele.name += 10;
+    //     return ele;
+    // },{name:'ff'})
+
+
+    //  some 和 every   arr.some(func),arr.every(func)只会返回布尔值
+    //   判断数组是否满足要求
+    //   every 是所有都满足要求为true，只要有一个不满足就是false
+    //   var personArr = [
+    //     {name: '房',src: "images/1.jpg", dis: '爱学习', sex: 'm', age: 18 },
+    //     {name: '滴滴',src: "images/3.jpg", dis: '加班', sex: 'm', age: 22 },
+    //     {name: '腾讯',src: "images/4.jpg", dis: '休息', sex: 'f', age: 19 },
+    //     {name: '阿里',src: "images/5.jpg", dis: '抄袭', sex: 'f', age: 25 },
+    // ]
+    // var flag = personArr.every(function(ele,index,self){
+    //     // console.log(ele,index,self,this)
+    //     return ele.age > 15;
+    // },{name:'ff'})
+
+//         Array.prototype.myEvery = function(func){
+//             var arr = this,len = arr.length,param2 = arguments[1] || window,flag = true;
+//             for(var i = 0; i < len;i ++){
+//                 if(!func.apply(param2,[arr[i],i,arr])){
+//                     flag = false;
+//                     break;
+//                 }
+//                 return flag;
+//             }
+//         }
+// var flag = personArr.myEvery(function(ele,index,self){
+//         // console.log(ele,index,self,this)
+//         return ele.age > 10;
+//     },{name:'ff'})
+
+
+    //  arr.some(func) 是有一个满足就返回true，全部不满足要求才返回false
+//       var personArr = [
+//         {name: '房',src: "images/1.jpg", dis: '爱学习', sex: 'm', age: 18 },
+//         {name: '滴滴',src: "images/3.jpg", dis: '加班', sex: 'm', age: 22 },
+//         {name: '腾讯',src: "images/4.jpg", dis: '休息', sex: 'f', age: 19 },
+//         {name: '阿里',src: "images/5.jpg", dis: '抄袭', sex: 'f', age: 25 },
+//     ]
+//     // var flag = personArr.some(function(ele,index,self){
+//     //     // console.log(ele,index,self,this)
+//     //     return ele.age > 25;
+//     // },{name:'ff'})
+
+//         Array.prototype.mySome = function(func){
+//             var arr = this,len = arr.length, param2 = arguments[1] || window, flag = false;
+//             for(var i = 0; i < len;i ++){
+//                 if(func.apply(param2,[arr[i],i,arr])){
+//                     flag = true;
+                        // break;
+//                 }
+//             }
+//                 return flag;
+//         }
+// var flag = personArr.mySome(function(ele,index,self){
+//         // console.log(ele,index,self,this)
+//         return ele.age > 20;
+//     },{name:'ff'})
+
+
+    //    reduce 方法 
+    //  返回一个值  function preValue curValue index self, initial初始值
+    
+
+
     </script>
 </body>
 </html>
