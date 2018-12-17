@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+   <script>
+       //  纯函数：不能使用函数作用域之外的变量；必须要return，不影响外界变量
+   var arr = [];
+   function add (arr){
+       var name = 'cst';
+       arr.push(name);
+   }
+   add(arr);
+   console.log(arr);
+   </script> 
+</body>
+</html> 
