@@ -7,15 +7,116 @@
     <title>Document</title>
 </head>
 <body>
+    <div class="num">0</div>
+    <button class="btn">点击</button>
+    <!-- <input class="ip" type="text"> -->
    <script>
-       //  纯函数：不能使用函数作用域之外的变量；必须要return，不影响外界变量
-   var arr = [];
-   function add (arr){
-       var name = 'cst';
-       arr.push(name);
-   }
-   add(arr);
-   console.log(arr);
+       //  纯函数：一个函数的返回结果只能依赖他的参数，并且执行过程中不会产生副作用（）
+
+
+    //    var num = 18;
+    //    function compare(x){
+    //     //    return x > 18;//  纯函数
+    //         // return x > num   //  非纯函数
+    //    }
+       
+//   非纯函数
+    //    var arr = [{name: 'duyi'}];
+    //    function add (arr){
+    //        var obj = {name: 'cst'};
+    //        var newArr = [];
+    //        for(var i = 0;i < arr.length;i ++){
+    //            newArr[i] = arr[i];
+    //        }
+    //        newArr.push(obj);
+    //        return newArr;
+    //    }
+
+    //  纯函数
+        // function add(x,y){
+        //     return x +y
+        // }
+        // var num1 = 1;
+        // var num2 = 2;
+        // add(num1,num2);
+
+
+//     非纯函数
+        // var gArr = [];
+        // function add(arr){
+        //     arr.push(1);
+        //     return arr;
+        // }
+        // add(gArr);//  非纯函数，依赖于gArr,gArr是引用值；
+       //   非纯函数，改变了外在arr
+//    var arr = [];
+//    function add (arr){
+//        var name = 'cst';
+//        arr.push(name);
+//    }
+//    add(arr);
+//    console.log(arr);
+
+
    </script> 
+   <script>
+//    防抖
+
+
+    //     var personArr = [
+    //     {name: '房',src: "images/1.jpg", dis: '爱学习', sex: 'm', age: 18 },
+    //     {name: '滴滴',src: "images/3.jpg", dis: '加班', sex: 'm', age: 22 },
+    //     {name: '腾讯',src: "images/4.jpg", dis: '休息', sex: 'f', age: 19 },
+    //     {name: '阿里',src: "images/5.jpg", dis: '抄袭', sex: 'f', age: 25 },
+    //     ]
+    //  var oInp = document.getElementsByClassName('ip')[0];
+    // oInp.oninput = function(){
+    //     console.log(filterByText(this.value,personArr));
+    // }
+    // function filterByText (text,arr){
+    //     var newArr = [];
+    //     for(var i = 0;i < personArr.length;i ++){
+    //         personArr[i].name.indexOf(text) != -1 ? newArr.push(personArr[i]) : '';
+    //     }
+    //     return newArr;
+    // }
+
+    //   节流
+    // 场景：
+    //  窗口调整(resize)
+    // 页面滚动(scroll)
+    // 抢购疯狂点击(mousedown)
+    //   思想：当用户一段时间之内只能算点击一次，只有这段时间过后才能重新点击
+
+    // var num = document.getElementsByClassName('num')[0];
+    // var btn = document.getElementsByClassName('btn')[0];
+    // // btn.onclick = function(){
+    // //     num.innerText = parseInt(num.innerText) + 1;
+    // // };
+ 
+
+    // btn.onclick = throttle(hander,1000);
+    // function throttle(hander,wait){
+    //     var lastTime = 0;   //   只需要使用一次，后面不需要使用，不能放在循环使用的函数中
+    //     // console.log(lastTime);
+    //     return function(){
+    //         // console.log(arguments);
+    //         var nowTime = new Date().getTime();
+    //         if (nowTime - lastTime > wait) {
+    //             hander.apply(this,arguments)
+    //             lastTime = nowTime;
+    //         }
+    //     }
+    // }
+    // function hander(){
+    //     // console.log(this,arguments);
+    //     num.innerText = parseInt(num.innerText) + 1;
+    // }
+   
+
+    //   防抖
+
+    
+   </script>
 </body>
 </html> 
