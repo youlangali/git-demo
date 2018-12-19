@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+    .wrapper{
+        width: 430px;
+        margin: 100px auto 0;
+        border: 1px #f3f3f3 solid;
+    }
+    .seaWrap{
+        width: 430px;
+        height: 30px;
+    }
+    input.inp{
+        float: left;
+        width: 220px;
+        height: 26px;
+        padding: 0 5px;
+        margin-right: 15px;
+        outline: none;
+        border: 1px #d6d6d6 solid;
+        border-radius: 4px;
+    }
+    span.btn{
+        /* display: inline-block; */
+        float: left;
+        width: 60px;
+        /* margin: 0 5px; */
+        height: 30px;
+        text-align: center;
+        line-height: 30px;
+        color: aqua;
+        font-weight: bold;
+        cursor: pointer;
+        border-radius: 5px;
+    }
+    .flWrap li{
+        width: 428px;
+        border-bottom: 1px #f3f3f3 solid;
+        margin: 10px 0 0;
+    }
+    .flWrap img{
+        float: left;
+        width: 50px;
+        height: 50px;
+    }
+    p.name,p.des{
+        width:430px;
+        margin-left: 60px;
+    }
+    p.name{
+        height: 30px;
+        line-height: 30px;
+        font-size: 18px;
+        color: black;
+    }
+    p.des{
+        height: 20px;
+        line-height: 20px;
+        font-size: 15px;
+        color: #909090;
+    }
+    span.active{
+        color: white;
+        background-color: aqua;
+    }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="seaWrap">
+            <input class="inp" type="text" class="seaText">
+            <span class="btn active">female</span>
+            <span class="btn">male</span>
+            <span class="btn">all</span>
+        </div>
+        <div class="flWrap">
+            <ul>
+                <li>
+                    <img src="./src/img/14356d39e2ebb76d0af3ca46ce4e61ac_20100221184518-408880647.jpg" alt="">
+                    <p class="name">张三</p>
+                    <p class="des">皮皮虾</p>
+                </li>
+                <li>
+                    <img src="./src/img/aedddd5d7b520b52c926b1ff436b555e_t010271f735bcb32aa9.jpg" alt="">
+                    <p class="name">李四</p>
+                    <p class="des">土豪</p>
+                </li>
+                <li>
+                    <img src="./src/img/b95fca8d5846da0bc1634ea5de051d11_5817249_164207424196_2.jpg" alt="">
+                    <p class="name">王二</p>
+                    <p class="des">幽默</p>
+                </li>
+                <li>
+                    <img src="./src/img/c38a7461f66c9d7043eb77f436efa2f4_05300000767943128047418313956.jpg" alt="">
+                    <p class="name">老张</p>
+                    <p class="des">混吃</p>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <script>
+    //  盒模型应用
+    //   经典布局方式：图片使用定位，脱离content， 使用padding，将content范围缩小
+    var personArr = [
+        {name: '房',src: "./src/img/1.jpg", dis: '爱学习', sex: 'm', age: 18 },
+        {name: '滴滴',src: "./src/img/2.jpg", dis: '加班', sex: 'm', age: 22 },
+        {name: '腾讯',src: "./src/img/3.jpg", dis: '休息', sex: 'f', age: 19 },
+        {name: '阿里',src: "./src/img/4.jpg", dis: '抄袭', sex: 'f', age: 25 },
+        ]
+        // 数据渲染
+    </script>
+</body>
+</html>

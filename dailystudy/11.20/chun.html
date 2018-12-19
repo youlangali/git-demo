@@ -118,34 +118,48 @@
    
 
     //   防抖
-    var personArr = [
-        {name: '房',src: "images/1.jpg", dis: '爱学习', sex: 'm', age: 18 },
-        {name: '滴滴',src: "images/3.jpg", dis: '加班', sex: 'm', age: 22 },
-        {name: '腾讯',src: "images/4.jpg", dis: '休息', sex: 'f', age: 19 },
-        {name: '阿里',src: "images/5.jpg", dis: '抄袭', sex: 'f', age: 25 },
-        ]
-     var oInp = document.getElementsByClassName('ip')[0];
-    // oInp.oninput = function(){
-    //     // console.log(this.value);
-    //     fd(handler,500);
+    // var personArr = [
+    //     {name: '房',src: "images/1.jpg", dis: '爱学习', sex: 'm', age: 18 },
+    //     {name: '房',src: "images/3.jpg", dis: '加班', sex: 'm', age: 22 },
+    //     {name: '腾讯',src: "images/4.jpg", dis: '休息', sex: 'f', age: 19 },
+    //     {name: '阿里',src: "images/5.jpg", dis: '抄袭', sex: 'f', age: 25 },
+    //     ]
+    //  var oInp = document.getElementsByClassName('ip')[0];
+    // // oInp.oninput = function(){
+    // //     // console.log(this.value);
+    // //     fd(handler,500);
+    // // }
+    // oInp.oninput = wrap(handler,1000);//  当你在调用事件时，后面被调用的函数最终一定是个匿名函数，并且没有参数，才可以调整this,arguments
+    // function wrap(handler,dely){
+    //     var timer = null;
+    // return function (){
+    //     var self = this,arg = arguments;
+    //     clearTimeout(timer);
+    //     timer = setTimeout(function(){
+    //         handler.apply(self,arg);
+    //     },dely)
     // }
-    oInp.oninput = wrap(handler,1000);//  当你在调用事件时，后面被调用的函数最终一定是个匿名函数，并且没有参数，才可以调整this,arguments
-    function wrap(handler,time){
-        var timer = null;
-    return function (){
-        var self = this,arg = arguments;
-        clearTimeout(timer);
-        timer = setTimeout(function(){
-            handler.apply(self,arg);
-        },time)
-    }
-    }
+    // }
     
-    function handler(){
-        // console.log(oInp.value);
-        console.log(this,arguments)
-    }
-    
+    // function handler(){
+    //     // console.log(oInp.value);
+    //     // console.log(this,arguments)
+    // filterByText(this.value,personArr);
+    // // console.log(personArr);
+    // }
+    // function filterByText(text,arr){
+    //     var len = arr.length;
+    //     var newArr = [];
+    //     for(var i = 0;i < len;i ++){
+    //     arr[i].name.indexOf(text) != -1 ? newArr.push(text) : '';
+
+    //     }
+    //     console.log(newArr);
+    // }
+
+
+
+
    </script>
 </body>
 </html> 
