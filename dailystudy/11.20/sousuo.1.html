@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+    .wrapper{
+        width: 430px;
+        margin: 100px auto 0;
+        border: 1px #f3f3f3 solid;
+    }
+    .seaWrap{
+        width: 430px;
+        height: 30px;
+    }
+    input.inp{
+        float: left;
+        width: 220px;
+        height: 26px;
+        padding: 0 5px;
+        margin-right: 15px;
+        outline: none;
+        border: 1px #d6d6d6 solid;
+        border-radius: 4px;
+    }
+    span.btn{
+        /* display: inline-block; */
+        float: left;
+        width: 60px;
+        /* margin: 0 5px; */
+        height: 30px;
+        text-align: center;
+        line-height: 30px;
+        color: aqua;
+        font-weight: bold;
+        cursor: pointer;
+        border-radius: 5px;
+    }
+    .flWrap li{
+        width: 428px;
+        border-bottom: 1px #f3f3f3 solid;
+        margin: 10px 0 0;
+    }
+    .flWrap img{
+        float: left;
+        width: 50px;
+        height: 50px;
+    }
+    p.name,p.des{
+        width:430px;
+        margin-left: 60px;
+    }
+    p.name{
+        height: 30px;
+        line-height: 30px;
+        font-size: 18px;
+        color: black;
+    }
+    p.des{
+        height: 20px;
+        line-height: 20px;
+        font-size: 15px;
+        color: #909090;
+    }
+    span.active{
+        color: white;
+        background-color: aqua;
+    }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="seaWrap">
+            <input class="inp" type="text" class="seaText">
+            <span class="btn" sex="f">female</span>
+            <span class="btn" sex="m">male</span>
+            <span class="btn active" sex="a">all</span>
+        </div>
+        <div class="flWrap">
+            <ul>
+                <!-- <li>
+                    <img src="./src/img/1.jpg" alt="">
+                    <p class="name">张三</p>
+                    <p class="des">皮皮虾</p>
+                </li>
+                <li>
+                    <img src="./src/img/2.jpg" alt="">
+                    <p class="name">李四</p>
+                    <p class="des">土豪</p>
+                </li>
+                <li>
+                    <img src="./src/img/3.jpg" alt="">
+                    <p class="name">王二</p>
+                    <p class="des">幽默</p>
+                </li>
+                <li>
+                    <img src="./src/img/4.jpg" alt="">
+                    <p class="name">老张</p>
+                    <p class="des">混吃</p>
+                </li> -->
+            </ul>
+        </div>
+    </div>
+    <script>
+    //  盒模型应用
+    //   经典布局方式：图片使用定位，脱离content， 使用padding，将content范围缩小
+    var personArr = [
+        {name: '张三',src: "./src/img/1.jpg", dis: '爱学习', sex: 'm', age: 18 },
+        {name: '张思',src: "./src/img/2.jpg", dis: '加班', sex: 'f', age: 22 },
+        {name: '李四',src: "./src/img/3.jpg", dis: '休息', sex: 'm', age: 19 },
+        {name: '李牧',src: "./src/img/4.jpg", dis: '抄袭', sex: 'f', age: 25 },
+        ]
+        //  initial 
+        var inp = document.getElementsByClassName('inp')[0];
+        var flWrap = document.getElementsByClassName('flWrap')[0];
+        var ul = flWrap.getElementsByTagName('ul')[0];
+        var btn = [].slice.call(document.getElementsByClassName('btn'),0);
+        // 数据渲染
+        function renderPage(arr){
+            var htmlStr = '';
+            arr.forEach(function(ele,index,self){
+                htmlStr = htmlStr + '<li><img src="' + ele.src + '"/><p class="name">'+ ele.name +'</p><p class="des">'+ ele.dis +'</p></li>'
+                
+            }) 
+        // console.log(htmlStr);
+        ul.innerHTML = htmlStr;
+        }
+        renderPage(personArr);
+        //  当输入内容时，将内容与数据进行比对，选出最终符合条件的数据
+        var nameArr = personArr;
+        var sexArr = personArr;
+        var newArr = personArr;
+        // console.log(!newArr)
+        inp.oninput = function(){
+                nameArr = filterArrByText(this.value,sexArr);
+                renderPage(nameArr);
+        }
+        function filterArrByText(text,arr){
+            if(!text){
+                return arr;
+            }else{
+                return arr.filter(function(ele,index,self){
+                    return ele.name.indexOf(text) != -1
+                })
+            }
+        }
+        // 按钮事件
+        btn[2].className = 'btn active';
+
+        btn.forEach(function(ele,index,self){
+            ele.onclick = function(){
+                chaActive(ele);
+                sexArr = filterArrBySex(this.getAttribute('sex'),nameArr);
+                renderPage(sexArr);
+            }
+        })
+        var lastActiveBtn = btn[2];
+        function chaActive(activeBtn){
+            activeBtn.className = 'btn active';
+            lastActiveBtn.className = 'btn';
+            lastActiveBtn = activeBtn;
+        }
+        //  按钮通过点击，来筛选data
+        function filterArrBySex(sex,data){
+            if(sex == 'a'){
+                return data ;
+            }else{
+                //    var sex = sex == 'male' ? 'm' : 'f';
+                    // console.log(sex);
+                return data.filter(function (ele, index, self) {
+                    // console.log(typeof sex);
+                    return ele.sex.indexOf(sex) != -1
+                })
+            }
+        }
+    </script>
+</body>
+</html>

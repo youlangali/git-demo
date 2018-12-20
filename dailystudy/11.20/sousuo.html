@@ -79,9 +79,9 @@
     <div class="wrapper">
         <div class="seaWrap">
             <input class="inp" type="text" class="seaText">
-            <span class="btn">female</span>
-            <span class="btn">male</span>
-            <span class="btn">all</span>
+            <span class="btn" sex="f">female</span>
+            <span class="btn" sex="m">male</span>
+            <span class="btn active" sex="a">all</span>
         </div>
         <div class="flWrap">
             <ul>
@@ -108,83 +108,9 @@
             </ul>
         </div>
     </div>
-    <script>
-    //  盒模型应用
-    //   经典布局方式：图片使用定位，脱离content， 使用padding，将content范围缩小
-    var personArr = [
-        {name: '张三',src: "./src/img/1.jpg", dis: '爱学习', sex: 'm', age: 18 },
-        {name: '张思',src: "./src/img/2.jpg", dis: '加班', sex: 'm', age: 22 },
-        {name: '李四',src: "./src/img/3.jpg", dis: '休息', sex: 'f', age: 19 },
-        {name: '李牧',src: "./src/img/4.jpg", dis: '抄袭', sex: 'f', age: 25 },
-        ]
-        //  initial 
-        var inp = document.getElementsByClassName('inp')[0];
-        var flWrap = document.getElementsByClassName('flWrap')[0];
-        var ul = flWrap.getElementsByTagName('ul')[0];
-        var btn = [].slice.call(document.getElementsByClassName('btn'),0);
-        // 数据渲染
-        function renderPage(arr){
-            var htmlStr = '';
-            arr.forEach(function(ele,index,self){
-                htmlStr = htmlStr + '<li><img src="' + ele.src + '"/><p class="name">'+ ele.name +'</p><p class="des">'+ ele.dis +'</p></li>'
-                
-            }) 
-        // console.log(htmlStr);
-        ul.innerHTML = htmlStr;
-        }
-        renderPage(personArr);
-        //  当输入内容时，将内容与数据进行比对，选出最终符合条件的数据
-        var newArr = [];
-        // console.log(!newArr)
-        inp.oninput = function(){
-            // if(newArr != []){
-            //     newArr = selectName(this.value,newArr);
-            //     renderPage(newArr);
-            // }else{
-                renderPage(selectName(this.value,personArr));
-            // }
-            
-            
-        }
-        function selectName(text,arr){
-            if(!text){
-                return arr;
-            }else{
-                return arr.filter(function(ele,index,self){
-                    return ele.name.indexOf(text) != -1
-                })
-            }
-        }
-
-        // 按钮事件
-        btn[2].className = 'btn active';
-        btn.forEach(function(ele,index,self){
-            ele.onclick = function(){
-                chaActive(ele);
-                // console.log(ele);
-            renderPage(selectSex(this.innerText,personArr))
-            // console.log(this.innerText);
-            }
-        })
-        function chaActive(activeBtn){
-            for(var i = 0;i < btn.length;i ++){
-                btn[i].className = 'btn';
-            }
-            activeBtn.className = 'btn active';
-        }
-        //  按钮通过点击，来筛选data
-        function selectSex(btnValue,data){
-            if(btnValue == 'all'){
-                return data ;
-            }else{
-                   var btnValue = btnValue == 'male' ? 'm' : 'f';
-                    // console.log(btnValue);
-                return data.filter(function (ele, index, self) {
-                    // console.log(typeof btnValue);
-                    return ele.sex.indexOf(btnValue) != -1
-                })
-            }
-        }
-    </script>
+    <script src="./src/js/filter/filterArrBySex.js"></script>
+    <script src="./src/js/filter/filterArrByText.js"></script>
+    <script src="./src/js/combineFilter.js"></script>
+    <script src="./src/js/index.js"></script>
 </body>
 </html>
