@@ -11,7 +11,7 @@
         var flWrap = document.getElementsByClassName('flWrap')[0];
         var ul = flWrap.getElementsByTagName('ul')[0];
         var btn = [].slice.call(document.getElementsByClassName('btn'),0);
-        // 
+        //  
         var state = {
             text: '',
             sex: 'a'
@@ -33,8 +33,8 @@
         var newArr = personArr;
         // console.log(!newArr)
         inp.oninput = function(){
-                nameArr = filterArrByText(this.value,sexArr);
-                renderPage(nameArr);
+                // nameArr = filterArrByText(this.value,sexArr);
+                renderPage(lastFilterArr(personArr));
         }
         // function filterArrByText(text,arr){
         //     if(!text){
@@ -52,8 +52,8 @@
         btn.forEach(function(ele,index,self){
             ele.onclick = function(){
                 chaActive(ele);
-                sexArr = filterArrBySex(this.getAttribute('sex'),nameArr);
-                renderPage(sexArr);
+                // sexArr = filterArrBySex(this.getAttribute('sex'),nameArr);
+                renderPage(lastFilterArr(personArr));
             }
         })
         var lastActiveBtn = btn[2];

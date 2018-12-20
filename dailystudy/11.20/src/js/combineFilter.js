@@ -6,6 +6,7 @@ function combineFilter(config){
     return function(data){
         for (var prop in config) {
             data = config[prop](data,state[prop])
+            // console.log(prop,config[prop],state[prop])
         }
         return data;
     }
@@ -14,3 +15,4 @@ var lastFilterArr = combineFilter({
     text: filterArrByText,
     sex: filterArrBySex
 })
+// console.log(lastFilterArr);
