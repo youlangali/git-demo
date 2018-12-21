@@ -11,7 +11,8 @@ function createStore(initialState){
         //   对例如text：‘’的内容进行更改
         state[action.type] = action.value;
         //   调用之前订阅过的函数,只要状态一改变，下方的函数就会别触发
-        list.forEach(function(ele){
+        list.forEach(function(ele,index,slef){
+            // console.log(ele);
             ele();
         })
     }
