@@ -2,7 +2,8 @@
  //  根据性别按钮通过点击，来筛选data
 
 
- function filterArrBySex(sex, data) {
+ function filterArrBySex(data,sex) {
+    // console.log(data);
     if (sex == 'a') {
         return data;
     } else {
@@ -10,4 +11,6 @@
             return ele.sex == sex;
         })
     }
+
+    // console.log(data);
 }

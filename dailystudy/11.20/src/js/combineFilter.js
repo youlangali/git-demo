@@ -5,14 +5,17 @@
 function combineFilter(config){
     return function(data){
         for (var prop in config) {
-            data = config[prop](data,state[prop])
-            // console.log(prop,config[prop],state[prop])
+            data = config[prop](data,store.getState(prop))//  最终传出的data必须是经过每个过滤条件的产物
+                                //    state[prop]是视图的状态，传入当前的状态，根据状态返回data
+            // console.log(data);
+            // consosle.log(prop,config[prop],state[prop])
         }
         return data;
     }
 }
 var lastFilterArr = combineFilter({
     text: filterArrByText,
-    sex: filterArrBySex
+    sex: filterArrBySex,
+    age: filterArrByAge,
 })
 // console.log(lastFilterArr);
