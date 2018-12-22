@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 标准盒模型与混杂模式盒模型 -->
+    <!-- 数组new Array -->
+    <!-- 正则 -->
+    <div style="width: 100px;height:100px;background-color:yellow;border: 1px red solid;padding: 0 10px;">
+
+    </div>
+    <script>
+        //   无论哪个，最终输出的a本身都会使+1
+        //  ++a 是先运行后取值，这个值是指赋给别人的值
+        //   a++ 先取值后运算,这个值是指赋给别人的值
+    // var a = 10,
+    //     b = 20,
+    //     c = 30;
+    //     ++a;//a=11
+    //     a++;// a = 12
+    //     //   13      21      30     13
+    //     // var i1 = ++b,i2 = c++;
+    //     e = ++a + (++b) + (c++) + a++;
+    //     console.log(e);
+        // console.log(i1,i2);
+
+
+    //     var d = 10;
+    //     // d++; 
+    //     // ++d
+    //     console.log(d);
+
+
+        // var a = 100;
+        // console.log(++a,a++);
+
+
+//  隐式类型转换,数字类型转换，当遇到不能转换为数字的就显示NaN，
+//null为空，boolean ,数字都可以，就算转化不了也是数字类型
+
+    // var a = 20;
+    // if (function b() { }) {
+    //     a = 30 + typeof b;// typeof b 显示出来的undefined是字符串类型
+    //     // console.log(a)
+    // }
+    // function test(a) {
+    //     if (false) {
+    //         function b() { };
+    //     }
+    //     // console.log(b);
+    //     return typeof (a + b);
+    // }
+    // test(10, 20);
+
+
+
+
+        function fun(n,o){
+            console.log(n,o);
+            return {
+                fun: function(m){
+                    return fun(m,n)
+                }
+            }
+        }
+        var a = fun(0);a.fun(1); a.fun(2); a.fun(3);//  
+         //  a = {};
+        var b = fun(0).fun(1).fun(2).fun(3);
+        var c = fun(0).fun(1); c.fun(2); c.fun(3);
+
+        var a = fun(0);
+        a.fun(1); 
+        a.fun(2);
+        a.fun(3);
+        var b = fun(0).fun(1).fun(2).fun(3);
+        var c = fun(0).fun(1);
+        c.fun(2);
+        c.fun(3);
+    </script>
+    
+</body>
+</html>
