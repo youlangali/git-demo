@@ -10,9 +10,9 @@
     <!-- 标准盒模型与混杂模式盒模型 -->
     <!-- 数组new Array -->
     <!-- 正则 -->
-    <div style="width: 100px;height:100px;background-color:yellow;border: 1px red solid;padding: 0 10px;">
+    <!-- <div style="width: 100px;height:100px;background-color:yellow;border: 1px red solid;padding: 0 10px;">
 
-    </div>
+    </div> -->
     <script>
         //   无论哪个，最终输出的a本身都会使+1
         //  ++a 是先运行后取值，这个值是指赋给别人的值
@@ -59,28 +59,50 @@
 
 
 
-        function fun(n,o){
-            console.log(n,o);
-            return {
-                fun: function(m){
-                    return fun(m,n)
-                }
+        // function fun(n,o){
+        //     console.log(n,o);
+        //     return {
+        //         fun: function(m){
+        //             return fun(m,n)
+        //         }
+        //     }
+        // }
+        // var a = fun(0);a.fun(1); a.fun(2); a.fun(3);//  
+        //  //  0 undefined    1,0     2,0         3,0
+        // var b = fun(0).fun(1).fun(2).fun(3);
+        // // 0 undefined  1,0;2,1;3,2
+        // var c = fun(0).fun(1); c.fun(2); c.fun(3);
+        // //0 undefined   1,0   ; 2,1   3,1
+       
+       
+
+
+       //请用冒泡排序的方法将arr = [33,11,22,55,66,55]进行从小到达的排列
+    //    var arr = [33,11,22,44,66,55];
+    //    for(var i = 0;i < arr.length-1;i ++){
+    //        if(arr[i] > arr[i + 1]){
+    //         var a = arr[i] ;
+    //         arr[i] = arr[i + 1];
+    //         arr[i + 1] = a;
+    //        }
+    //    }
+
+
+    //  var str = 'accaafajfaoegjoaewj';请在String.prototype添加一个字符串去重函数uniqueString;
+   
+    var str = 'accaafajfaoegjoaewj'
+    String.prototype.uniqueString = function(){
+        var obj = {};
+        var lastStr = '';
+        for(var i = 0;i < this.length;i ++){
+            if(!obj[this[i]]){
+                obj[this[i]] = 1;
+                lastStr += this[i];
             }
         }
-        var a = fun(0);a.fun(1); a.fun(2); a.fun(3);//  
-         //  a = {};
-        var b = fun(0).fun(1).fun(2).fun(3);
-        var c = fun(0).fun(1); c.fun(2); c.fun(3);
-
-        var a = fun(0);
-        a.fun(1); 
-        a.fun(2);
-        a.fun(3);
-        var b = fun(0).fun(1).fun(2).fun(3);
-        var c = fun(0).fun(1);
-        c.fun(2);
-        c.fun(3);
+        return lastStr;
+    }
+    var newStr = str.uniqueString();
     </script>
-    
 </body>
 </html>
