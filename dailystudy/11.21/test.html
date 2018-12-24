@@ -78,7 +78,7 @@
 
 
        //请用冒泡排序的方法将arr = [33,11,22,55,66,55]进行从小到达的排列
-    //    var arr = [33,11,22,44,66,55];
+       var arr = [33,11,22,44,66,55];
     //    for(var i = 0;i < arr.length-1;i ++){
     //        if(arr[i] > arr[i + 1]){
     //         var a = arr[i] ;
@@ -86,23 +86,33 @@
     //         arr[i + 1] = a;
     //        }
     //    }
-
-
+    for(var j = 0;j < arr.length - 1;j ++){
+        for(var i = 0;i < arr.legnth - 1 - j;i ++){
+            if(arr[i] > arr[i + 1]){
+            var a = arr[i] ;
+            arr[i] = arr[i + 1];
+            arr[i + 1] = a;
+           }
+        }
+    }
     //  var str = 'accaafajfaoegjoaewj';请在String.prototype添加一个字符串去重函数uniqueString;
    
-    var str = 'accaafajfaoegjoaewj'
-    String.prototype.uniqueString = function(){
-        var obj = {};
-        var lastStr = '';
-        for(var i = 0;i < this.length;i ++){
-            if(!obj[this[i]]){
-                obj[this[i]] = 1;
-                lastStr += this[i];
-            }
-        }
-        return lastStr;
-    }
-    var newStr = str.uniqueString();
+    // var str = 'accaafajfaoegjoaewj'
+    // String.prototype.uniqueString = function(){
+    //     var obj = {};
+    //     var lastStr = '';
+    //     for(var i = 0;i < this.length;i ++){
+    //         if(!obj[this[i]]){
+    //             obj[this[i]] = 1;
+    //             lastStr += this[i];
+    //         }
+    //     }
+    //     return lastStr;
+    // }
+    // var newStr = str.uniqueString();
+
+//    快排
+    
     </script>
 </body>
 </html>
