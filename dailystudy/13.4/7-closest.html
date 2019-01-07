@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div class="wrapper">
+        <ul>
+            <li>
+                <ul data-id='101'>
+                    <li class="demo1">nike</li>
+                    <li>200$</li>
+                    <li>
+                        <button>add</button>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <ul data-id='102'>
+                    <li>adidas</li>
+                    <li>200$</li>
+                    <li>
+                        <button>add</button>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <script src="./jquery.js"></script>
+    <script>
+        //  必须要传参，且他是包括自己在内的离得最近的父级
+    // console.log($('button').closest())
+
+    // console.log($('button').eq(0).closest('button'))
+    // console.log($('button').eq(0).closest('.demo1'))
+
+
+    console.log($('button').eq(0).closest('ul').attr('data-id'))
+    
+
+
+    </script>
+</body>
+</html>

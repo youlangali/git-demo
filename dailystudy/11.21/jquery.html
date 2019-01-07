@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+</head>
+<body>
+    <!-- 引入jquery工具库 -->
+    <!-- cdn：http://www.jq22.com/cdn/#a2 -->
+    <!-- 下载地址：http://www.jq22.com/jquery-info122 -->
+    <script src="./jquery.js"></script>
+    <!-- <script src="./myJquery.js"></script> -->
+    <!-- <div></div>
+    <ul>
+        <li data = 'wf' class="wf1">1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+    </ul>
+    <div class="demo1">1</div>
+    <div class="demo">2</div>
+    <div class="demo">3</div>
+    <div class="#demo">4</div> -->
+
+    <!-- find方法 -->
+    <!-- <div class="wrapper">
+        <ul>
+            <li class="demo">1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+        </ul>
+        <div></div>
+    </div> -->
+
+
+
+    <!-- filter -->
+
+
+    <!-- <div class="wrapper">
+        <ul>
+            <li>1</li>
+            <li class="demo">2</li>
+            <li>3</li>
+            <li>4</li>
+            <li class="demo">5</li>
+        </ul>
+    </div>
+    <ul>
+        <li>1</li>
+        <li class="demo">2</li>
+        <li>3</li>
+        <li>4</li>
+        <li class="demo">5</li>
+    </ul> -->
+
+    
+    <!-- has -->
+    
+    
+    <!-- <ul>
+        <li>
+            <ul>
+                <li class="demo">1</li>
+                <li>2</li>
+                <li>3</li>
+                <li>4</li>
+            </ul>
+        </li>
+        <li>2</li>
+        <li class="demo">3</li>
+        <li>4</li>
+        <li>5</li>
+    </ul> -->
+
+
+    <!-- is -->
+
+    <!-- <div class="wrapper">
+        <span class="demo">span-1</span>
+        <span class="demo">span-2</span>
+        <p class="demo p">p-1</p>
+        <span class="demo">span-3</span>
+    </div>
+    <p class="demo">p-2</p> -->
+
+
+    <!-- is运用 -->
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ul>
+
+    <script>
+        // $(function(){
+        //     $('.demo1,.wf1').css({color: 'red'})
+        // })
+    //实例方法
+    // $(function(){
+        // $('div').css({width:100,height: 100,backgroundColor:'red',})
+        // console.log($);
+    //    console.log($(null)) 
+        // console.log($(undefined));
+        // 将dom对象转换为jquery对象
+        // var div = document.getElementsByTagName('div');
+        // $(div).css({width:100,height: 100,backgroundColor:'red',})
+    
+    // })
+    // js容错机制较好，$(null),$(undefined),$(啥也不写),都不会报错
+    //如果遇到原生dom，$(ele)就可以变成jquery对象，调用juery方法
+
+    // $('li[data = wf]').css({color: 'red'});
+
+//  时间线 DOMContentLoaded被触发就会触发$(function(){})
+    // window.ready = function(){};
+    // window.onload = function(){};
+    // $(function(){});
+    // $(document).ready(function(){});
+
+
+    // (function(){
+    //     function jQuery(selector){
+    //         return new jQuery.prototype.init(selector);
+    //     }
+    //     jQuery.prototype.init = function(selector){
+    //         this.length = 0;
+    //         if(selector.indexOf('.') != -1){
+    //             var dom = document.getElementsByClassName(selector.slice(1));
+    //         }else if(selector.indexOf('#') != -1){
+    //             var dom = document.getElementById(selector.slice(1));
+    //         }else{
+    //             var dom = document.getElementsByTagName(selector);
+    //         }
+    //         if(dom.length == undefined){
+    //             this[0] = dom;
+    //             this.length++;
+    //         }else{
+    //             //  基础铺垫
+    //             for(var i = 0;i < dom.length;i ++){
+    //                 this[i] = dom[i];
+    //                 this.length++;
+    //             }
+    //         }
+    //     }
+    //     jQuery.prototype.css = function(config){
+    //         //   循环操作每一个dom
+    //         for(var i = 0;i < this.length;i ++){
+    //             for(var attr in config){
+    //                 this[i].style[attr] = config[attr];
+    //             }
+    //         }
+    //         //  链式操作
+    //         return this
+    //     }
+    //     jQuery.prototype.init.prototype = jQuery.prototype;
+    //     window.$ = window.jQuery = jQuery;
+    // }())
+
+    // $(".demo").css({width:'100px',height: '100px',backgroundColor: 'red'})
+
+
+    // window.onload = function(){
+    //     console.log('window.onload')
+    // }
+    // $(document).ready(function(){
+    //     console.log('DOMContentLoaded')
+    // })
+
+
+        // get方法
+    // console.log($('.demo').get());
+    // $('.demo').get()
+    // console.log($('#demo'))
+    // console.log($('.demo'))
+
+        // eq方法
+     
+// console.log($('.demo').eq(0))
+
+        // find方法
+
+
+        // $('.wrapper').css({backgroundColor: 'red'})
+        //     .find('ul')
+        //     .css({color: 'pink'})
+        //     .find('li')
+        //     .css({backgroundColor: 'yellow'})
+        // prevObject,指的是该元素的前一个操作对象，并不是指父级
+        //find只能从父级中查找低级，且返回的是子集而不是父级
+        // console.log($('.wrapper ul li').find('.demo'));//他的prevObject是兄弟
+        // $('.wrapper ul li').find('.demo').css({color: 'red'})// 不起作用
+
+
+        // console.log($('.wrapper'));
+        // console.log($('.wrapper').find('ul'));
+        // console.log($('.wrapper').find('div'));
+        // console.log($('.wrapper').find('ul').find('li'));
+
+        // filter 过滤 返回符合条件的,只能是同级，从已经选择的内容中选出符合条件的;(:even偶数),
+        //  not 与filter的用法一模一样，只不过是返回不符合条件的内容
+        // $('.wrapper')
+        //     .find('li')//如果去掉这个是没有作用的，，filter只能是同级中选择
+        //         // .filter('.demo')
+        //         .filter(':even')
+        //             .css({color: 'red'});
+        
+
+        // **可以传函数作为参数
+
+        // $('.wrapper li').filter(function(index,ele){
+        //     // console.log(index,ele)
+        //     // console.log(this);
+        //     // return this.className == 'demo';// 返回true是符合条件的被返回
+        //     return index % 2 == 0
+        // }).css({color: 'red'});
+
+        // 非同级筛选has，选出带有ul的li
+        // $('li').has('ul').css({backgroundColor: 'red'});
+        // $('li').has('.demo').css({color: 'red'});
+        //     console.log($('li').has('ul'))
+
+            //  is 同级判断，返回true或者false，如果is前面的选择与is中写的条件具有交际就返回true
+
+        //    console.log($('.wrapper p').is('.demo')) 
+
+            // is运用
+
+            $('ul').click(function(e){
+                if($(e.target).is('li')){
+                    alert( $(e.target).text())
+                }else{
+                    alert($(this).text())
+                }
+            })
+
+    </script>
+
+
+
+
+
+
+</body>
+</html>

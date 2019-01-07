@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!-- <script src="./jquery.js"></script> -->
+    <script src="./myJquery.js"></script>
+</head>
+
+<body>
+    <div class="wrapper">
+        <ul class="son">
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+        </ul>
+        <div class="brother">4</div>
+    </div>
+    <script>
+        // add用法,就是将.wrapper与ul一起操作，同时给予样式css
+        // $('.wrapper').add('ul').css({position: 'relative'});
+        // $('.wrapper,ul').css({position: 'relative'});
+
+        // end用法,回退一个对象，会退到他的prevObject
+        // $('.wrapper').add('ul').css({position: 'relative'}).end().css({position: 'absolute'});
+        // $('.wrapper')
+        //     .css({position: 'relative'})
+        //     .find('ul')
+        //     .css({position: 'absolute'})
+        //     .end()
+        //     .css({position: 'absolute'})
+
+        // myJquery中add方法测试
+        // console.log($('.wrapper').add('.son'));
+        // $('.wrapper').add('.son').css({position: 'relative'})
+
+
+
+        //   **类数组可以被当成数组一样循环
+        // 类数组指有length和数字索引的对象，最好也要有push功能
+        // var a = {};baseObj = {0:'my1',1:'my2',2:'my3',length: 3};
+        // a.length = 0;
+        // for(var i = 0;i < baseObj.length; i++){
+        //         a[a.length++] = baseObj[i]
+        //     }
+    </script>
+</body>
+</html>

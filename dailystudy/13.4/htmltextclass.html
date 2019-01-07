@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="./jquery.js"></script>
+    <title>Document</title>
+    <style>
+    .demo {
+        width: 100px;
+        height: 100px;
+        margin-bottom: 20px;
+        background: orange;
+    }
+    /* 并列选择器  同时有这两个类名的会被选中 */
+    .demo.active {
+        background: red;
+    }
+
+
+
+    .wrapper .style1{
+        background: red;
+    }    
+    .wrapper .style1 li{
+        color: salmon;
+    }    
+    .wrapper .style2{
+        background: blue;
+    }    
+    .wrapper .style2 li{
+        color: green;
+    }    
+
+    .wrapper.active .style1{
+        background: yellow;
+    }
+    .wrapper.active .style1 li{
+        color: white;
+    }
+    .wrapper.active .style2{
+        background: deeppink;
+    }
+    .wrapper.active .style2 li{
+        color: darkcyan;
+    }
+
+    
+    </style>
+</head>
+<body>
+    <!-- <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+    </ul> -->
+
+    <!-- addClass   removeClass   hasClass -->
+    <!-- <div class="demo active"></div>
+    <div class="demo"></div>
+    <div class="demo"></div> -->
+
+    <!-- <div class="wrapper">
+        <ul class="style1">
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+        </ul>
+        <ul class="style2">
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+        </ul>
+    </div> -->
+
+    <!-- CSS的使用方法 -->
+
+    <div class="cssCeshi"></div>
+
+    <script>
+        // 注意： 1、尽量避免直接添加行间样式，因为其权重过高，这样不利于响应式设计，破坏了c3+H5优雅的解决方案
+        // html用法
+        // html取值  最特别之点
+    //    console.log($('ul').html()) ;
+    // console.log($('ul li').html()) //  特别之处， 只对第一个li进行了取值操作，不是每个li的值都被取到，其他的方法调用都是对取到的每个li进行操作
+
+
+
+        // html赋值
+        // $('ul').html('abc');
+        
+        // $('ul li').html('9');// 会给取到的每个li都进行赋值操作
+
+        // var arrName = ['王聪','李四','张三','李牧']
+        // $('ul li').html(function(index,ele){
+        //     return '<p>'+ arrName[index] +'</p>'
+        // })
+
+        // text()方法  相当于 innerText
+
+
+            // text()取
+
+            // console.log($('ul').text());
+            // console.log($('ul li').text());//  能够将每个li里的东西取出，html特殊
+            
+
+
+
+                // text()赋值
+
+                // $('ul').text('abc');
+                // $('ul li').text('9');
+                // $('ul li').text(function (index, ele) {
+                //     return '<p>' + arrName[index] + '</p>'//不能识别标签，只能识别文字
+                // })
+                    
+
+
+
+                // .size()方法  等同于.length方法
+            //    console.log($('ul li').size()) ;
+            //    console.log($('ul').size()) ;
+
+
+        //  几乎每个能获取多个jQuery对象的，例如$('demo'),都能传递function
+        // .addClass()用法
+        
+        // $('.demo').addClass('active duyi');// 给每个有demo类名的都加了两个新类名
+
+        //   传递function  运用更灵活
+        // $('.demo').addClass(function(index,ele){
+        //     return 'duyi' + index
+        // })
+
+
+        // $('.demo').addClass(function(index,ele){
+        //     if(index % 2 == 0){
+        //         return 'duyi'
+        //     }
+        //     // return 'active'
+        //     // return undefined什么都不写，或者写空串或者写undefined都什么都不加
+        //     // return ''
+        //     // return null
+        // })
+
+
+            
+            //  removeClass 用法
+            
+            // $('div').removeClass('demo');
+            // $('.demo').removeClass();// 什么都不写，会将类名全部移除
+            // $('.demo').removeClass('demo active');//可以同时写多个参数
+
+            // $('div').removeClass(function(index,ele){
+            //     if(index % 2 == 0){
+            //         return 'demo'
+            //     }
+            //     return 'active'
+            // })
+
+
+
+                // hasClass用法  是否有这个类名，返回boolean
+                    //  有一个满足就会返回true
+                // console.log($('div').hasClass('active'))
+
+
+            // 对class的运用
+            // $('.demo').click(function(){
+                // $('.demo').removeClass('active');
+                // $(this).addClass('active');//  这里的this是原生的所以需要包装成jQuery对象
+                
+
+                // 第二种操作css，行间样式
+                //  减少对样式的直接操作，多用添加类名的方式
+                // $('.demo').css({background: 'orange'});
+                // $(this).css({background: 'red'});
+
+                //  用js操作类名的好处
+                //  整洁  易维护   复用性高 减少网络请求的带宽 符合后面waipad的开展的支持
+            // })
+
+
+
+                    //   第二波测试
+                // $('.wrapper').click(function(){
+                //     if($(this).hasClass('active')){
+                //         $(this).removeClass('active')
+                //     }else{
+                //         $(this).addClass('active');
+                //     }
+                // })
+
+
+
+
+
+                // CSS的使用方法
+
+                // $('.cssCeshi').css({width: 100,height: '100px',backgroundColor: 'red'})
+                // // $('.cssCeshi').css('width','100px')
+
+                // // 取值
+                // console.log($('.cssCeshi').css('width'))//字符串形式
+
+
+        // function foo(){
+        //     return {
+        //         bar: 'hello'
+        //     }
+        // }
+        // var fooR = foo();
+        // function foo1(){
+        //     return 
+        //     {
+        //         bar: 'hello'
+        //     }
+        // }
+        // var fooR1 = foo1();
+    </script>
+</body>
+</html>

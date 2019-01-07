@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <div class="shop" data-id='101'>
+        <p>basketball-nike</p>
+        <button>demo</button>
+    </div>
+    <div class="shop" data-id='102'>
+        <p>basketball-adidas</p>
+        <button>demo</button>
+    </div> -->
+    <div class="wrapper">
+
+    </div>
+    <script src="./jquery.js"></script>
+    <script>
+        //  选择自己的第一个父级，且可以加限制条件
+    // $('button').click(function(){
+    //     console.log($(this).parent('.demo'));
+    // })
+    
+
+    var showArrs = [
+        {
+            name: 'nike',
+            id: 101
+        },{
+            name: 'adidas',
+            id: 102
+        }
+    ]
+    var str = '';
+    showArrs.forEach(function(ele,index,arr){
+        str += '<div class="shop" data-id="'+ ele.id +'"><p>'+ ele.name +'</p><button>demo</button></div>'
+    })
+    $('.wrapper').html(str);
+    var idArr = [];
+    $('button').click(function(){
+        idArr.push($(this).parent('.shop').attr('data-id'))
+    })
+    </script>
+</body>
+</html>

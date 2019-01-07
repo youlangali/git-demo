@@ -43,22 +43,22 @@
 
 
 
-// function Sit(c,sitColor){
-//     this.c = c;
-//     this.sitColor = sitColor;
-// }
-// function Model(height,width,len){
-//     this.height = height;
-//     this.width = width;
-//     this.len = len
-// }
-// function Car(wheelSize,style,c,sitColor,height,width,len){
-//     Sit.call(this,c,sitColor);
-//     Model.call(this,height,width,len);
-//     this.wheelSize = wheelSize;
-//     this.style = style
-// }
-// var car = new Car(100,"话里话扫","真皮","red",1800,1900,4900)
+function Sit(c,sitColor){
+    this.c = c;
+    this.sitColor = sitColor;
+}
+function Model(height,width,len){
+    this.height = height;
+    this.width = width;
+    this.len = len
+}
+function Car(wheelSize,style,c,sitColor,height,width,len){
+    Sit.call(this,c,sitColor);
+    Model.call(this,height,width,len);
+    this.wheelSize = wheelSize;
+    this.style = style
+}
+var car = new Car(100,"话里话扫","真皮","red",1800,1900,4900)
 
 
 

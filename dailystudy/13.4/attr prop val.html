@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <div class="demo" cst='wf'></div>
+    <div class="demo" cst='ali'></div>
+    <div class="demo1" cst='zhou'></div>
+    <input type="checkbox" checked='false'> -->
+
+
+    <!-- val方法的使用 -->
+    <form action="./" method='GET'>
+    <h3>选择你喜欢的明星</h3>
+    <select name="star" id="">
+        <option value="s">詹姆斯</option>
+        <option value="a" selected='selected'>库里</option>
+        <option value="b">奥拉迪波</option>
+    </select>
+    <h3>一句话简单介绍你喜欢的明星</h3>
+    <input type="text" name='easy' value='cst'>
+    <h3></h3>
+    三分准：<input type="checkbox" name="special" value="three">
+    组织好：<input type="checkbox" name="special" value="org">
+    突破强：<input type="checkbox" name="special" value="strong">
+    <h3>具体秒速该明星的技术特点</h3>
+    <textarea name="des" id="" cols="30" rows="10"></textarea>
+    <input type="submit" value="login">
+    </form>
+    <script src="./jquery.js"></script>
+    <script>
+    //  attr 和 prop的区别：jquery认为attrbute的checked，selected disableed就是
+    //  表示该属性初始状态的值，property的checked，selected，disable表示该属性实时状态的值（true或false）
+
+    // attr用法 attr 基于 getAttribute setAttribute
+    // attr()赋值
+    // $('.demo').attr('id','zhangsan'); // 赋值特性的值
+    // $('.demo').attr('cst','baby');   //  赋非特性的值
+    // $('.demo').attr('cst','baby');   //  可以同时操作多个demo进行赋值
+    // $('input').attr('checked','aaa');//不能给表单类的特性属性赋值，
+    //一经attr赋值，无论aaa位置写的是什么都是checked
+
+    // 不能传递function，应该是能传递多个参数的能够使用function循环操作
+    // $('.demo').attr(function(index,ele){
+    //     return index
+    // })//行不通
+    
+    //  attr 取值
+    // console.log($('.demo').eq(0).attr('cst'));
+    // console.log($('.demo').eq(0).attr('class'));// 能获取特性属性的值
+    // console.log($('.demo').attr('cst'));//  只能取第一个，和html相似
+
+        //checked，disable，selected等属性一旦被写就表示了该标签的状态，后面的值无所谓
+    // console.log($('input').attr('checked'))
+
+    //  特性映射  非特性不能映射
+    // prop用法  操作的是js 的dom对象
+        // prop取值
+        // console.log($('.demo').prop('cst'));// 无法对非特性属性进行取值
+        // console.log($('.demo').prop('class'));// 只能对特性属性进行取值
+        // console.log($('div').prop('class'));// 只能取一个值
+        // console.log($('input').prop('checked'));// 对于表单中特殊的一些属性，返回boolean值
+        
+        // prop赋值
+        // $('.demo').prop('class','demo2');//可以对特性属性赋值
+        // $('.demo').prop('cst','demo2');//无法对非特性属性赋值
+        // $('input').prop('checked','check')// 不行赋值
+
+
+        // 总结：class,id等的一般特性属性两者都可以用取值和赋值
+        //  非特性属性的用attr
+        // checked，disable，selected等获取用prop，且prop只能针对特性属性取值和赋值
+
+        
+        //   val  用法
+        //  获取表单单个相关元素的value值  和html()一样
+        // console.log($('input[type="checkbox"]')//获取value值
+        // console.log($('input[type="checkbox"]').val())//获取value值  只能取一个值
+
+        // val赋值
+        // $('input[type="checkbox"]').eq(0).val('我喜欢你')
+        // $('input[type="checkbox"]').val('我喜欢你')//可以同时对多个对象进行赋值
+        // $('input[type="checkbox"]').val(function(index,oldVlaue){
+        //     return oldVlaue + index;// 对每个对象都赋值不一样的值
+        // })
+
+
+        //  获取form表单所有的value值方法
+        // console.log($('form').serialize());// 获取name与之相对应的value值，书称键值对
+        // console.log($('form').serializeArray());// 将键值对划分为对象形成数组
+        // $('input').eq(0).val('000');// 行间属性的value值没变，但是页面中变了
+        // console.log($('input').eq(0).val())// 获取的也是我们赋值的值
+
+
+            // 小总结
+        // attr,prop,val的取值都是和html一样，只能取第一个的值
+    </script>
+</body>
+</html>
