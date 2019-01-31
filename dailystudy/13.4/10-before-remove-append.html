@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    /* .wrapper{
+        border: 1px red solid;
+        width: 200px;
+        padding: 10px;
+    }
+    .wrapper div{
+        width: 200px;
+        height: 100px;
+    }
+    .wrapper .box1{
+        background-color: red;
+    }
+    .wrapper .box2{
+        background-color: orange;
+    }
+    .content{
+        width: 200px;
+        height: 50px;
+        background-color: black;
+    } */
+
+
+    div{
+        width: 100px;
+        height: 100px;
+        background-color: #f40;
+    }
+    </style>
+</head>
+<body>
+    <!-- <div class="wrapper">
+        <div class="box1">box1</div>
+        <div class="box2">box2</div>
+    </div>
+    <div class="content">content</div> -->
+
+
+    <!-- remove detach -->
+    <div>
+
+    </div>
+    <script src="./jquery.js"></script>
+    <script>
+        // insertBefore     before    剪切
+        //  传递的参数不同
+        //   两者可以达到同一个目的，只是继续要链式操作谁，就采用哪种方法
+        // $('.content').insertBefore('.box1');//  将.content 剪切到 .box1的前面
+        // $('.box1').before('.content');//  参数要传递jQuery对象
+        // $('.box1').before($('.content'));//  参数要传递jQuery对象
+
+
+        //  insertAfter After  与前面insertBefore Before 相同
+        // $('.content').insertAfter('.box1');
+        // $('.box1').after($('.content'));
+
+
+
+    // append  appendTo    
+    //   append 某某中插入某某   appendTo 将某某插入到某某中
+    // $('.wrapper').append($('.content'))// 要传递jQuery对象
+    // $('.content').appendTo($('.wrapper'));
+
+
+
+        // prepend  appendTo
+        // $('.wrapper').prepend($('.content'))// .wrapper 中的前方插入 。content
+
+        // $('.content').appendTo($('.wrapper'));// .content是最插在最后面的
+
+
+        // remove()  detach()  都是删除调用者
+        // 区别：remove() 后再重新加回来，加载在其上的事件也会没了
+                // detach() 后重新加回来  ，其上的事件依然存在
+
+
+        // $('div').click(function(){
+        //     alert(0);
+        // })
+        // // $('div').remove().appendTo($('body'));//点击之后没有效果
+        // $('div').detach().appendTo($('body'));//点击之后依然有事件被触发，
+        
+
+
+
+        // $()的使用方法
+        // $('<div></div>').appendTo($('body'));//可以直接加结构
+        // $('<div>').appendTo($('body')); //第二种写法  div是JScript之后出现
+        // $('<p>').appendTo($('body')); //第二种写法
+            
+            //  $()中可以写的很复杂
+        // $('<div><span style="color:black;">demo</span></div><p></p>').appendTo($('body'))
+
+
+    </script>
+</body>
+</html>

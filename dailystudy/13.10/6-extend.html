@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body><div class="demo" style="width: 100px;height: 100px;background-color: black;position: absolute;"></div>
+    <script src='http://code.jquery.com/jquery-2.1.1.min.js'></script>
+    <script>
+    // 加到工具方法中 $.extend
+    //加到实例方法中  $.fn.extend
+    
+     // 1 工具的扩展方法   (二者的区别)（最重要的地方）
+    //    2  浅层克隆
+    //    3 深层克隆
+    
+
+    // this的指向不同
+    // $.extend = $.fn.extend = function(){
+    //     this -- > $
+    //     this -- > $.fn
+    // }
+
+
+// 可以将我们自己需要的工具方法放到js中
+    $.extend({
+        definedMandom: function(start,final){
+            var len = final - start;
+            return Math.random()*len + start;
+        }
+    });//加到工具方法里面
+    // $.definedMandom(1,10);// 调用方法
+
+
+// 可以将我们自己制作的实例方法加到js中
+    //加到实例方法中
+//     $.fn.extend({
+//         drag: function(){
+//             var disX,
+//                 disY,
+//                 self = this;
+//             $(this).on('mousedown',function(e){
+//                  disX = e.pageX - $(this).offset().left;
+//                  disY = e.pageY - $(this).offset().top;
+//                 $(document).on('mousemove',function(e){
+//                     $(self).css({left: e.pageX - disX,top: e.pageY - disY})
+//                 });
+//                 $(document).on('mouseup',function(){
+//                     $(document).off('mousemove').off('mouseup')
+//                 })
+//             })    
+//         }
+//     })
+
+// $('.demo').drag();  调用方法
+
+
+
+    // 浅层克隆
+    //  深浅层克隆的区别在于引用值，当obj2中的内容克隆给obj1
+    //    相互影响    浅层克隆  当 obj1.son.name = 'fangfang'  obj2.son.name = 'fangfang'
+    //               浅层克隆  当 obj2.son.name = 'fangfang'  obj1.son.name = 'fangfang'
+    var obj1 = {
+        name: 'wang',
+        age: 1,
+    },
+    obj2 = {
+        name: 'zhou',
+        age: 50,
+        wife: 'xiaowang',
+        son: {
+            name: 'xiaozhou',
+            age: 2,
+        }
+    }
+    obj3 = {
+        name: 'lui',
+        age: 1,
+}
+    // obj1会将obj2里面的东西克隆给自己，
+    // $.extend(obj1,obj2)
+    
+    // 可以传参无数个，就是obj1会将后面参数的内容都克隆给自己
+    // $.extend(obj1,obj2,obj3)// 先将obj2克隆给obj1，再将obj3克隆给obj1，依次类推，所以如果有相同的，会保留最后一个objn的值
+
+
+
+    // 深层克隆
+
+    // 在碰到引用值时不会相互影响
+
+    $.extend(true,obj1,obj2);
+    obj1.son.name = 'fangfang';
+    console.log(obj1,obj2);// 并未影响
+
+
+    // obj2.son.name = 'fangfang';
+    // console.log(obj1,obj2);// 没有影响
+
+
+
+    </script>
+</body>
+</html>

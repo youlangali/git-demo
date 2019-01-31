@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    .wrapper{
+        width: 100px;
+        height: 100px;
+        background-color: red;
+    }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="demo"></div>
+    </div>
+    <!-- https://easy-mock.com/mock/5c0b4a876162b83fe0a50cb9/person -->
+    <script src="./jquery.min.js"></script>
+    <script>
+        // $.data()参数   obj
+        // 属性：url：https://easy-mock.com/mock/5c0b4a876162b83fe0a50cb9/person
+            // type： 请求方式
+            // data：{} 参数 信息
+            // success： 请求成功后的处理函数
+            // error： 请求失败后的处理函数
+            // complete： 请求完成的处理函数 最后执行（不管成功还是失败）
+            // context： 改变函数上下文
+            // timeout: 超时后的处理函数
+            // async： true false 是否异步
+            // dataType: 'jsonp'
+
+    $.ajax({
+        url: 'https://easy-mock.com/mock/5c0b4a876162b83fe0a50cb9/person',
+        type: 'GET',
+        async: false,//  是否异步
+        // dataType: 'jsonp',
+        success: function(res){
+            $.each(res.data,function(index,ele){
+                console.log(ele);
+            })
+            console.log(this);
+        },
+        error: function(e){
+            console.log(e.status,e.statusText);
+        },
+        complete: function(){
+            console.log('compelete');
+        },
+        context: $('.wrapper')// 改变了this的指向
+
+    })
+    console.log('over')
+
+
+
+
+// function deal(res){
+//     console.log(res);
+// }
+//     $.ajax({
+//         url: 'https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su',
+//         type: 'GET',
+//         data: {
+//             wd: 'nba',
+//             cb: 'deal'
+//         },
+//         dataType: 'jsonp',
+//         success: function(res){
+//             console.log('success')
+//         },
+//         error: function(e){
+//             console.log(e.status,e.statusText);
+//         },
+//         complete: function(){
+
+//         },
+//         context: $('.wrapper')
+//     })
+    </script>
+</body>
+</html>

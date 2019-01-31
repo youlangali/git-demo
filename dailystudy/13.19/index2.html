@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./src/css/jquery.fullPage.css">
+    <style>
+        html,body{
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+    /* .section.section1{
+        width: 100%;
+        height: 100px;
+        background-color:red;
+    }
+    .section.section2{
+        background-color:black;
+    }
+    .section.section3{
+        background-color:blue;
+    }
+    .section.section4{
+        background-color:pink;
+    } */
+    .componenLeft{
+        position: absolute; 
+        top: 50%; 
+        left: 0;
+        height: 30px;
+        line-height: 30px;
+        margin-top: 30px;
+        color : red;
+        font-size: 30px;
+        z-index: 1;
+        opacity: 0;
+        /* display: none; */
+    }
+    .componenRight{
+        position: absolute;
+        top: 100%;
+        right: 0;
+        width: 75%;
+        margin-top: -600px;
+        opacity: 0;
+    }
+    .componenRight img{
+        width: 100%;
+    }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="section section0">
+            <div class="component componenLeft">
+                追求极致音质
+            </div>
+            <div class="component componenRight">
+                <img src="./src/img/banner.jpg" alt="">
+            </div>
+        </div>
+        <div class="section section1"></div>
+        <div class="section section2"></div>
+    </div>
+    <script src="./src/js/tool/jquery.min.js"></script>
+    <script src="./src/jquery.fullPage.js"></script>
+    <script>
+    $(function(){
+        $('.wrapper').fullpage({
+            sectionsColor: ['#000', 'blue', 'red'],
+            afterLoad: function(anchorLink,index){// index指的是第几个页面
+                // console.log(anchorLink,index)
+                console.log( $('.section').eq(index-1).find('.component'),index)
+                // $('.section').eq(index-1).find('.component').eq(0).fadeIn()
+                $('.section').eq(index-1).find('.component').eq(0).animate({opacity: 1,left: '30%',})
+                $('.section').eq(index-1).find('.component').eq(1).animate({opacity: 1, right: '10%',})
+
+            },
+        })
+        $('.section').eq(0).find('.component').eq(0).animate({opacity: 1,left: '30%',})
+                $('.section').eq(0).find('.component').eq(1).animate({opacity: 1, right: '10%',})
+    })
+    </script>
+    <!-- <script src="./src/js/tool/jquery.min.js"></script>
+    <script src="./src/js/component/componentBase.js"></script>
+    <script src="./src/js//tool/myFullPage.js"></script>
+    <script src="./src/js/pageEngine.js"></script>
+    <script src="./src/js/entry2.js"></script> -->
+</body>
+</html>

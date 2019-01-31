@@ -1,0 +1,5 @@
+1  插件名称：jQuery Easing Plugin:
+            // 目的：用于扩展jQuery动画过渡效果
+
+
+

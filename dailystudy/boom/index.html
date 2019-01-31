@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    
+    .box{
+        width: 200px;
+        height: 200px;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+    .box li{
+        float: left;
+        width: 20px;
+        height: 20px;
+        box-sizing: border-box;
+        border: 1px rgb(184, 184, 184) solid;
+    }
+    .flag{
+        background-image: url('./src/img/flag.jpg');
+        background-size: 100% 100%;
+        
+    }
+    </style>
+</head>
+<body>
+    <ul class="box">
+    </ul>
+    <!-- <script src="./src/js/jquery.min.js"></script> -->
+    <script>
+        // 初始化
+        var LeiNum = 10;
+        var leiArray = [];
+        var leiObj = {};
+        var index;
+        var direction = [ [-1,-1],[-1,0],[-1,1],[0,-1],[0,1],[1,-1],[1,0],[1,1] ]
+        var liStr;
+        var ul = document.getElementsByClassName('box')[0];
+        
+        for(var i = 0;i < 100;i ++){
+        // $('<li index='+ i + '></li>').appendTo($('.box'));
+       liStr = document.createElement('li');
+    //    liStr.setAttribute('index',i)
+       ul.appendChild(liStr)
+    }
+    
+//   散乱分布10个雷
+var li = document.getElementsByTagName('li');
+console.log(li);
+    for(var i = 0;i < 10;){
+        var leiFigure = Math.floor(Math.random()*100)
+        if(!leiObj[leiFigure]){
+            leiObj[leiFigure] = 'lei';
+            leiArray.push(leiFigure);
+            i ++
+            // li[leiFigure].style.backgroundColor = 'red';
+        }
+    }
+    var len = leiArray.length;
+    function IsLei(figure){
+        var Isboom
+        for(var i = 0;i < len;i ++){
+        if(leiArray[i] == figure){
+            Isboom = 'lei'
+            return Isboom;
+        }else {
+            Isboom = 'notLei'
+        } 
+        }
+        return Isboom
+    }
+
+    //  阻止默认事件
+    ul.oncontextmenu = function (e) {
+            return false;
+        }
+    //  给每个li绑定事件
+    var directLen = direction.length;
+    function isVisible(i, j) {
+        var visibleLei = 0;
+        if (i < 10 && j < 10 && i >= 0 && j >= 0 && li[10 * i + j].getAttribute('value') != 'visible') {
+            for (var k = 0; k < directLen; k++) {
+                var x = (direction[k][0] + i) * 10;// 假设k=8;i= 1，j= 1
+                var y = direction[k][1] + j;
+                if (x + y >= 0 && x >= 0 && y >= 0) {
+                    var figure = x + y;
+                    IsLei(figure) == 'lei' ? visibleLei++ : '';
+                }
+            }
+            li[10 * i + j].innerText = visibleLei;
+            li[10 * i + j].setAttribute('value', 'visible');
+            if (visibleLei == 0) {
+                for (var a = 0; a < directLen; a++) {
+                    u = direction[a][0] + i;// 假设k=8;i= 1，j= 1
+                    z = direction[a][1] + j;
+                    // li[u + z].innerText = visibleLei;
+                    if (u >= 0 && z >= 0 && u < 10 && z < 10) {
+                        isVisible(u, z)
+                    }
+                }
+            }
+        }
+    }
+    for (var i = 0; i < 10; i++) {
+            for (var j = 0; j < 10; j++) {
+                (function (i, j) {
+                
+
+                    li[i * 10 + j].onmousedown = function (e) {
+                        var lock = true;
+                        // console.log(i * 10 + j,index);
+                        // debugger;
+                        index = i * 10 + j;
+                        // 如果是左键，点开，要么遇到雷 要么获得周围雷的数量
+                        var e = e || window.event;
+                        if (e.button == 0) {
+                            //  假设遇到雷,点击的这个li与雷进行比对
+                            if (IsLei(index) == 'lei') {
+                                alert('you are loser');
+                            } else {
+                                //  你点击的这个li，为0，就可以进行递归，直到八个方向中遇到非0就截止递归
+                                isVisible(i, j)
+                            }
+                        } else if (e.button == 2) {// 如果是右键，插旗，雷的数量就少了一个
+                            // console.log(index);
+                            li[index].className != 'flag' ? li[index].className = 'flag' : li[index].className = '';
+                            li[index].setAttribute('value', 'visible');
+                            if (li[index].className == 'flag' && IsLei(index) == 'lei') {
+                                LeiNum--;
+                                // console.log(LeiNum)
+                            } else if (IsLei(index) == 'lei' && li[index].className == '') {
+                                LeiNum++;
+                            }
+                        }
+                        // 雷的数量为0且没有空白为winer
+                        for (var g = 0; g < li.length; g++) {
+                            if(li[g].getAttribute('value') != 'visible'){
+                                lock = false;
+                                break;
+                            }
+                        }
+                        
+                            if (LeiNum == 0 && lock) {
+                                ul.innerHTML = 'you are winer';
+                            }
+                    //  console.log(lock)
+
+                    }
+                })(i, j)
+            }
+        }
+    
+    </script>
+</body>
+</html>

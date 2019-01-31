@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    .demo{
+        width: 1000px;
+        height: 100px;
+        background-color: red;
+        margin-left: 100px;
+    }
+    .wrapper{
+        margin: 100px 100px;
+        width: 100px;
+        height: 100px;
+        background-color: red;
+    }
+    .box1{
+        width: 30px;
+        height: 30px;
+        background-color: green;
+    }
+    </style>
+</head>
+<body>
+    <div class="demo"></div>
+    <a href="https://www.baidu.com/" target=_blank>https://www.baidu.com/</a>
+    <div class="wrapper">
+        wrapper
+        <div class="box1">box</div>
+    </div>
+    <script src="./jquery.min.js"></script>
+    <script>
+    // $(document).on('mousedown',function(e){
+    //     e.stopPropagation();//阻止冒泡。事件捕获
+    //     console.log(e.pageX)//  鼠标距离文档左侧的距离
+    //     console.log(e.clientX);//  鼠标距离可视区域左侧的距离
+    //     console.log(e.offsetX);//  鼠标距离事件源对象的左侧距离
+    //     console.log(e.which);//  键盘的按键或者鼠标的按键，(1代表鼠标左键，2代表鼠标中间键，3代表鼠标右键)
+    //     console.log(e.button)// 鼠标的的哪个按键，0代表左键，1代表中间键，2代表右键
+    // })
+    // $('a').on('click',function(e){
+    //     e.preventDefault()// 阻止 *元素*(不是指代事件)  发生 默认的行为（如a标签会跳转等）
+    // })
+
+    // 事件冒泡
+    $('.box1').on('click',function(e){
+        e.stopPropagation();//阻止事件冒泡。事件捕获
+        console.log('box1');
+    })
+    $('.wrapper').on('click',function(e){
+        console.log('wrapper');
+    })
+    </script>
+</body>
+</html>

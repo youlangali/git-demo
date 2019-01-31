@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="demo" style="width: 100px;height: 100px;background-color: red;"></div>
+    <script src="./jquery.min.js"></script>
+    <script>
+    // typeof()  里面的数据是什么类型   能返回六种类型
+    // undefined string number boolean function object
+
+    // $.type()  里面的数据到底是什么类型 且返回的都是字符串类型
+    // console.log($.type(undefined));
+    // console.log($.type(123));
+    // console.log($.type('123'));
+    // console.log($.type(true)); 
+    // console.log($.type({}));
+    // console.log($.type(null));
+    // console.log($.type(function(){}));
+    // console.log($.type([1,2]))
+    // console.log( $.type( (function(){})() ) );
+    // console.log($.type(new Date()))
+    // console.log($.type(new Number()) + typeof(new Number()));//如果要判断是否是new出来的数字类型
+    // console.log($.type(new Person()))
+    // function Person(){
+        
+    // }
+
+
+    //  isArray isFuntion isWindow 
+    // 判断是否是对象，是否是函数类型，是否是window
+    // console.log($.isArray([1,23]));
+    // console.log($.isFunction(function(){}));
+    // console.log($.isFunction(tpl));// true
+    // function tpl(){}
+    // console.log($.isWindow(window)) //主要用于页面中是否是frame还是window
+
+    // trim(), 原生dom中字符串的方法。str.trim();清除空格
+    // var str = '    weo 3   ';
+    // console.log(str.trim())
+
+
+//    console.log($.trim('  123 3  ')) 
+
+
+        // $.proxy(fn,this)改变this指向
+        // 两个参数，第一个是要改变this的函数   第二个是this指向哪个
+    //     function person(){
+    //         console.log(this.name)
+    //     }
+    //     var obj = {
+    //         name: 'a'
+    //     }
+    //     var person = $.proxy(person,obj)// 必须要用一个变量来接，因为$.proxy()返回的是改变this指向的新的函数
+    // person();
+
+
+
+        // var list = {
+        //     init: function(){ // 对函数进行初始化
+        //         this.ms = 123;
+        //         this.dom = document.getElementById('demo'); 
+        //         this.bindEvent();
+        //     },
+        //     bindEvent: function(){ //绑定的事件
+        //         this.dom.onclick = $.proxy(this.show,this);
+        //     },
+        //     show: function(){// 事件处理函数
+        //         this.ms = this.produseMs(this.ms);
+        //         console.log(this.ms)// 当this.ms打印处的this不是你所希望的，就要往调用show这个函数的this上找问题
+        //     },
+        //     produseMs: function (ms){// 事件辅助处理函数
+        //         return ms + 234;
+        //     }
+        // }
+        // list.init();
+
+
+
+        // $.noconflict()  防止冲突  只是针对 $ 符号的运用
+        // 变量命名可能形成冲突 $,$.noconflict()可以将jQuery中的$符号用其他的代替
+        // var $c = $.noConflict();
+        // $c('#demo').css('backgroundColor','orange')
+    </script>
+</body>
+</html>

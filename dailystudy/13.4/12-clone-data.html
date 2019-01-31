@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+    <div class="demo" style="margin:10px;width: 100px;height: 100px;background-color: red;" data-wf='dy' ></div>
+
+
+    <!-- <table class="stb">
+        <tr>
+            <th>姓名</th>
+            <th>年龄</th>
+            <th>年纪</th>
+        </tr>
+        <tr class="tpl">
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </table> -->
+    <script src="./jquery.js"></script>
+    <script>
+        // $('.demo').click(function(){
+        //     alert(0)
+        // })
+        
+    // $('.demo').clone().appendTo('body');// 行间的样式什么的都可以克隆下来,但是不能克隆事件
+    // $('.demo').clone(true).appendTo('body');// 能克隆事件
+
+
+        // var studentArr = [
+        //     {
+        //         name: '汪芳',
+        //         age: 18,
+        //         class: 2
+        //     },
+        //     {
+        //         name: '周文振',
+        //         age: 20,
+        //         class: 3
+        //     },
+        //     {
+        //         name: '葱',
+        //         age: 3,
+        //         class: 4
+        //     }
+        // ]
+        // var oWrapper = $('.stb');
+        // studentArr.forEach(function(ele,index){
+        //     var oCloneDom = $('.tpl').clone().removeClass('tpl');
+        //     // oCloneDom.find('td')
+        //     //     .eq(0).text(ele.name)
+        //     //     .next().text(ele.age)
+        //     //     .next().text(ele.class);
+        // oWrapper.append(oCloneDom)
+        // })
+
+
+        //  js  dom 对象
+        //  使用prop是将data-log 加上了jQuery上，没有加载dom上，所以不能克隆，但是又能访问
+        // $('.demo').prop('data-log','111');
+        // console.log($('.demo').clone().prop('data-log'))
+
+        // attr能加在dom上，所以能clone
+        // $('.demo').attr('data-log','111');
+        // console.log($('.demo').clone().attr('data-log'))
+
+
+
+
+
+
+            // data jQuery dom 存数据存信息存状态
+            //   不会再dom间显示但是被标记了，能访问
+            
+            // $('.demo').data('data-duyi','cg')
+            // $('.demo').data({
+            //     name: '汪芳',
+            //     age: 17,
+            //     lover: true
+            // })// 可以传递json类型的参数,且访问的数字类型不会变
+            // console.log( $('.demo').data('name') )
+            // console.log( $('.demo').data('age') )
+            // console.log( $('.demo').data('lover') )
+
+
+
+            // console.log($('.demo').data('data-duyi'))
+
+
+        // $('.demo').data('wf')可以访问写在行间的data值
+
+    </script>
+</body>
+</html>

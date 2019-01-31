@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        /* *{
+            margin: 0;
+            padding: 0;
+        } */
+    /* .wrapper{
+        position: relative;
+        width: 200px;
+        height: 200px;
+        background-color: red;
+        border: 1px red solid;
+    }
+    .wrapper .demo{
+        position: absolute;
+        width: 30px;
+        height: 30px;
+        left: 20px;
+        top:50px;
+        background-color: orange;
+    }
+    body{
+        width: 3000px;
+        height: 3000px;
+    } */
+
+
+    /* scroll */
+    /* .wrapper{
+        width: 100px;
+        height: 100px;
+        overflow: auto;
+        background-color: orange;
+        border: 1px solid black;
+    }
+    .demo{
+        width: 2000px;
+        height: 2000px;
+        background-color: red;
+    } */
+
+
+    /* width */
+
+    .demo{
+        width: 200px;
+        height: 200px;
+        border: 1px red solid;
+        /* margin: 100px 100px; */
+        padding: 10px 10px;
+    }
+    </style>
+</head>
+<body>
+    <!-- <div class="wrapper">
+        <div class="demo">
+
+        </div>
+    </div> -->
+    <!-- offset  -->
+    <div class="demo" style="width: 6000px;height: 100px;"></div>
+     <script src="./jquery.min.js"></script>
+     <script>
+    //  offset   获取的是对象  表示的是该元素距离文档的距离
+//    console.log($('.demo').offset()) ;
+   
+    // $('.demo').offset({top: 20,left: 100}) //  可以传参，但是一般不常用
+
+    // position 获取的是相对于有定位的父级的距离，父级都没定位就是和文档的距离，与css中的position定位规则一样
+
+        // console.log( $('.demo').position() )
+        // $('.demo').position({top: 100,left: 20}) //   不可传参
+
+
+
+        // scrollTop 获取的是被选元素的滚动条的垂直位置
+        //  scrollLeft 获取的是被选元素的滚动条的水平位置
+
+        // $(window).scrollTop();
+        // $(window).scrollLeft(100);// 可以传参
+
+        // 滚动条是内部元素撑开所致，反映的也是内部元素的位置
+        // $('.wrapper').scrollTop();
+        // $('.wrapper').scrollLeft();
+
+        
+
+        // width innerWidth outerWidth oterWidth传参
+        // width   是content的区域
+
+    //    console.log($('.demo').css('width')) ;// 字符串'200px'
+    // console.log($('.demo').width());// 数字 200
+
+
+    // innerWidth  是 content + padding 的区域宽度
+    // console.log($('.demo').innerWidth())
+    
+    // outerWidth   是 content + padding + border 的区域宽度
+    
+    // console.log($('.demo').outerWidth())
+
+
+    // outerWidth里面传参数true   是 content + padding + border + margin 的区域宽度 
+    //  关于margin padding 看的是你设置的值，你没设置就没有，不管css原来自带的margin 和padding
+    // console.log($('.demo').outerWidth(true))
+
+    
+
+     </script>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    .tpl{
+        display:none;
+    }
+    </style>
+    
+</head>
+<body>
+    <div class="wrapper">
+        <div class="tpl">
+            <p></p>
+            <span></span>
+            <button>add</button>
+        </div>
+        <p class="show">
+            <span>sum</span>
+            <span class="sum">0</span>
+        </p>
+    </div>
+    <script src="./jquery.js"></script>
+    <script>
+    //     var shopArr = [
+    //         {
+    //             name: '汪芳',
+    //             shopName: 'nike',
+    //             price: 101,
+    //             id: '1001'
+    //         },
+    //         {
+    //             name: '周文振',
+    //             shopName: 'adidas',
+    //             price: 90,
+    //             id: '2002'
+    //         },
+    //         {
+    //             name: '凯文而',
+    //             shopName: 'anta',
+    //             price: 120,
+    //             id: '3003'
+    //         }
+    //     ];
+    // shopArr.forEach(function(ele,index){
+    //     var cloneDom = $('.tpl').clone().removeClass('tpl');
+    //     //  在结构的父级上存储信息或者状态或者数据
+            //  这个data是存放在cache中，建立jQuery 与 dom之间的一种映射关系，但是并不能再dom上看到
+    //     cloneDom.data({
+    //         name: ele.name,
+    //         shopName: ele.shopName,
+    //         price: ele.price,
+    //         id: ele.id
+    //     })
+    //     cloneDom.find('p').text(ele.name)
+    //             .next().text(ele.price)
+    //        cloneDom.insertBefore($('.show'))     
+    // })
+
+    // $('.wrapper button').click(function(){
+    //     $('.sum').text(+$('.sum').text() + $(this).parent().data('price'))
+    // })
+
+        // data ->jquery > dom > data >view
+        // 在项目中使用jQuery时，data数据可以单独放起来
+        // 如果直接将data数据写在行间，会不整洁，且当你用jQuery去获取时
+        // 会操作dom，降低效率
+        
+        // 如果在项目中使用vue时，data数据需要写在行间
+    </script>
+</body>
+</html>

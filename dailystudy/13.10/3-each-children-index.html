@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+</head>
+<body>
+    <ul>
+        <span>a</span>
+        <li>b</li>
+        <span>c</span>
+        <li>d</li>
+        <span>e</span>
+        <li>f</li>
+    </ul>
+    <script src="./jquery.min.js"></script>
+    <script>
+    // each  循环
+    // 场景  给每个li添加内容
+    // $('li').text(function(index){
+    //    return index
+    // }).addClass(function(index){
+    //     return index + 'a'
+    // })
+
+    // $('li').each(function(index,ele){
+    //     // ele是原生的
+    //     $(ele).text(index).addClass(index+'a')
+    // })
+
+
+    // children
+    // 场景:碰到是span标签，里面就span-0;碰到是i标签，标签里就i-1,所以一直接着，但是标签不同，开头的单词也不同
+    // $('ul').children().each(function(index,ele){
+    //     console.log(ele.nodeName);
+    //     if(ele.nodeName == 'LI'){
+    //         $(ele).text('i-' + index)
+    //     }else{
+    //         $(ele).text('span-' + index)
+    //     }
+    // })
+
+    // index 获取索引，可以添加参数以加筛选
+    //  参数为具体的某个，然后就可以或去它的索引
+//  index前面是兄弟，后面参数是想获取的某个具体的索引
+//   console.log ( $('ul span').index($('span').eq(0)) )  
+
+
+    // $('ul').on('click','span',function(e){
+    //     console.log($('ul span').index( $(e.target) ))
+    // })
+
+
+
+    </script>
+</body>
+</html>

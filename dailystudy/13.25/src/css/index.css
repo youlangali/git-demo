@@ -1,0 +1,75 @@
+*{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+}
+ul,li{
+    list-style: none;
+}
+div.visible{
+    position: relative;
+    width: 400px;
+    height: 250px;
+    margin:100px;
+    background-color: red;
+    overflow: hidden;
+}
+.visible .wrapper{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 1600px;
+    height: 250px;
+}
+.visible .wrapper li{
+    float: left;
+    width: 400px;
+    height: 250px;
+}
+.visible .wrapper img{
+    width: 100%;
+}
+.visible .btn{
+    display: none;
+    position: absolute;
+    top: 50%;
+    width: 30px;
+    height: 40px;
+    font-size: 35px;
+    line-height: 40px;
+    text-align: center;
+    margin-top: -20px;
+    color: #d8d8d8;
+    background-color: rgba(251, 251, 251,.2);
+}
+.visible .btn.btn_left{
+    left: 0;
+}
+.visible .btn.btn_right{
+    right: 0;
+}
+
+.visible:hover .btn {
+    display: block;
+}
+.visible .pointer{
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    margin-left:-45px;
+    width: 90px;
+    height: 14px;
+    cursor: pointer;
+}
+.visible .pointer div{
+    float: left;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    margin: 0 8px;
+    background-color: #ff9100;
+}
+.visible .pointer .activePoint{
+    background-color: #6fc5ff;
+}

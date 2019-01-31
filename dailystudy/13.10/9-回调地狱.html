@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .clearfix::after{
+            content: '';
+            display: block;
+            clear: both;
+            visibility: hidden;
+        }
+        .tpl{
+            display: none;
+        }
+    .wrapper{
+        width: 510px;
+        padding: 15px 5px 0;
+        margin: 0 auto;
+        border: 1px red solid;
+    }
+    .wrapper .movieSection{
+        float: left;
+        margin:0 10px 15px;
+        
+    }
+    .wrapper .movieSection img{
+        width: 150px;
+        height: 150px;
+        cursor: pointer;
+    }
+    .wrapper .movieSection .movieName{
+        font-size: 16px;
+    }
+    </style>
+</head>
+<body>
+ 
+    <div class="wrapper clearfix">
+        <div class="tpl">
+            <img src="" alt="">
+            <h3 class="movieName"></h3>
+        </div>
+    </div>
+    <script src="./jquery.min.js"></script>
+    <script>
+    $.ajax({
+        // url: 'https://easy-mock.com/mock/5c09f40d3c098813c612cce6/movie/power',
+        url: 'https://easy-mock.com/mock/5c09f40d3c098813c612cce6/movie/power',
+        type: 'POST',
+        success: function(res){
+            if(res.data.power == 'root'){
+                // vip  权限
+                $.ajax({
+                    url: 'https://easy-mock.com/mock/5c09f40d3c098813c612cce6/movie/movieList',
+                    type: 'GET',
+                    success: function(res){
+                        // 渲染页面
+                        var data = res.data;
+                        // console.log(data);
+                        var $wrapper = $('.wrapper');
+                        $.each(data,function(index,ele){
+                            var $movieSection = $('.tpl').clone().removeClass('tpl').addClass('movieSection');
+                                          // 给结构绑定信息
+                            $movieSection.data({id: ele.id}).on('click',function(){
+                                // 点击之后获取电影相对应的导演的信息
+                                $.ajax({
+                                    url: 'https://easy-mock.com/mock/5c09f40d3c098813c612cce6/movie/movieInfo',
+                                    type: 'GET',
+                                    data: {
+                                        movieId: $(this).data('id')
+                                    },
+                                    success: function(res){
+                                        // console.log(res);
+                                        var direct = res.data.direct;
+                                        var gut = res.data.gut;
+                                        var mainActor = res.data.mainActor;
+                                        var screenwriter = res.data.screenwriter;
+                                        // console.log(direct,gut,mainActor,screenwriter)
+                                        var htmlStr = '<div class="mask">\
+                                        <p>导演：' + direct + '</p> \
+                                        <p>剧情：' + gut + '</p> \
+                                        <p>主演：' + mainActor.reduce(function(preV,curV,index,self){
+                                            preV += curV + ' ';
+                                            return preV
+                                        }) + '</p> \
+                                        <p>编剧：' + screenwriter.reduce(function(preV,curV){
+                                            preV += curV + ' ';
+                                            return preV
+                                        }) + '</p> \
+                                        </div>'
+                                        console.log($(htmlStr));
+                                       $(htmlStr).appendTo($('body')).css({position: 'absolute',left:$(window).outerWidth()/2,width:510,marginLeft:-255}) 
+                                    }
+                                })
+                            }).children()
+                            .eq(0).attr('src',ele.poster)
+                            .next().text(ele.name);
+                        $wrapper.append($movieSection);
+                        })
+                        
+
+                    } 
+                })
+            }else{
+                // 非vip权限
+            }
+        },
+        error: function(e){
+            console.log(e.status,e.statusText)
+        }
+    })
+    </script>
+</body>
+</html>

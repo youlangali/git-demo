@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div class="demo"></div>
+    <script src="./myJquery.js"></script>
+    <script src="./move.js"></script>
+    <script>
+    // $('.demo')
+    //     .css({position: 'absolute',left: 0,top: 0,width: 100,height: 100,backgroundColor: 'red'})
+    //     .on('click',function(){
+    //         $(this)
+    //             .animate({width: 120,height: 120,left: 100,top: 100},1000)
+    //             .animate({width: 220,height: 140,left: 200,top: 200},1000)
+    //             .animate({width: 320,height: 160,left: 300,top: 300},1000)
+
+    //     })
+    
+
+
+    // queue-建队列  dequeue-出队列    clearqueue-清理队列
+    // queue   2个参数：type content    
+    // 队列的创建过程，queue是一个数组，里面可以创建很多名称的对列名称，
+    //   首先创建了一个chain ,往里面放置相对应的队列内容，，它是个数组，因为可以放很多个fn
+    //  [
+        // {chain: [fn1,fn2]}
+        // {}
+        // {}
+        // ]
+
+
+    //  $('.demo')
+    //     .css({position: 'absolute',left: 0,top: 0,width: 100,height: 100,backgroundColor: 'red'})
+    //     .queue('chain',function(){
+    //             console.log('over1')
+    //             // $(this).animate({width: 120,height: 120,left: 100,top: 100},1000)
+    //             })   
+    //     .queue('chain',function(){
+    //         console.log('over2')
+    //         // $(this).animate({width: 220,height: 140,left: 200,top: 200},1000)
+    //             })   
+    //     .queue('chain',function(){
+    //         console.log('over3')
+    //         // $(this).animate({width: 320,height: 160,left: 300,top: 300},1000)
+    //             })   
+
+        // dequeue   出队列，每出一个队列，队列中就会少一个，直到出完
+        // 参数：type    代表要出哪一个队列的内容
+            // $('.demo').dequeue('chain');// 出一个队列
+            // console.log($('.demo').queue('chain'))//  查看 名为chain中的队列中还有哪些
+            // $('.demo').dequeue('chain');// 出一个队列
+            // console.log($('.demo').queue('chain'))//  查看 名为chain中的队列中还有哪些
+
+
+
+
+        //  如果想一次性全部出完同一个队列中所有的fn，可以使每个fn都相关联
+        //   next  就是指代下一个chain队列中的fn
+        // $('.demo')
+        // .css({position: 'absolute',left: 0,top: 0,width: 100,height: 100,backgroundColor: 'red'})
+        // .queue('chain',function(next){
+        //         // console.log('over1');
+        //         $(this).animate({width: 120,height: 120,left: 100,top: 100},1000)
+        //         next();
+        //         })   
+        // .queue('chain',function(next){
+        //     // console.log('over2');
+        //     $(this).animate({width: 220,height: 140,left: 200,top: 200},1000)
+        //     next();
+        //         })   
+        // .queue('chain',function(next){
+        //     // console.log('over3');
+        //     $(this).animate({width: 320,height: 160,left: 300,top: 300},1000)
+        //         })  
+
+        //         $('.demo').dequeue('chain');
+        //         console.log($('.demo').queue())
+
+
+
+            //  clearqueue   清空所有的队列
+            // 参数：type   清楚哪个队列
+            // $('.demo').clearQueue('chain');
+            // console.log($('.demo').queue())
+
+
+
+
+
+
+            ///    测试 myjQuery  中的队列原理
+//  $('.demo')
+//         .css({position: 'absolute',left: 0,top: 0,width: 100,height: 100,backgroundColor: 'red'})
+//         .myQueue('chain',function(next){
+//                 console.log('over1');
+//                 next();
+//                 })   
+//         .myQueue('chain',function(next){
+//             console.log('over2');
+//             next();
+//                 })   
+//         .myQueue('chain',function(next){
+//             console.log('over3');
+//                 })  
+//                 $('.demo').myDequeue('chain');
+//                 console.log($('.demo').myQueue('chain'))
+
+
+            //   myjquery 中   animate  和 delay 方法测试
+        $('.demo')
+        .css({position: 'absolute',left: 0,top: 0,width: '100px',height: '100px',backgroundColor: 'red'})
+        .myAnimate({width: 120,height: 120,left: 100,top: 100},function(){
+            console.log('over1')
+        })
+        .myDelay(2000)
+        .myAnimate({width: 220,height: 140,left: 200,top: 200},function(){
+            console.log('over2')
+        })
+        .myDelay(2000)
+        .myAnimate({width: 320,height: 160,left: 300,top: 300},function(){
+            console.log('over3')
+        })
+
+    </script>
+</body>
+</html>

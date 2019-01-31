@@ -79,7 +79,8 @@
 
     //   取消冒泡和阻止默认事件
     
-    document.onclick = function(){
+    document.onclick = function(e){
+        e.preventDefault();
         console.log('a')
     }
     wrapper.onclick = function(e){
@@ -106,22 +107,22 @@
     //    阻止默认事件
             
             //   右键  事件
-            // document.oncontextmenu = function(e){
-            //     // return false;
-            //     cancelHandler(e)
-            //     console.log('a');
-            // }
+            document.oncontextmenu = function(e){
+                // return false;
+                cancelHandler(e)
+                console.log('a');
+            }
 
             // //   封装阻止默认事件的函数  cancelHandler(event)
 
-            // function cancelHandler(e){
-            //     var e = e || window.event;
-            //     if(e.prevenDefault){
-            //         e.prevenDefault();
-            //     }else{
-            //         e.returnValue = false;
-            //     }
-            // }
+            function cancelHandler(e){
+                var e = e || window.event;
+                if(e.prevenDefault){
+                    e.prevenDefault();
+                }else{
+                    e.returnValue = false;
+                }
+            }
 
 
         //     <a href="javascript:void(0)"></a>

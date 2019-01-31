@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script src="./jquery.min.js"></script>
+    <script>
+        // 参数
+        //  unique  去重  如果有相同的回调函数，就只会执行一个
+        //   memory 当cd.fire()执行后增加新的回调函数，新的回调函数依然会记住之前的执行而被执行
+        //   stopOnFalse    当遇到return false 后面的回调函数就不会再执行
+        //  once
+    //     var cd = $.Callbacks('unique');
+    //     function a (x,y){
+    //         console.log('a',x,y)
+    //     }
+    // function b (x,y){
+    //     console.log('b',x,y)
+    // }
+    // cd.add(a,b);// 将回调函数集合到一起
+    // cd.add(a,b);// 可以相同的回调函数到Callbacks中
+    // cd.fire(5,10);//  当满足一定条件后调用所有的回调函数，并且可以传参数
+    // function c(x,y){
+    //     console.log('c',x,y);
+    // }
+    // cd.add(c)
+
+
+    // stopOnFalse
+    //     var cd = $.Callbacks('stopOnFalse');//   创建callbacks对象
+    //     function a (x,y){
+    //         console.log('a',x,y)
+    //     }
+    // function b (x,y){
+    //     console.log('b',x,y);
+    //     return false;
+    // }
+    // function c(x,y){
+    //     console.log('c',x,y);
+    // }
+    // cd.add(a,b,c);// 将回调函数集合到一起
+    
+    // cd.fire(5,10);//  当满足一定条件后调用所有的回调函数，并且可以传参数
+    
+    // cd.add(c)
+
+
+    // // 回调机制很好用
+    // js单线程 -> 异步编程优化体验 防止阻塞页面 -> 回调函数
+    // 运动函数 animate 当你满足某个状态，接下来要去做另一件事了
+    </script>
+</body>
+</html>

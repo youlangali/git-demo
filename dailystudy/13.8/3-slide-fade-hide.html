@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    .demo ul{
+        display: none;
+    }
+    </style>
+</head>
+<body>
+    <div class="demo">
+        <p>Rose</p>
+        <ul>
+            <li>nba状元秀</li>
+            <li>最年轻mvp</li>
+            <li>涅槃重生</li>
+        </ul>
+    </div>
+    <script src="./jquery.js"></script>
+    <script>
+    // $('p').on('mouseenter',function(){
+    //     // display
+    //     // 注：当由none显示时。返回的display的状态是最后显示的display状态
+    //     // 参数：执行时间 运动曲线   回调函数
+    //     //  width height opacity padding margin同时变化
+    //     //   linear - 匀速  swing - 先慢后快再慢
+    //     $(this).next().show(3000,'linear');
+    // })
+    // $('.demo').on('mouseleave',function(){
+    //     $('p').next().hide(3000,'swing');
+    // })
+    
+    // $('p').on('click',function(){
+    //     // if($(this).next().css('display') == 'none'){
+    //     //     $(this).next().show()
+    //     // }else{
+    //     //     $(this).next().hide();
+    //     // }
+
+    //     $(this).next().toggle();
+    // })
+
+
+    //  fadeIn fadeOut fadeTo fadeToggle
+    //  所传参数； time    运动曲线   callback
+    
+    // $('p').on('click',function(){
+        //  淡入淡出
+        // if($(this).next().css('display') == 'none'){
+        //     // $(this).next().fadeIn(1000);
+        // }else{
+        //     $(this).next().fadeOut(1000);
+        // }
+
+        //  fadeTo  淡入淡出到
+        // if($(this).next().css('display') == 'none'){//只能执行一次，因为opacity等于0 display：block
+        //     $(this).next().fadeTo(1000,0.6,'swing',function(){
+        //         console.log('over1')
+        //     });
+        // }else{
+        //     $(this).next().fadeTo(1000,0,'swing',function(){
+        //         console.log('over2')
+        //     });
+        // }
+        //fadeToggle
+        // $(this).next().fadeToggle();
+    // })
+
+    // slideDown slideUp  slideToggle    卷上  卷下
+    //   参数三个 ：time   运动曲线   callback
+    // $('p').on('click',function(){
+    //     // if($(this).next().css('display') == 'none'){
+    //     //     $(this).next().slideDown()
+    //     // }else{
+    //     //     $(this).next().slideUp();
+    //     // }
+
+    //     $(this).next().slideToggle();
+    // })
+
+    
+    </script>
+</body>
+</html>

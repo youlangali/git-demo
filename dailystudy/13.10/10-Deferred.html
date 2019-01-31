@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script src="./jquery.min.js"></script>
+    <script>
+    // 延迟对象  延迟到某种状态再来触发
+
+    // var df = $.Deferred();// 没有参数
+    // Deferred 的三种状态以及相对应的触发函数
+    //  注册成功   注册失败    注册进行中
+    // done     fail    progress
+    //  resolve   reject    notify  来分别触发上面对应的函数
+
+        // 注册成功的回调函数
+    // df.done(function(){
+    //     console.log('on year i do it')
+    // })
+    // //   注册失败的回调函数
+    // df.fail(function(){
+    //     console.log('sorry i am a loser')
+    // })
+    // //  注册进行时的回调函数
+    // df.progress(function(){
+    //     console.log('waiting......')
+    // })
+
+    // 做一件异步的事情
+    // setInterval(function(){
+    //     var score = Math.random() * 100;
+    //     if( score > 60){
+    //         df.resolve();
+    //     }else if(score < 50){
+    //         df.reject();
+    //     }else{
+    //         df.notify();
+    //     }
+    // })
+    // df.notify();
+    // df.reject();
+    //   为了不让外面的函数可以随意触发回调函数 
+    // function createScore(){
+    //     var df = $.Deferred();
+    //     setInterval(function(){
+    //     var score = Math.random() * 100;
+    //     if( score > 60){
+    //         df.resolve('ok');
+    //     }else if(score < 50){
+    //         df.reject('oh no');
+    //     }else{
+    //         df.notify('go on');
+    //     }
+    // },1000)
+    // //  返回一个借口注册回调函数而不能触发回调函数
+    // return df.promise()//  阉割版的延迟对象，因为不能触发，只能在createScore函数外注册
+    // }
+    // var df = createScore();
+    // df.done(function(ms){
+    //     console.log('on year i do it' + ms)
+    // });
+    // df.fail(function(ms){
+    //     console.log('sorry i am a loser' + ms)
+    // })
+    // //  注册进行时的回调函数
+    // df.progress(function(ms){
+    //     console.log('waiting......' + ms)
+    // })
+
+
+
+
+    // Deferred 的核心  then
+     function createScore(){
+        var df = $.Deferred();
+        setInterval(function(){
+        var score = Math.random() * 100;
+        if( score > 60){
+            df.resolve('ok');
+        }else if(score < 50){
+            df.reject('oh no');
+        }else{
+            df.notify('go on');
+        }
+    },1000)
+    //  返回一个借口注册回调函数而不能触发回调函数
+    return df.promise()//  阉割版的延迟对象，因为不能触发，只能在createScore函数外注册
+    }
+    var df = createScore();
+    // then中的三个函数分别对应三个注册状态的回调函数，注册成功时的回调函数  注册失败的回调函数  注册进行的回调函数
+
+    // df.then(function(ms){
+    //     console.log('done1');
+    // },function(ms){
+    //     console.log('fail1')
+    // },function(ms){
+    //     console.log('progress1');
+    // }).then(function(){//  可以继续注册回调函数
+    //     console.log('done2')
+    // },function(){
+    //     console.log('fail3')
+    // },function(){
+    //     console.log('progress2')
+    // })
+
+    //   当有return
+    // df.then(function(ms){
+    //     console.log('done1' + ms);
+    //     return 'ok';
+    // },function(ms){
+    //     console.log('fail1' + ms);
+    //     return 'no'
+    // },function(ms){
+    //     console.log('progress1' + ms);
+    //     return 'go on'
+    // }).then(function(param){//  上一个then中return的值会作为这个param
+    //     console.log('泡妞' + param)
+    // },function(param){
+    //     console.log(param + '脸');
+    // },function(param){
+    //     console.log(param + '加油');
+    // })
+
+
+
+    //   return   深层使用
+    df.then(function(ms){
+        console.log('oh yeah!!' + ms);
+        //  在第一次成功的回调函数中又创造了一个延迟对象
+        var innerDf = $.Deferred();
+        setTimeout(function(){
+            innerDf.resolve('duyi resolve');
+        },1000)
+        return innerDf.promise();// 返回的值作为新调用then的promise对象
+    },function(ms){
+        console.log('oh No!' + ms);
+        var innerDf = $.Deferred();
+        setTimeout(function(){
+            innerDf.resolve('duyi reject');
+        },1000)
+        return innerDf.promise();
+    },function(ms){
+        console.log('what?' + ms);
+        var innerDf = $.Deferred();
+        setTimeout(function(){
+            innerDf.resolve('duyi notify');
+        },1000)
+        return innerDf.promise();
+    }).then(function(ms){//  这里then是被innerDf调用的
+        console.log(ms);
+    },function(){
+        console.log(ms);
+    },function(){
+        console.log(ms);
+    })
+   
+
+   $.ajax({url,type,data}).then(function(){
+       return $.ajax()
+   }).then(function(){
+       return a.ajax();
+   })
+    </script>
+</body>
+</html>

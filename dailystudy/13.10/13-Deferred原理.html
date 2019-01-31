@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script src="./myJquery.js"></script>
+    <script>
+         function createScore() {
+                var df = $.myDeferred();
+                setInterval(function () {
+                    var score = Math.random() * 100;
+                    if (score > 60) {
+                        df.resolve('congraduations!');
+                    } else if (score < 50) {
+                        df.reject('get out');
+                    } else {
+                        df.notify('go on');
+                    }
+                }, 1000)
+                return df;
+            }
+            var df = createScore();
+            df.done(function (ms) {
+                console.log('on year i do it' + ms)
+            });
+            df.fail(function (ms) {
+                console.log('sorry i am a loser' + ms)
+            })
+            df.progress(function (ms) {
+                console.log('waiting......' + ms)
+            })
+    </script>
+</body>
+</html>

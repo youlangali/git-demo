@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    .demo{
+        width: 100px;
+        height: 100px;
+        background: orange;
+    }
+    </style>
+</head>
+<body>
+    <!-- <div class="demo"></div> -->
+
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ul>
+
+
+    <!-- one -->
+
+    <!-- <a href="https://www.baidu.com" target="_blank">one</a> -->
+    <script src="./jquery.js"></script>
+    <script>
+    // on,绑定系统事件
+    // 可以放置4个参数也可以放置两个
+    //   1 type 2 selector  3 data   4 handle
+    //  同时写两个会触发一个再触发一个
+    // $('.demo').on('click',function(){
+    //     alert(0);
+    // })
+    // $('.demo').on('click',function(){
+    //     alert(1);
+    // })
+
+    //   用函数来代替，两次的click
+    // function demo(){
+    //     alert(0)
+    //     alert(1)
+    // } 
+    // $('.demo').on('click',demo)
+
+
+    // $('.demo').on('mouseenter',function(){
+    //     alert(1)
+    // })
+
+
+        // 传递三个参数  type  data handle
+        // data类型可以是字符串 对象 数字，布尔值等 selector是字符串形式
+        // 如果data是字符串就给第二个位置空串，防止系统以为是第二位
+        // 如果data是其他类型，就没关系
+        // 且 data是存储在e中
+        // data字符串形式
+        // $('.demo').on('click','','wf',function(e){
+        //     console.log(e.data)
+        // })
+
+            // data布尔类型
+        // $('.demo').on('click',true,function(e){
+        //     console.log(e.data)
+        // })
+        
+        //   data对象类型
+            // $('.demo').on('click',{name: 'wf'},function(e){
+            //     console.log(e.data.name)
+            // })
+
+
+            
+        // 第二个参数selector作用
+            // 1、事件委托    2、筛选，更加准确被触发对象
+                // 借用事件冒泡的原理，只指定一个事件处理程序，就可以管理某一类型的所有事情
+
+
+        // 不能让ul被点击也触发
+        // $('ul').on('click',function(e){
+        //     alert($(e.target).text())
+        // })
+
+        //  点击li就会触发ul触发事件，依旧是给ul绑定的事件，但是当冒泡时判断事件源对象是否是li，是就继续触发
+        // $('ul').on('click','li',function(e){
+        //     alert($(e.target).text())
+        // })
+
+        //  $('<li>9</li>').appendTo('ul')//如果这个li被触发，说明是ul被绑定事件，如果li没被触发，就说明上面是li被绑定事件了   
+
+        //  给一个对象绑定多个不同的事件,传递一个包含各个事件的对象就行
+        // $('.demo').on({
+        //         click: function(){
+        //             console.log('click')
+        //         },
+           
+        //         mouseenter: function(){
+        //             console.log('mouseenter')
+        //         },
+          
+        //         mouseleave: function(){
+        //             console.log('mouseleave')
+        //         }
+        //     })
+
+
+
+        //   多用于广告
+        // one 用法  传参用法与on相同，区别：one是只能被触发一次的事件
+    //    $('a').one('click',function(){
+    //        window.open('htpps://www.taobao.com')//只有第一次点击会跳转淘宝，其他都是跳转百度
+    //        return false//return false 可以阻止默认事件，冒泡事件
+    //    }) 
+
+
+    
+
+    // off用法
+    function clickOne(){
+        console.log('clickOne')
+    }
+    // function clickTwo(){
+    //     console.log('clickTwo')
+    // }
+    // $('.demo').on('click',clickOne);
+    // $('.demo').on('click',clickTwo);
+
+
+    // function enterOne(){
+    //     console.log('enterOne')
+    // }
+    // function enterTwo(){
+    //     console.log('enterTwo');
+    // }
+    // $('.demo').on('mouseenter',enterOne)
+    // $('.demo').on('mouseenter',enterTwo)
+
+    //  单个参数的用法
+    // $('.demo').off()//不写参数会将demo上的事件全部去掉
+    // $('.demo').off('click')//写一个参数是要解绑的事件类型
+    // $('.demo').off('click',clickOne)// 第二个参数是进一步筛选，要解绑该事件下的那个处理函数
+
+    
+    // $('ul').on('click','li',clickOne)
+    
+    // 解绑时依据绑定事件的参数来写
+    // $('ul').off('click','li',clickOne)
+    </script>
+</body>
+</html>

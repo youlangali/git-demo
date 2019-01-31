@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <!-- wrap -->
+    <!-- <div class="demo"></div>
+    <div class="demo"></div>
+    <div class="box"></div> -->
+
+    <!-- wrapInner -->
+    <!-- <div class="demo">
+        <span><p></p></span>
+        <span><p></p></span>
+    </div>
+    <div class="demo">
+        <span><p></p></span>
+        <span><p></p></span>
+    </div> -->
+    
+    <!-- <div class="demo"></div>
+    <div class="wrapper">
+        <div class="demo"></div>
+        <div class="demo"></div>
+    </div> -->
+    <!-- <div class="demo"></div> -->
+
+
+       <!-- unwrap  -->
+        <div class="wrapper">
+            <div class="box">
+                <div class="content">
+                    <div class="demo"></div>
+                </div>
+            </div>
+        </div>
+    <script src="./jquery.js"></script>
+    <script>
+    // wrap 给所选的元素一个直接的父级
+    
+    // $('.demo').wrap('<div><span class="wrap"></span></div>')//可以直接写结构，在最里面添加所选结构
+
+    // $('.demo').wrap($('.box'))// 直接写jQuery对象，不过是复制
+    
+    // $('.demo').wrap(function(index){
+    //     return '<div class="wrapper'+ index +'"></div>'
+    // })
+
+    // $('.demo').wrap('<div>')
+
+    // wrapInner  在demo的里面加一层wrap 使用方法和wrap相似
+    // $('.demo').wrapInner('<div>')
+
+    // $('.demo').wrapInner(function(index){
+    //     return '<div class="wrapInner'+ index +'"></div>'
+    // })
+
+
+    //  wrapAll 给所选的demo一个总的wrap
+    // $('.demo').wrapAll('<div class="wrapAll"></div>')
+    // $('.demo').wrapAll($('.wrapper'))//只能选择已经有的jQuery对象
+
+    // $('.demo').wrapAll('<div class="wrapAll"></div>')//会以第一个被选中的demo为基准，将其选中的dmeo都放在一起
+
+
+
+    // unwrap  将选中的demo的直接父级去掉
+    //   不用传参
+    // $('.demo').unwrap();
+    // $('.demo').unwrap();
+    // $('.demo').unwrap();// e可以一层一层将demo的直接父级去掉
+    </script>
+</body>
+</html>

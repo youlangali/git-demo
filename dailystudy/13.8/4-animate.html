@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    .demo{
+        position: absolute;
+        width: 100px;
+        height: 100px;
+        background: orange;
+        
+    }
+    </style>
+</head>
+<body>
+        <button class="stopBtn">stop</button>
+        <button id="finishBtn">finish</button>
+        <button class="startBtn">start</button>
+        <div class="demo"></div>
+    <script src="./jquery.js"></script>
+            <!-- <script src="./jquery.easing.compatibility.js"></script> -->
+    <script>
+    // target duration easing callback
+    //目标    事件    运动曲线    回调
+
+        //  执行两次动画 可以将第二次动画放入回调函数中
+        // $('.demo').animate({width: '+=50',height: '+=50',left: '+=100',top: '+=100'},1000,'swing',function(){
+        //     $(this).animate({width: '+=50',height: '+=50',left: '+=100',top: '+=100'},1000,'swing')
+        // })
+
+        //  也可以链式调用   效果相同
+        // $('.demo')
+        // .animate({width: '+=50',height: '+=50',left: '+=100',top: '+=100'},1000,'swing')
+        // .animate({width: '+=50',height: '+=50',left: '+=100',top: '+=100'},1000,'swing')
+        
+        
+            
+        // $('.startBtn').on('click',function(){
+        //     $('.demo').animate({width: '+=50',height: '+=50',left: '+=100',top: '+=100'},1000,'swing')
+        //     .delay(2000)
+        //     .animate({width: '+=50',height: '+=50',left: '+=100',top: '-=200'},1000,'swing')
+        // })
+
+        // // stop
+        // $('.stopBtn').on('click',function(){
+        //     // $('.demo').stop();// 停止当前动画，立即执行下次动画
+        //     // $('.demo').stop(true);// 停止所有动画
+        //     $('.demo').stop(true,true);// 停止当前动画，并立即到达当前动画的目标点
+
+        // })
+
+            //  finish ,不管后面有多少个动画，一步到达最后的目标点
+        // $('#finishBtn').on('click',function(){
+        //     $('.demo').finish();
+        // })
+
+        //   delay 
+        // $('.startBtn').on('click',function(){
+        //     $('.demo')
+        //     .animate({width: '+=50',height: '+=50',left: '+=100',top: '+=100'},1000,'swing')
+        //     .delay(2000)
+        //     .animate({width: '+=50',height: '+=50',left: '+=100',top: '-=200'},1000,'swing')
+        // })
+
+
+        // jquery.fx.off = true;//jquery中动画的开关口，true就是关掉了，将动画过程消除，直接到达目标点
+
+
+
+            // 未解决问题
+            // 插件名称：jQuery Easing Plugin:
+            // 目的：用于扩展jQuery动画过渡效果
+            // 连接地址：
+            // https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js
+            // 百度 搜索easing 图解
+    // $('.demo')
+    //     .animate({ width: '+=50', height: '+=50', left: '+=100', top: '+=100' }, 1000, ' easeInOutBounce')
+    //     .animate({ width: '+=50', height: '+=50', left: '+=100', top: '+=100' }, 1000, 'easeInBounce')
+
+
+
+            
+
+    </script>
+</body>
+</html>

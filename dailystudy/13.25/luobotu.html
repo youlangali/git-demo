@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./src/css/index.css">
+</head>
+<body>
+    <div class="visible">
+        <ul class="wrapper">
+            <li class="activeLi"><img src="./src/img/1.jpg" alt=""></li>
+            <li><img src="./src/img/2.jpg" alt=""></li>
+            <li><img src="./src/img/3.jpg" alt=""></li>
+            <li><img src="./src/img/1.jpg" alt=""></li>
+        </ul>
+        <div class="btn btn_left">&lt;</div>
+        <div class="btn btn_right">&gt;</div>
+        <div class="pointer">
+            <div class="activePoint"></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+    <script src="./src/js//jquery-1.12.4.js"></script>
+    <script>
+        $(function () {
+            // init
+            var index = 0;
+            var direction;// 图片的方向
+            var liWidth = $('.wrapper > li').width();
+            var liLen = $('.wrapper > li').length;
+            var $wrapper = $('.wrapper');
+            var $visible = $('.visible');
+            var $point = $('.pointer > div')
+            var prePoint = 0;
+            var timer;
+            var lock = true;
+            function autoActive(direction) {
+                if (lock) {
+                    lock = false;
+                    if (direction == 'left' || direction == 'undefined') {
+                        if (index == 3) {
+                        index = 0;
+                        $wrapper.css('left', 0);
+                    }
+                    index++;
+                    $wrapper.animate({ left: -index * liWidth }, 1000, function () {
+                            index == 3 ? $point.eq(0).addClass('activePoint'): $point.eq(index).addClass('activePoint')
+                            $point.eq(prePoint).removeClass('activePoint');
+                            prePoint = (index == 3 ? 0 : index);
+                            lock = true;
+                        })
+                    } else if (direction == 'right') {
+                        if (index == 0) {
+                        index = 3;
+                        $wrapper.css('left', -(liLen - 1) * liWidth);
+                    }
+                    index--;
+                        $wrapper.animate({ left: -index * liWidth }, 1000, function () {
+                            $point.eq(index).addClass('activePoint')
+                            // prePoint == 3 ? $point.eq(0).removeClass('activePoint') : $point.eq(prePoint).removeClass('activePoint')
+                            $point.eq(prePoint).removeClass('activePoint');
+                            prePoint = index;
+                            lock = true;
+                        })
+                    }
+                }
+            }
+            // autoActive();
+
+            //  自动动画
+            function play (){
+                timer = setInterval(function () {
+                    direction = 'left';
+                    autoActive(direction);
+            },1500)
+            }
+            play();
+            function stop (){
+                clearInterval(timer);
+            }
+            // 两边的箭头控制动画
+            $visible.on('mouseenter',stop);
+            $visible.on('mouseleave',play);
+            $('.btn_left').on('click', function () {
+                if (lock) {
+                    direction = 'right';
+                    autoActive(direction);
+                }
+            })
+            $('.btn_right').on('click', function () {
+                if (lock) {
+                    direction = 'left';
+                    autoActive(direction);
+                }
+            })
+            // 圆点控制图片
+            var preIndex;
+            $point.on('click',function(){
+                var pointIndex = $(this).index();
+                index = pointIndex - 1;
+                direction = 'left';
+                autoActive(direction);
+            })
+
+
+
+        })
+    </script>
+</body>
+</html>

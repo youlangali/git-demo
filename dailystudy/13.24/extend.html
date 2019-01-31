@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script src="./jquery-1.12.4.js"></script>
+    <script>
+
+        // $.extend = $.fn.extend = function(){};
+        
+        // 1.插件扩展    // $.extend({a: function(){}})//        只有一个参数  target = this
+        // 2.浅层克隆 // $.extend(obj1,obj2,obj3....)  //       至少两个参数   target = obj1
+        // 3. 深层克隆// $.extend(true,obj1,obj2,obj3....) //  至少三个参数    target = obj1
+
+        // $.extend = $.fn.extend = function(){
+        //     // target指的是被操作对象
+        //     if(){};
+            
+        //     if(){};
+
+        //     if(){};
+
+        //     for(){};
+        // }
+
+            // 深度克隆
+
+            // var obj1 = {name : 1, age: {}}
+            // var obj2 = {name : 2,age: []}
+            // var obj3 = {};//   将obj1  copy  给 obj3
+            // function deepClone (target,options) {
+            //     // 如果是引用值就再进行判断
+            //         var clone;
+            //     for(var name in options){
+            //         var src = target[name];// 
+            //         var copy = options[name];// name : 2
+            //         if(copy && (jQuery.isPlainObject( copy ) || jQuery.isArray( copy ))){
+            //         if(!jQuery.isPlainObject( copy )){
+            //             // clone 指代的是target的属性
+            //             clone = src && jQuery.isArray( src ) ? src : [];
+            //         }else{
+            //             clone = src && jQuery.isPlainObject( src ) ? src : {};
+            //         }
+            //         console.log(src);
+            //         target[name] = deepClone(clone,copy);
+            //         console.log(src);
+            //     // 如果是原始值就直接复制
+            //         }else if(copy){
+            //             target[name] = copy;
+            //             // console.log(target[name])
+            //         }
+            //     }
+            //     return target;
+            // }
+        //    console.log(deepClone(obj1,obj2))
+
+        // 引用值赋值的时候最好不要用中间变量
+//   要直接给obj[name]直接赋值
+
+        var obj1 = {name: 'wg',age: 2,};
+        var clone = obj1.name;
+        clone = 'wf';
+        console.log(obj1);
+    </script>
+</body>
+</html>
